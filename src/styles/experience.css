@@ -1,0 +1,491 @@
+.ambient-glow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(80px);
+  opacity: 0.22;
+  will-change: transform;
+}
+
+.ambient-glow-a {
+  top: -10%;
+  left: -5%;
+  width: min(48vw, 420px);
+  height: min(48vw, 420px);
+  background: color-mix(in srgb, var(--vice-pink) 55%, transparent);
+  animation: ambient-drift-a 18s ease-in-out infinite alternate;
+}
+
+.ambient-glow-b {
+  right: -8%;
+  bottom: 10%;
+  width: min(42vw, 360px);
+  height: min(42vw, 360px);
+  background: color-mix(in srgb, var(--neon-cyan) 45%, transparent);
+  animation: ambient-drift-b 22s ease-in-out infinite alternate;
+}
+
+.ambient-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+@keyframes ambient-drift-a {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(6%, 8%, 0) scale(1.08);
+  }
+}
+
+@keyframes ambient-drift-b {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-8%, -5%, 0) scale(1.12);
+  }
+}
+
+/* ——— Ultimate gaming HUD gallery ——— */
+.ultimate-hud-grid {
+  background-image:
+    linear-gradient(rgba(126, 249, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(126, 249, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 20%, transparent 75%);
+}
+
+.ultimate-hud-card {
+  flex: 1 1 0;
+  border-radius: 4px;
+  transition:
+    flex 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    margin-top 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.ultimate-hud-card--a {
+  flex: 0.95 1 0;
+  height: 58%;
+  margin-top: 18%;
+}
+
+.ultimate-hud-card--b {
+  flex: 1.1 1 0;
+  height: 86%;
+  margin-top: 0;
+}
+
+.ultimate-hud-card--c {
+  flex: 1.1 1 0;
+  height: 84%;
+  margin-top: 4%;
+}
+
+.ultimate-hud-card--d {
+  flex: 0.95 1 0;
+  height: 62%;
+  margin-top: 22%;
+}
+
+.ultimate-hud-card__frame {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border: 1px solid rgba(126, 249, 255, 0.35);
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgba(255, 45, 111, 0.12);
+}
+
+.ultimate-hud-card__corner {
+  pointer-events: none;
+  position: absolute;
+  z-index: 4;
+  width: 12px;
+  height: 12px;
+  border-color: #7ef9ff;
+  border-style: solid;
+  opacity: 0.85;
+}
+
+.ultimate-hud-card__corner--tl {
+  top: 3px;
+  left: 3px;
+  border-width: 2px 0 0 2px;
+}
+
+.ultimate-hud-card__corner--tr {
+  top: 3px;
+  right: 3px;
+  border-width: 2px 2px 0 0;
+}
+
+.ultimate-hud-card__corner--bl {
+  bottom: 3px;
+  left: 3px;
+  border-width: 0 0 2px 2px;
+}
+
+.ultimate-hud-card__corner--br {
+  bottom: 3px;
+  right: 3px;
+  border-width: 0 2px 2px 0;
+}
+
+.ultimate-hud-card__media {
+  border-radius: 3px;
+}
+
+.ultimate-hud-card__scan {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 2px,
+    rgba(0, 0, 0, 0.35) 2px,
+    rgba(0, 0, 0, 0.35) 3px
+  );
+  mix-blend-mode: multiply;
+}
+
+.ultimate-hud-card__vignette {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 6, 18, 0.35) 0%,
+    transparent 28%,
+    transparent 70%,
+    rgba(10, 6, 18, 0.45) 100%
+  );
+}
+
+.ultimate-hud-card__expand {
+  border: 1px solid rgba(126, 249, 255, 0.55);
+  border-radius: 2px;
+  background: rgba(10, 6, 18, 0.85);
+  color: #7ef9ff;
+}
+
+.ultimate-hud-row .ultimate-hud-card:hover,
+.ultimate-hud-row .ultimate-hud-card:focus-within {
+  flex: 1.65 1 0;
+  height: 92%;
+  margin-top: 2%;
+  z-index: 2;
+  box-shadow:
+    0 0 0 1px rgba(126, 249, 255, 0.55),
+    0 0 24px rgba(126, 249, 255, 0.28),
+    0 0 40px rgba(255, 45, 111, 0.18);
+}
+
+.ultimate-hud-card:hover .ultimate-hud-card__frame,
+.ultimate-hud-card:focus-within .ultimate-hud-card__frame {
+  border-color: rgba(126, 249, 255, 0.85);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 45, 111, 0.35),
+    0 0 18px rgba(126, 249, 255, 0.25);
+}
+
+.ultimate-hud-card:hover .ultimate-hud-card__expand,
+.ultimate-hud-card:focus-within .ultimate-hud-card__expand {
+  background: #7ef9ff;
+  border-color: #7ef9ff;
+  color: #0a0612;
+}
+
+.ultimate-hud-card:hover .ultimate-hud-card__tag,
+.ultimate-hud-card:focus-within .ultimate-hud-card__tag {
+  color: #f2a0b8;
+  text-shadow: 0 0 12px rgba(242, 160, 184, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ultimate-hud-card {
+    transition: box-shadow 0.2s ease;
+  }
+}
+
+/* Legacy spinning border (unused; keep for safety) */
+.ultimate-media-card {
+  isolation: isolate;
+  overflow: hidden;
+  padding: 2px;
+}
+
+.ultimate-media-card__border {
+  position: absolute;
+  inset: -45%;
+  z-index: 0;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    #f7b6c8 12%,
+    #39ff14 28%,
+    #00e5ef 44%,
+    #ff2d6f 60%,
+    transparent 78%
+  );
+  opacity: 0;
+  transform: rotate(0deg) scale(0.92);
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s ease;
+  pointer-events: none;
+}
+
+.ultimate-media-card__media {
+  position: relative;
+  z-index: 2;
+  background: #0a0a10;
+}
+
+.ultimate-media-card:hover .ultimate-media-card__border,
+.ultimate-media-card:focus-within .ultimate-media-card__border {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+  animation: ultimate-border-spin 2.4s linear infinite;
+}
+
+@keyframes ultimate-border-spin {
+  to {
+    transform: rotate(1turn) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-glow-a,
+  .ambient-glow-b {
+    animation: none;
+  }
+
+  .ultimate-media-card:hover .ultimate-media-card__border,
+  .ultimate-media-card:focus-within .ultimate-media-card__border {
+    animation: none;
+    opacity: 0.9;
+    background: linear-gradient(135deg, #f7b6c8, #00e5ef, #39ff14);
+  }
+
+  .ultimate-media-card__media img {
+    transform: none !important;
+  }
+}
+
+/* Soft ink wash behind type — feathered gaming gradient */
+.ultimate-hero-art {
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.ultimate-hero-copy {
+  padding-block: 0.35rem;
+}
+
+.ultimate-hero-copy::before {
+  content: "";
+  position: absolute;
+  inset: -1.4rem -1.6rem -1.4rem -1.1rem;
+  z-index: -1;
+  background: radial-gradient(
+    ellipse 95% 85% at 75% 45%,
+    rgba(36, 16, 52, 0.55) 0%,
+    rgba(18, 22, 48, 0.32) 50%,
+    transparent 76%
+  );
+  pointer-events: none;
+}
+
+.ultimate-hero-label {
+  color: #f2a0b8;
+  text-shadow: 0 0 18px rgba(242, 160, 184, 0.35);
+}
+
+.ultimate-hero-title {
+  color: #f3e8d0;
+  text-shadow:
+    0 1px 2px rgba(8, 4, 20, 0.95),
+    0 4px 20px rgba(12, 8, 28, 0.8),
+    0 0 36px rgba(80, 30, 70, 0.35);
+}
+
+.ultimate-hero-body {
+  color: #ffffff;
+  text-shadow: 0 2px 16px rgba(8, 4, 20, 0.9);
+}
+
+/* ——— Vintage City Park ——— */
+.vintage-neon-script {
+  font-family: var(--font-pacifico), "Segoe Script", cursive;
+  text-shadow:
+    0 0 2px #fff,
+    0 0 10px rgba(255, 79, 163, 0.95),
+    0 0 24px rgba(255, 79, 163, 0.65),
+    0 0 40px rgba(255, 45, 111, 0.4);
+}
+
+.vintage-bonuses-copy {
+  background-color: #0a0a0e;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+  background-blend-mode: overlay;
+}
+
+.vintage-pack-title {
+  background-color: #0c0c10;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.12 0 0 0 0 0.14 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, #0a0a0e 0%, #121218 50%, #0a0a0e 100%);
+  background-size: 180px 180px, 100% 100%;
+  background-blend-mode: soft-light, normal;
+  clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
+}
+
+.vintage-pack-art {
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vintage-panel {
+    min-height: 100dvh;
+  }
+}
+
+html.has-custom-cursor,
+html.has-custom-cursor * {
+  cursor: none !important;
+}
+
+html.has-custom-cursor a,
+html.has-custom-cursor button,
+html.has-custom-cursor [role="button"],
+html.has-custom-cursor input,
+html.has-custom-cursor textarea,
+html.has-custom-cursor select {
+  cursor: none !important;
+}
+
+/* ——— Gaming reticle cursor ——— */
+.gaming-cursor__ring {
+  width: 34px;
+  height: 34px;
+  will-change: transform;
+}
+
+.gaming-cursor__ring-core {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255, 111, 179, 0.75);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.45),
+    0 0 12px rgba(255, 80, 160, 0.35);
+}
+
+.gaming-cursor__tick {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 0 6px rgba(255, 111, 179, 0.55);
+}
+
+.gaming-cursor__tick--n,
+.gaming-cursor__tick--s {
+  left: 50%;
+  width: 1.5px;
+  height: 6px;
+  transform: translateX(-50%);
+}
+
+.gaming-cursor__tick--n {
+  top: -1px;
+}
+
+.gaming-cursor__tick--s {
+  bottom: -1px;
+}
+
+.gaming-cursor__tick--e,
+.gaming-cursor__tick--w {
+  top: 50%;
+  width: 6px;
+  height: 1.5px;
+  transform: translateY(-50%);
+}
+
+.gaming-cursor__tick--e {
+  right: -1px;
+}
+
+.gaming-cursor__tick--w {
+  left: -1px;
+}
+
+.gaming-cursor__tip {
+  width: 18px;
+  height: 18px;
+  will-change: transform;
+}
+
+.gaming-cursor__cross {
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(126, 249, 255, 0.55);
+}
+
+.gaming-cursor__cross--h {
+  left: 2px;
+  right: 2px;
+  top: 50%;
+  height: 1.5px;
+  transform: translateY(-50%);
+}
+
+.gaming-cursor__cross--v {
+  top: 2px;
+  bottom: 2px;
+  left: 50%;
+  width: 1.5px;
+  transform: translateX(-50%);
+}
+
+.gaming-cursor__core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: #ff6fb3;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    0 0 10px rgba(255, 111, 179, 0.85);
+  transform: translate(-50%, -50%);
+}
+
+.gaming-cursor[data-hover="true"] .gaming-cursor__ring-core {
+  border-color: rgba(126, 249, 255, 0.95);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.45),
+    0 0 16px rgba(126, 249, 255, 0.45);
+}
+
+.gaming-cursor[data-hover="true"] .gaming-cursor__core {
+  background: #7ef9ff;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    0 0 12px rgba(126, 249, 255, 0.9);
+}

@@ -1,0 +1,27 @@
+---
+description: Always-apply pointer — PROJECT.md is the source of truth
+alwaysApply: true
+---
+
+# Project
+
+Unofficial GTA VI / Vice City **cinematic fan site**. Not affiliated with Rockstar / Take-Two.
+
+**Human source of truth:** `/PROJECT.md` — read it before generating or modifying code.
+
+## Status
+
+Content/tools Phases 1–6 shipped. Active track: **Cinematic Overhaul (C0–C8)** per `docs/CINEMATIC-ROADMAP.md`.
+
+## Non-negotiables
+
+- Recreate Only-in-Leonida **feel** (pacing, media scale, storytelling) — never copy Rockstar source/assets
+- Server Components default; thin `page.tsx`; animation islands only
+- Three.js accents only — never canvas-as-entire-site
+- LCP = poster/image; gate video/WebGL/YouTube
+- `RELEASE_DATE_ISO` in `src/constants/release.ts` only
+- Visible fan disclaimer
+
+## Stack
+
+Next.js 15 · React 19 · TypeScript · Tailwind v4 · GSAP · Lenis · R3F · Framer Motion · MDX

@@ -1,0 +1,16 @@
+---
+description: SEO metadata, JSON-LD, sitemap, crawlable cinema
+globs: src/app/**/*.{ts,tsx,mdx}
+alwaysApply: false
+---
+
+# SEO
+
+- Every route: `buildMetadata()` from `lib/seo`
+- Articles: `type: "article"` + `publishedTime` + tags
+- RSS `/feed.xml`; OG `/api/og`
+- JSON-LD: WebSite, fan Organization, Article, FAQ, Person, Breadcrumb, ItemList
+- `sitemap.ts` + `robots.ts` (disallow `/api/`)
+- Primary story copy must be crawlable HTML — not canvas-only
+- Visible unofficial disclaimer in chrome / legal
+- LCP poster `priority`; never video/WebGL as LCP

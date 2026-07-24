@@ -1,0 +1,16 @@
+---
+description: Design language, tokens, cinematic UI constraints
+globs: src/**/*.{tsx,css}
+alwaysApply: false
+---
+
+# UI
+
+- Dark neon, condensed display (Barlow Condensed), huge media, sparse chrome
+- Tokens in `src/styles/tokens.css` — no random hex sprawl
+- Sharp radii (2–12px); avoid soft SaaS pills
+- Glass only for nav/overlays when hierarchy needs it
+- **Hero budget:** brand + one headline + one support line + CTA group + one full-bleed media plane
+- No hero card grids, stat strips, floating promo chips, or badge soup
+- Avoid purple-on-white AI look, cream/terracotta cliché, emoji decoration
+- Mobile-first; one composition per first viewport

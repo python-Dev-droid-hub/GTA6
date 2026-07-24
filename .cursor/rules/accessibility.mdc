@@ -1,0 +1,16 @@
+---
+description: Accessibility and reduced-motion contracts
+globs: src/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Accessibility
+
+- Skip link + `main` landmark; one `h1`
+- Keyboard operable; visible focus
+- Contrast AA minimum
+- **`prefers-reduced-motion`:** disable Lenis smooth, cinematic pins/scrubs, boot theater, decorative Three — show static finals
+- WebGL/canvas never sole carrier of critical information
+- Meaningful custom video: captions/transcript when we host the file
+- Touch targets usable on mobile; no hover-only essential actions
+- Decorative motion: `aria-hidden` where appropriate

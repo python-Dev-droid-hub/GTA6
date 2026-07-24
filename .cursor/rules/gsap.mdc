@@ -1,0 +1,28 @@
+---
+description: GSAP ScrollTrigger and timeline rules
+globs: src/components/animations/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# GSAP
+
+## Owns
+
+Pins, camera pushes, text/image reveals, horizontal chapters, timeline sync, counters, video scrub (when used), character transitions.
+
+## Rules
+
+- Only inside client animation islands — never Server Components
+- Wrap with `gsap.context()`; kill on unmount / route change
+- Prefer `transform` / `opacity`; avoid layout thrash
+- Sync with Lenis via `scrollerProxy` when Lenis is active
+- Budget: **one major pin sequence** on home unless justified
+- No GSAP for trivial button hover (use CSS)
+
+## Anti-patterns
+
+```tsx
+// ❌ Timeline in a Server section file
+// ❌ Stacking Framer + GSAP on opacity
+// ❌ Leaving ScrollTriggers after navigate
+```

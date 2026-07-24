@@ -1,0 +1,25 @@
+---
+description: Three.js / R3F / shader accent rules
+globs: src/components/animations/three/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Three.js
+
+Enhances the site — **does not replace it**.
+
+## Allowed accents
+
+Hero fog/particles/rain/dust/glow · character depth aids · stylized skyline peek · map accents · optional footer loop
+
+## Rules
+
+- Client-only; `dynamic(..., { ssr: false })` inside client modules
+- Mount on in-view / Intersection Observer
+- Cap DPR; pause RAF offscreen
+- Dispose geo/mat/tex/renderer on unmount
+- Fail soft if WebGL missing
+- Never make WebGL the LCP or sole content carrier
+- Do not load all textures/models up front
+
+Shaders: document uniforms; keep sources in `/shaders` or colocated files.

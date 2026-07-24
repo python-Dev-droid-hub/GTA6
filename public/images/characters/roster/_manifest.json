@@ -1,0 +1,50 @@
+[
+    {
+        "slug":  "jason-duval",
+        "path":  "/images/characters/roster/jason-duval.jpg",
+        "bytes":  91256,
+        "ext":  "jpg"
+    },
+    {
+        "slug":  "lucia-caminos",
+        "path":  "/images/characters/roster/lucia-caminos.jpg",
+        "bytes":  199631,
+        "ext":  "jpg"
+    },
+    {
+        "slug":  "cal-hampton",
+        "path":  "/images/characters/roster/cal-hampton.webp",
+        "bytes":  49588,
+        "ext":  "webp"
+    },
+    {
+        "slug":  "boobie-ike",
+        "path":  "/images/characters/roster/boobie-ike.jpg",
+        "bytes":  127105,
+        "ext":  "jpg"
+    },
+    {
+        "slug":  "drequan-priest",
+        "path":  "/images/characters/roster/drequan-priest.jpg",
+        "bytes":  136825,
+        "ext":  "jpg"
+    },
+    {
+        "slug":  "real-dimez",
+        "path":  "/images/characters/roster/real-dimez.jpg",
+        "bytes":  127566,
+        "ext":  "jpg"
+    },
+    {
+        "slug":  "raul-bautista",
+        "path":  "/images/characters/roster/raul-bautista.jpg",
+        "bytes":  121107,
+        "ext":  "jpg"
+    },
+    {
+        "slug":  "brian-heder",
+        "path":  "/images/characters/roster/brian-heder.jpg",
+        "bytes":  131190,
+        "ext":  "jpg"
+    }
+]

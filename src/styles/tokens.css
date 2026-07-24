@@ -1,0 +1,161 @@
+/*
+  Vice / Rockstar cinematic tokens.
+  Dark-first AAA launch palette: ink blacks, warm paper text,
+  hot magenta + neon cyan (not generic purple SaaS).
+*/
+
+:root {
+  /* ——— Color: surfaces ——— */
+  --ink-950: #03040a;
+  --ink-900: #07080f;
+  --ink-800: #0e1018;
+  --ink-700: #161925;
+  --ink-600: #1e2233;
+  --surface: #12151f;
+  --surface-elevated: #1a1e2c;
+  --surface-overlay: rgba(10, 12, 20, 0.72);
+
+  /* ——— Color: text ——— */
+  --paper: #f3eee6;
+  --paper-muted: #b8b0a4;
+  --paper-faint: #7a746c;
+
+  /* ——— Color: brand ——— */
+  --vice-pink: #ff2d6f;
+  --vice-pink-hot: #ff4fc3;
+  --vice-magenta: #d91a8c;
+  --neon-cyan: #00e5ef;
+  --neon-teal: #00c2b8;
+  --sunset: #ff6a3d;
+  --gold: #f0c14a;
+  --blood: #c4163a;
+
+  /* ——— Semantic ——— */
+  --background: var(--ink-950);
+  --foreground: var(--paper);
+  --muted: var(--paper-muted);
+  --muted-foreground: var(--paper-faint);
+  --border: rgba(243, 238, 230, 0.1);
+  --border-strong: rgba(243, 238, 230, 0.18);
+  --ring: var(--neon-cyan);
+  --primary: var(--vice-pink);
+  --primary-foreground: var(--paper);
+  --secondary: var(--neon-cyan);
+  --secondary-foreground: var(--ink-950);
+  --accent: var(--gold);
+  --destructive: var(--blood);
+
+  /* ——— Gradients ——— */
+  --gradient-vice: linear-gradient(
+    125deg,
+    var(--vice-pink) 0%,
+    var(--vice-pink-hot) 42%,
+    var(--neon-cyan) 100%
+  );
+  --gradient-sunset: linear-gradient(
+    160deg,
+    var(--sunset) 0%,
+    var(--vice-magenta) 48%,
+    var(--ink-900) 100%
+  );
+  --gradient-ink: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--ink-950) 88%
+  );
+  --gradient-neon-edge: linear-gradient(
+    90deg,
+    var(--vice-pink),
+    var(--neon-cyan)
+  );
+  --gradient-glass: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.09) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+
+  /* ——— Glass ——— */
+  --glass-bg: rgba(14, 16, 24, 0.55);
+  --glass-bg-strong: rgba(8, 10, 16, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: 16px;
+
+  /* ——— Shadows ——— */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 24px 48px rgba(0, 0, 0, 0.55);
+  --shadow-glow-pink: 0 0 32px rgba(255, 45, 111, 0.35);
+  --shadow-glow-cyan: 0 0 32px rgba(0, 229, 239, 0.3);
+  --shadow-inset-film: inset 0 0 80px rgba(0, 0, 0, 0.35);
+
+  /* ——— Radius (sharp AAA, not soft SaaS pills) ——— */
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-pill: 999px;
+
+  /* ——— Spacing scale (4px base) ——— */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* ——— Containers ——— */
+  --container-narrow: 48rem;
+  --container-content: 64rem;
+  --container-wide: 80rem;
+  --container-full: 90rem;
+
+  /* ——— Motion ——— */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-base: 280ms;
+  --duration-slow: 480ms;
+  --duration-cinematic: 900ms;
+
+  /* ——— Typography sizes ——— */
+  /* Mins tuned for phones; preferred/max keep laptop+ desktop identical */
+  --text-display: clamp(2.5rem, 10vw, 7.5rem);
+  --text-h1: clamp(2rem, 5vw, 4.5rem);
+  --text-h2: clamp(1.5rem, 3vw, 2.75rem);
+  --text-h3: clamp(1.15rem, 2vw, 1.75rem);
+  --text-lead: clamp(1.125rem, 1.5vw, 1.375rem);
+  --text-body: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.75rem;
+
+  /* ——— Fonts (next/font injects --font-barlow-condensed etc.) ——— */
+  --font-family-display: var(--font-barlow-condensed), "Arial Narrow",
+    sans-serif;
+  --font-family-anton: var(--font-anton), Impact, "Arial Narrow", sans-serif;
+  --font-family-bebas: var(--font-bebas), "Arial Narrow", Impact, sans-serif;
+  --font-family-orbitron: var(--font-orbitron), ui-sans-serif, system-ui,
+    sans-serif;
+  --font-family-sans: var(--font-dm-sans), "Helvetica Neue", sans-serif;
+  --font-family-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
+}
+
+/* Optional explicit light surface (rare — marketing stays dark) */
+[data-theme="light"] {
+  --background: #f3eee6;
+  --foreground: #0e1018;
+  --muted: #5c574f;
+  --muted-foreground: #7a746c;
+  --surface: #ebe4d8;
+  --surface-elevated: #fffdf8;
+  --border: rgba(14, 16, 24, 0.12);
+  --glass-bg: rgba(243, 238, 230, 0.7);
+  --glass-border: rgba(14, 16, 24, 0.1);
+}

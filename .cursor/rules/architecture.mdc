@@ -1,0 +1,17 @@
+---
+description: App Router architecture, islands, folder ownership
+globs: src/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Architecture
+
+- **RSC default.** `"use client"` only at the smallest leaf (motion, Three, browser APIs, stateful tools).
+- **Pages compose sections.** No large logic or timelines in `page.tsx`.
+- **Sections** (`components/sections/*`) own layout + copy composition.
+- **Animations** (`components/animations/*`) own GSAP/R3F/Framer islands.
+- **`next/dynamic` + `ssr: false`** only inside Client Components — never in Server Components.
+- **One Lenis** in providers; sync ScrollTrigger when both run.
+- **MDX** in `content/`; binaries in `public/`; GLSL in `/shaders` or colocated.
+- Keep `src/app` App Router — do not flatten to a non-Next folder fantasy.
+- Before non-obvious work: 1–3 sentences on **why**, then implement.

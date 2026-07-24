@@ -1,0 +1,22 @@
+---
+description: Component naming, composition, and reuse
+globs: src/components/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Components
+
+- One responsibility per file; reusable over one-offs
+- Named exports; default only for route `page` / `layout`
+- Sections compose; animations isolate motion; UI stays primitive
+
+| Kind | Pattern | Example |
+|------|---------|---------|
+| Primitive | Noun | `Button` |
+| Layout | `Site` + role | `SiteHeader` |
+| Section | Domain + purpose | `HeroCinematic` |
+| Island | Verb + concern | `HeroIntroTimeline` |
+| Hook | `use` + concern | `useInViewGate` |
+
+- Prefer extracting a client leaf so parents stay Server Components
+- No duplicated timeline logic across sections — share islands

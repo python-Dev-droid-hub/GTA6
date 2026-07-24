@@ -1,0 +1,28 @@
+---
+description: Performance budgets, lazy media, WebGL dispose
+globs: src/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Performance
+
+## Budgets
+
+- Lighthouse Perf / A11y / BP / SEO **> 90**
+- LCP ≤ 2.5s → **poster/image**, never video/WebGL
+- CLS ≤ 0.1
+- Home first paint: no Three, no YouTube iframe
+
+## Media pipeline
+
+```text
+IO / in-view → lazy load → optional preload next → pause/dispose offscreen
+```
+
+- Never load all videos/textures at once
+- Trailer = click-to-load facade
+- `next/image` + correct `sizes`
+- Cap Three DPR; dispose on unmount
+- Constants: `src/constants/performance.ts`
+
+Do not run production builds unless the user asks.

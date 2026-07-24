@@ -1,0 +1,27 @@
+---
+description: Motion workflow and library ownership (GSAP / Framer / Lenis / Three)
+globs: src/components/animations/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Animations
+
+## Workflow (strict)
+
+1. Static UI → 2. Responsive → 3. A11y → 4. GSAP/Three → 5. Perf → 6. Cross-browser
+
+Do not use motion to hide layout bugs.
+
+## Library roles
+
+| Lib | Owns |
+|-----|------|
+| Lenis | One global smooth scroll |
+| GSAP + ScrollTrigger | Cinema: pin, scrub, timelines, reveals |
+| Framer Motion | UI chrome enter/exit only |
+| R3F / Three | Accents (fog, particles, neon) |
+
+- Never drive the **same property** with GSAP + Framer + CSS together
+- CSS OK for simple hover/focus
+- `prefers-reduced-motion`: static finals; no smooth Lenis; no pin theater
+- Isolate one concern per island; dispose/kill on unmount

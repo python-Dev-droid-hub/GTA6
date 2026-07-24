@@ -1,0 +1,16 @@
+---
+description: TypeScript, React, Tailwind coding standards
+globs: src/**/*.{ts,tsx,css}
+alwaysApply: false
+---
+
+# Coding
+
+- Strict TypeScript; no `any`
+- State **why** (1–3 sentences) before non-obvious approaches
+- App Router; `"use client"` at smallest leaf
+- `cn()` for classes; Tailwind + design tokens
+- **No inline `style={{}}`** unless a library requires runtime values (document why)
+- Semantic HTML; one `h1` per page
+- `next/image`, `next/link`; dynamic import heavy client islands
+- Do not import GSAP/Three into server trees
