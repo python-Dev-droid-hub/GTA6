@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { BRAND_LOGO_SRC } from "@/constants/brand";
 import { siteConfig } from "@/constants/site";
 
 export type BuildMetadataInput = {
@@ -52,9 +51,12 @@ export function buildMetadata({
     description,
     applicationName: siteConfig.name,
     icons: {
-      icon: [{ url: BRAND_LOGO_SRC, type: "image/png" }],
-      apple: [{ url: BRAND_LOGO_SRC, type: "image/png" }],
-      shortcut: BRAND_LOGO_SRC,
+      icon: [
+        { url: "/favicon.png", sizes: "64x64", type: "image/png" },
+        { url: "/icon.png", sizes: "64x64", type: "image/png" },
+      ],
+      apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+      shortcut: "/favicon.png",
     },
     authors: [{ name: `${siteConfig.name} Fan Experience` }],
     creator: `${siteConfig.name} Fan Experience`,
