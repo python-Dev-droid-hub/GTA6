@@ -68,9 +68,10 @@ export function ScrollBeatVideo({
     if (!section || !pin || !video) return;
 
     const offset = Math.max(0, startOffset);
-    prepareScrubVideo(video, "auto");
+    prepareScrubVideo(video, "none");
     seekRef.current = createVideoScrubSeek();
     activeRef.current = false;
+    let videoLoadStarted = false;
 
     const tick = () => {
       if (!activeRef.current || !seekRef.current.ready) return;
@@ -92,9 +93,32 @@ export function ScrollBeatVideo({
       }
       requestAnimationFrame(() => ScrollTrigger.refresh());
     };
+
+    const ensureVideoLoad = () => {
+      if (videoLoadStarted || video.readyState >= 1) {
+        if (video.readyState >= 1) arm();
+        return;
+      }
+      videoLoadStarted = true;
+      video.preload = "auto";
+      try {
+        video.load();
+      } catch {
+        /* ignore */
+      }
+    };
+
     if (video.readyState >= 1) arm();
     video.addEventListener("loadedmetadata", arm);
     video.addEventListener("loadeddata", arm);
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) ensureVideoLoad();
+      },
+      { rootMargin: "80% 0px 80% 0px", threshold: 0 },
+    );
+    io.observe(section);
 
     const ctx = gsap.context(() => {
       const proxy = { t: 0 };
@@ -117,8 +141,17 @@ export function ScrollBeatVideo({
           onToggle: (self) => {
             activeRef.current = self.isActive;
           },
+          onEnter: () => {
+            ensureVideoLoad();
+            activeRef.current = true;
+          },
+          onEnterBack: () => {
+            ensureVideoLoad();
+            activeRef.current = true;
+          },
           onUpdate: () => {
             activeRef.current = true;
+            ensureVideoLoad();
             const dur = seekRef.current.duration;
             if (dur <= 0) return;
             const start = Math.min(offset, Math.max(dur - 0.05, 0));
@@ -138,15 +171,38 @@ export function ScrollBeatVideo({
           },
           onLeave: () => {
             activeRef.current = false;
+            const dur = seekRef.current.duration;
+            if (dur > 0) {
+              const end = Math.max(dur - CHARACTER_VIDEO_SCRUB.seek.frameDur, 0);
+              seekRef.current.target = end;
+              seekRef.current.current = end;
+              try {
+                video.currentTime = end;
+              } catch {
+                /* ignore */
+              }
+            }
           },
           onLeaveBack: () => {
             activeRef.current = false;
+            const dur = seekRef.current.duration;
+            if (dur > 0) {
+              const start = Math.min(offset, Math.max(dur - 0.05, 0));
+              seekRef.current.target = start;
+              seekRef.current.current = start;
+              try {
+                video.currentTime = start;
+              } catch {
+                /* ignore */
+              }
+            }
           },
         },
       });
     }, section);
 
     return () => {
+      io.disconnect();
       gsap.ticker.remove(tick);
       video.removeEventListener("loadedmetadata", arm);
       video.removeEventListener("loadeddata", arm);

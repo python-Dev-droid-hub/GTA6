@@ -17,7 +17,7 @@ import { cn } from "@/utils/cn";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HANDOFF = 0.22;
+const HANDOFF = 0.18;
 
 export type StillToScrubRevealProps = {
   stillSrc: string;
@@ -78,45 +78,19 @@ export function StillToScrubReveal({
     const offset = Math.max(0, startOffset);
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
     const titleEl = endTitleRef.current;
+    let trigger: ScrollTrigger | null = null;
+    let videoLoadStarted = false;
 
-    prepareScrubVideo(video, "auto");
+    prepareScrubVideo(video, "none");
     seekRef.current = createVideoScrubSeek();
     activeRef.current = false;
     armedRef.current = false;
     if (titleEl) gsap.set(titleEl, { opacity: 0, y: 28 });
 
-    const arm = () => {
-      if (!Number.isFinite(video.duration) || video.duration <= 0) return;
-      const start = Math.min(offset, Math.max(video.duration - 0.05, 0));
-      const wasArmed = armedRef.current;
-      seekRef.current.duration = video.duration;
-      if (!wasArmed) {
-        seekRef.current.current = start;
-        seekRef.current.target = start;
-        try {
-          video.currentTime = start;
-        } catch {
-          /* ignore */
-        }
-      }
-      seekRef.current.ready = true;
-      seekRef.current.busy = false;
-      armedRef.current = true;
-      // Refresh once only — repeated refresh breaks pin on reverse scroll
-      if (!wasArmed) {
-        requestAnimationFrame(() => ScrollTrigger.refresh());
-      }
-    };
-
-    if (video.readyState >= 1) arm();
-    video.addEventListener("loadedmetadata", arm);
-    video.addEventListener("loadeddata", arm);
-
-    const tick = () => {
-      if (!activeRef.current || !seekRef.current.ready) return;
-      advanceVideoScrubSeek(video, seekRef.current, CHARACTER_VIDEO_SCRUB.seek);
-    };
-    gsap.ticker.add(tick);
+    const scrubStart = (dur: number) =>
+      Math.min(offset, Math.max(dur - 0.05, 0));
+    const scrubEnd = (dur: number) =>
+      Math.max(dur - CHARACTER_VIDEO_SCRUB.seek.frameDur * 0.35, 0);
 
     const applyVisual = (p: number) => {
       const handoff = Math.min(Math.max(p / HANDOFF, 0), 1);
@@ -149,8 +123,9 @@ export function StillToScrubReveal({
     const applySeekTarget = (p: number) => {
       const dur = seekRef.current.duration;
       if (dur <= 0) return;
-      const start = Math.min(offset, Math.max(dur - 0.05, 0));
-      const span = Math.max(dur - start, 0.05);
+      const start = scrubStart(dur);
+      const end = scrubEnd(dur);
+      const span = Math.max(end - start, 0.05);
 
       if (p <= HANDOFF) {
         seekRef.current.target = start;
@@ -158,8 +133,91 @@ export function StillToScrubReveal({
       }
 
       const local = (p - HANDOFF) / (1 - HANDOFF);
-      seekRef.current.target = start + Math.min(Math.max(local, 0), 1) * span;
+      seekRef.current.target =
+        start + Math.min(Math.max(local, 0), 1) * span;
     };
+
+    const snapTo = (time: number) => {
+      const dur = seekRef.current.duration;
+      if (dur <= 0) return;
+      const clamped = Math.min(Math.max(time, 0), scrubEnd(dur));
+      seekRef.current.target = clamped;
+      seekRef.current.current = clamped;
+      seekRef.current.busy = false;
+      try {
+        video.currentTime = clamped;
+      } catch {
+        /* ignore */
+      }
+    };
+
+    const arm = () => {
+      if (!Number.isFinite(video.duration) || video.duration <= 0) return;
+      const start = scrubStart(video.duration);
+      const wasArmed = armedRef.current;
+      seekRef.current.duration = video.duration;
+      seekRef.current.ready = true;
+      seekRef.current.busy = false;
+      armedRef.current = true;
+
+      // Late load mid-scroll: sync to current pin progress (production CDN lag)
+      const progress = trigger?.progress ?? 0;
+      if (!wasArmed && progress <= 0.001) {
+        seekRef.current.current = start;
+        seekRef.current.target = start;
+        try {
+          video.currentTime = start;
+        } catch {
+          /* ignore */
+        }
+      } else {
+        applySeekTarget(progress);
+        applyVisual(progress);
+        seekRef.current.current = seekRef.current.target;
+        try {
+          video.currentTime = seekRef.current.target;
+        } catch {
+          /* ignore */
+        }
+      }
+
+      if (!wasArmed) {
+        requestAnimationFrame(() => ScrollTrigger.refresh());
+      }
+    };
+
+    const ensureVideoLoad = () => {
+      if (videoLoadStarted || video.readyState >= 1) {
+        if (video.readyState >= 1) arm();
+        return;
+      }
+      videoLoadStarted = true;
+      video.preload = "auto";
+      try {
+        video.load();
+      } catch {
+        /* ignore */
+      }
+    };
+
+    if (video.readyState >= 1) arm();
+    video.addEventListener("loadedmetadata", arm);
+    video.addEventListener("loadeddata", arm);
+
+    // Prefetch before pin so start frame is ready in production
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) ensureVideoLoad();
+      },
+      { rootMargin: "120% 0px 120% 0px", threshold: 0 },
+    );
+    io.observe(section);
+
+    const tick = () => {
+      if (!activeRef.current || !seekRef.current.ready) return;
+      advanceVideoScrubSeek(video, seekRef.current, CHARACTER_VIDEO_SCRUB.seek);
+    };
+    gsap.ticker.add(tick);
 
     const ctx = gsap.context(() => {
       gsap.set(stillLayer, { opacity: 1, scale: 1 });
@@ -182,50 +240,59 @@ export function StillToScrubReveal({
           fastScrollEnd: true,
           // fixed = true viewport lock (transform felt like the clip scrolled away)
           pinType: "fixed",
+          onRefresh: (self) => {
+            trigger = self;
+          },
           onToggle: (self) => {
+            trigger = self;
             activeRef.current = self.isActive;
             if (!self.isActive) {
               seekRef.current.busy = false;
             }
           },
           onUpdate: (self) => {
+            trigger = self;
             activeRef.current = true;
             const p = self.progress;
+            if (p >= HANDOFF * 0.25) ensureVideoLoad();
             applyVisual(p);
             applySeekTarget(p);
           },
           onEnter: () => {
+            ensureVideoLoad();
             activeRef.current = true;
             seekRef.current.busy = false;
+            applySeekTarget(0);
+            snapTo(scrubStart(seekRef.current.duration || 0));
+            applyVisual(0);
           },
           onEnterBack: () => {
-            // Re-entering from below while scrolling up — keep scrubbing
+            ensureVideoLoad();
             activeRef.current = true;
             seekRef.current.busy = false;
+            const dur = seekRef.current.duration;
+            if (dur > 0) snapTo(scrubEnd(dur));
+            applyVisual(1);
           },
           onLeave: () => {
             activeRef.current = false;
             seekRef.current.busy = false;
+            const dur = seekRef.current.duration;
+            if (dur > 0) snapTo(scrubEnd(dur));
+            applyVisual(1);
           },
           onLeaveBack: () => {
             activeRef.current = false;
             seekRef.current.busy = false;
             applyVisual(0);
-            const dur = seekRef.current.duration;
-            const start = Math.min(offset, Math.max(dur - 0.05, 0));
-            seekRef.current.target = start;
-            seekRef.current.current = start;
-            try {
-              video.currentTime = start;
-            } catch {
-              /* ignore */
-            }
+            snapTo(scrubStart(seekRef.current.duration || 0));
           },
         },
       });
     }, section);
 
     return () => {
+      io.disconnect();
       gsap.ticker.remove(tick);
       video.removeEventListener("loadedmetadata", arm);
       video.removeEventListener("loadeddata", arm);
