@@ -3,6 +3,21 @@ import type { NextConfig } from "next";
 /**
  * Phase 6 — image formats, package import trimming, security/cache headers.
  */
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob:",
+  "font-src 'self' data:",
+  "connect-src 'self'",
+  "media-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'self'",
+  "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com",
+].join("; ");
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
@@ -17,6 +32,10 @@ const nextConfig: NextConfig = {
       "lucide-react",
       "framer-motion",
       "@react-three/drei",
+      "gsap",
+      "lenis",
+      "three",
+      "@react-three/fiber",
     ],
   },
   async headers() {
@@ -25,10 +44,15 @@ const nextConfig: NextConfig = {
         source: "/(.*)",
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=()",
+          },
+          {
+            key: "Content-Security-Policy",
+            value: contentSecurityPolicy,
           },
         ],
       },

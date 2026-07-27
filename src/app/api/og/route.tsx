@@ -2,15 +2,30 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
+const MAX_TITLE_LEN = 120;
+const MAX_SUBTITLE_LEN = 200;
+
+function clampParam(value: string | null, max: number, fallback: string): string {
+  const raw = (value ?? fallback).trim();
+  return raw.slice(0, max);
+}
+
 /**
  * Dynamic OG cards — used as secondary share image via buildMetadata.
  * Why edge: low latency social scrapers.
  */
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const title = searchParams.get("title") ?? "Grand Theft Auto 6";
-  const subtitle =
-    searchParams.get("subtitle") ?? "Unofficial cinematic fan archive";
+  const title = clampParam(
+    searchParams.get("title"),
+    MAX_TITLE_LEN,
+    "Grand Theft Auto 6",
+  );
+  const subtitle = clampParam(
+    searchParams.get("subtitle"),
+    MAX_SUBTITLE_LEN,
+    "Unofficial cinematic fan archive",
+  );
 
   return new ImageResponse(
     (

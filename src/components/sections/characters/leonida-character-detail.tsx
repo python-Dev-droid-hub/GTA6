@@ -73,19 +73,19 @@ export function LeonidaCharacterDetail({
 
       <section
         id={`${character.slug}-intro`}
-        className="relative z-10 isolate bg-[#07060f] px-5 pb-20 pt-14 sm:px-8 sm:pb-24 sm:pt-16 md:px-12 lg:px-16 lg:pb-28 lg:pt-20"
+        className="character-collage relative z-10 isolate bg-[#07060f] px-4 pb-16 pt-12 sm:px-6 sm:pb-20 sm:pt-14 md:px-10 md:pb-24 md:pt-16 lg:px-16 lg:pb-28 lg:pt-20"
         aria-label={`${name} introduction`}
       >
         <h2 className="sr-only">{name}</h2>
 
-        <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-12 items-start gap-3 sm:gap-4">
-          <div className="col-span-12 flex flex-col gap-3 sm:col-span-5 sm:gap-4 lg:col-span-4">
-            <div className="grid gap-5 bg-[#0c0b14] px-4 py-5 sm:gap-4 sm:px-5 sm:py-5 lg:px-6 lg:py-6">
+        <div className="character-collage__grid mx-auto max-w-6xl">
+          <div className="flex flex-col gap-4 md:col-span-5 lg:col-span-4">
+            <div className="grid gap-4 bg-[#0c0b14] px-4 py-5 sm:gap-5 sm:px-5 sm:py-5 lg:px-6 lg:py-6">
               <div>
                 <p className="font-[family-name:var(--font-family-orbitron)] text-[9px] uppercase tracking-[0.35em] text-white/30">
                   {eyebrow}
                 </p>
-                <p className="mt-3 font-[family-name:var(--font-family-display)] text-[clamp(1.05rem,2vw,1.4rem)] font-bold leading-snug text-[#ff7aab]">
+                <p className="mt-3 font-[family-name:var(--font-family-display)] text-[clamp(1rem,4.5vw,1.4rem)] font-bold leading-snug text-[#ff7aab] md:text-[clamp(1.05rem,2vw,1.4rem)]">
                   {tagline}
                 </p>
               </div>
@@ -94,13 +94,13 @@ export function LeonidaCharacterDetail({
               </p>
             </div>
 
-            <figure className="bg-[#0c0b14]">
+            <figure className="character-collage__cell character-collage__cell--portrait">
               <Image
                 src={bike.src}
                 alt={bike.alt}
                 width={900}
                 height={1200}
-                sizes="(max-width: 640px) 100vw, 34vw"
+                sizes="(max-width: 767px) 100vw, (max-width: 1023px) 42vw, 34vw"
                 className="h-auto w-full"
                 priority
                 unoptimized
@@ -108,7 +108,7 @@ export function LeonidaCharacterDetail({
             </figure>
           </div>
 
-          <figure className="col-span-12 bg-[#0c0b14] sm:col-span-7 lg:col-span-8">
+          <figure className="character-collage__cell character-collage__cell--wide md:col-span-7 lg:col-span-8">
             {car.videoSrc ? (
               <video
                 className="h-auto w-full"
@@ -127,40 +127,44 @@ export function LeonidaCharacterDetail({
                 alt={car.alt}
                 width={1600}
                 height={900}
-                sizes="(max-width: 640px) 100vw, 66vw"
+                sizes="(max-width: 767px) 100vw, (max-width: 1023px) 58vw, 66vw"
                 className="h-auto w-full"
                 unoptimized
               />
             )}
           </figure>
 
-          {bar ? (
-            <figure className="col-span-7 bg-[#0c0b14]">
-              <Image
-                src={bar.src}
-                alt={bar.alt}
-                width={1200}
-                height={900}
-                sizes="(max-width: 1024px) 58vw, 58vw"
-                className="h-auto w-full"
-                loading="lazy"
-                unoptimized
-              />
-            </figure>
-          ) : null}
-          {boat ? (
-            <figure className="col-span-5 bg-[#0c0b14]">
-              <Image
-                src={boat.src}
-                alt={boat.alt}
-                width={900}
-                height={1200}
-                sizes="(max-width: 1024px) 42vw, 42vw"
-                className="h-auto w-full"
-                loading="lazy"
-                unoptimized
-              />
-            </figure>
+          {bar || boat ? (
+            <div className="character-collage__pair">
+              {bar ? (
+                <figure className="character-collage__cell character-collage__cell--bar character-collage__cell--wide">
+                  <Image
+                    src={bar.src}
+                    alt={bar.alt}
+                    width={1200}
+                    height={900}
+                    sizes="(max-width: 767px) 100vw, (max-width: 1023px) 58vw, 58vw"
+                    className="h-auto w-full"
+                    loading="lazy"
+                    unoptimized
+                  />
+                </figure>
+              ) : null}
+              {boat ? (
+                <figure className="character-collage__cell character-collage__cell--boat character-collage__cell--portrait">
+                  <Image
+                    src={boat.src}
+                    alt={boat.alt}
+                    width={900}
+                    height={1200}
+                    sizes="(max-width: 767px) 100vw, (max-width: 1023px) 42vw, 42vw"
+                    className="h-auto w-full"
+                    loading="lazy"
+                    unoptimized
+                  />
+                </figure>
+              ) : null}
+            </div>
           ) : null}
         </div>
       </section>
@@ -184,14 +188,14 @@ export function LeonidaCharacterDetail({
 
       <section
         id={`${character.slug}-closing`}
-        className="relative z-10 bg-[#07060f] px-5 pb-8 pt-16 sm:px-8 sm:pb-10 sm:pt-20 md:px-12 lg:px-16 lg:pt-24"
+        className="character-collage relative z-10 bg-[#07060f] px-4 pb-8 pt-12 sm:px-6 sm:pb-10 sm:pt-16 md:px-10 md:pt-20 lg:px-16 lg:pt-24"
         aria-label={`${name} closing`}
       >
-        <div className="mx-auto grid max-w-6xl grid-cols-12 items-start gap-3 sm:gap-4">
-          <div className="col-span-12 flex flex-col gap-3 sm:col-span-5 sm:gap-4 lg:col-span-4">
+        <div className="character-collage__grid mx-auto max-w-6xl">
+          <div className="flex flex-col gap-4 md:col-span-5 lg:col-span-4">
             <div className="grid gap-4 bg-[#0c0b14] px-4 py-5 sm:px-5 sm:py-6 lg:px-6">
               {quotes[1] ? (
-                <p className="font-[family-name:var(--font-family-display)] text-[clamp(1.05rem,2vw,1.4rem)] font-bold leading-snug text-[#ff7aab]">
+                <p className="font-[family-name:var(--font-family-display)] text-[clamp(1rem,4.5vw,1.4rem)] font-bold leading-snug text-[#ff7aab] md:text-[clamp(1.05rem,2vw,1.4rem)]">
                   {quotes[1]}
                 </p>
               ) : null}
@@ -206,13 +210,13 @@ export function LeonidaCharacterDetail({
             </div>
 
             {night ? (
-              <figure className="bg-[#0c0b14]">
+              <figure className="character-collage__cell character-collage__cell--portrait">
                 <Image
                   src={night.src}
                   alt={night.alt}
                   width={900}
                   height={1200}
-                  sizes="(max-width: 640px) 100vw, 34vw"
+                  sizes="(max-width: 767px) 100vw, (max-width: 1023px) 42vw, 34vw"
                   className="h-auto w-full"
                   loading="lazy"
                   unoptimized
@@ -221,15 +225,15 @@ export function LeonidaCharacterDetail({
             ) : null}
           </div>
 
-          <div className="col-span-12 flex flex-col gap-3 sm:col-span-7 sm:gap-4 lg:col-span-8">
+          <div className="flex flex-col gap-4 md:col-span-7 lg:col-span-8">
             {rifle ? (
-              <figure className="bg-[#0c0b14]">
+              <figure className="character-collage__cell character-collage__cell--wide">
                 <Image
                   src={rifle.src}
                   alt={rifle.alt}
                   width={1600}
                   height={900}
-                  sizes="(max-width: 640px) 100vw, 66vw"
+                  sizes="(max-width: 767px) 100vw, (max-width: 1023px) 58vw, 66vw"
                   className="h-auto w-full"
                   loading="lazy"
                   unoptimized

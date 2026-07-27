@@ -29,21 +29,21 @@ export function getGuideSlugs(): string[] {
 
 export function getAllGuides(): GuidePreview[] {
   return getGuideSlugs()
-    .map((slug) => {
+    .flatMap((slug) => {
       const file = readMdxFile("guides", slug);
-      if (!file) return null;
+      if (!file) return [];
       const meta = assertGuide(file.frontmatter as Record<string, unknown>);
-      if (meta.draft) return null;
-      return {
+      if (meta.draft) return [];
+      const guide: GuidePreview = {
         slug,
         title: meta.title,
         description: meta.description,
         category: meta.category,
         date: meta.date,
-        cover: meta.cover,
+        ...(meta.cover ? { cover: meta.cover } : {}),
       };
+      return [guide];
     })
-    .filter((g): g is GuidePreview => g !== null)
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 

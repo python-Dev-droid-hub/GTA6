@@ -45,7 +45,10 @@ export function getAllCharacters(): CharacterPreview[] {
     })
     .filter((c): c is CharacterListItem => c !== null)
     .sort((a, b) => a.order - b.order)
-    .map(({ order: _o, ...rest }) => rest);
+    .map(({ order: _order, ...rest }) => {
+      void _order;
+      return rest as CharacterPreview;
+    });
 }
 
 export async function getCharacterBySlug(slug: string) {

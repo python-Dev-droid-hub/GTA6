@@ -78,7 +78,7 @@ export function HeroVideoReveal({ className }: HeroVideoRevealProps) {
     video.muted = true;
     video.playsInline = true;
     video.loop = false;
-    video.preload = "auto";
+    video.preload = "none";
     video.pause();
     try {
       video.currentTime = 0;
@@ -93,6 +93,13 @@ export function HeroVideoReveal({ className }: HeroVideoRevealProps) {
       seekRef.current.current = 0;
       seekRef.current.target = 0;
       ScrollTrigger.refresh();
+    };
+    let videoLoadStarted = false;
+    const ensureVideoLoad = () => {
+      if (videoLoadStarted || video.readyState >= 1) return;
+      videoLoadStarted = true;
+      video.preload = "auto";
+      video.load();
     };
     if (video.readyState >= 1) arm();
     video.addEventListener("loadedmetadata", arm);
@@ -174,6 +181,9 @@ export function HeroVideoReveal({ className }: HeroVideoRevealProps) {
           fastScrollEnd: true,
           onUpdate: (self) => {
             const p = self.progress;
+            if (p >= SCRUB_START * 0.15) {
+              ensureVideoLoad();
+            }
             // Keep banner above following CTAs until cinema handoff
             gsap.set(section, {
               zIndex: p < SCRUB_START * 0.55 ? 30 : 5,
@@ -283,7 +293,6 @@ export function HeroVideoReveal({ className }: HeroVideoRevealProps) {
             src={clip.posterSrc}
             alt={clip.posterAlt}
             fill
-            priority
             sizes="100vw"
             className="object-cover"
           />
@@ -294,7 +303,7 @@ export function HeroVideoReveal({ className }: HeroVideoRevealProps) {
               poster={clip.posterSrc}
               muted
               playsInline
-              preload="auto"
+              preload="none"
               disablePictureInPicture
               tabIndex={-1}
               aria-hidden
@@ -307,7 +316,15 @@ export function HeroVideoReveal({ className }: HeroVideoRevealProps) {
         {/* ========== MOVIE-POSTER HERO ========== */}
         <div
           ref={heroLayerRef}
-          className="hero-poster absolute inset-0 z-10 flex flex-col overflow-y-auto overflow-x-hidden will-change-transform md:block md:overflow-hidden"
+          className={cn(
+            "hero-poster hero-poster--layout absolute inset-0 z-10 will-change-transform",
+            /* Mobile: centered cinematic stack */
+            "overflow-x-hidden overflow-y-auto",
+            /* Tablet */
+            "md:overflow-hidden md:p-0 md:pt-[5rem] md:pl-6 md:pr-5",
+            /* Laptop+ */
+            "lg:block lg:overflow-hidden lg:p-0 lg:pt-0",
+          )}
         >
           <div className="hero-poster__fog" aria-hidden />
           <div className="hero-poster__rays" aria-hidden />
@@ -315,73 +332,43 @@ export function HeroVideoReveal({ className }: HeroVideoRevealProps) {
           <div className="hero-poster__grain" aria-hidden />
           <div className="hero-poster__vignette" aria-hidden />
 
-          {/* ART — outer frame stays centered; GSAP only moves inner plane */}
-          <div
-            className={cn(
-              "hero-poster__art z-[5]",
-              /* Mobile */
-              "relative order-2 mx-auto mt-3 w-[min(94vw,520px)] px-4",
-              /* Desktop: full-height right column, vertically centered */
-              "md:absolute md:inset-y-0 md:right-0 md:order-none md:mx-0 md:mt-0",
-              "md:flex md:w-[min(58%,960px)] md:items-center md:justify-end",
-              "md:pr-8 md:pl-4 lg:w-[min(60%,1100px)] lg:pr-12",
-            )}
-          >
-            <div
-              ref={heroBgRef}
-              className="hero-poster__art-motion relative w-full will-change-transform"
-            >
-              <div className="hero-poster__art-glow" aria-hidden />
-              <div className="hero-poster__art-plane ml-auto w-full">
-                <Image
-                  src={homeCollage.collageSrc}
-                  alt="Grand Theft Auto 6 key-art collage"
-                  width={1024}
-                  height={576}
-                  priority
-                  sizes="(max-width: 768px) 94vw, 60vw"
-                  className={cn(
-                    "relative z-[1] block h-auto w-full object-contain",
-                    "max-h-[min(36dvh,280px)]",
-                    "md:ml-auto md:max-h-[min(72dvh,620px)] md:w-auto md:max-w-full",
-                  )}
-                />
-              </div>
-            </div>
-          </div>
+          {/* Mobile heading — top center */}
+          <p className="hero-poster__eyebrow hero-poster__heading hero-copy__eyebrow order-1 w-full text-center text-[11px] font-medium uppercase tracking-[0.28em] text-[var(--hero-accent-pink)] sm:text-[12px] md:hidden">
+            {homeCollage.eyebrow}
+          </p>
 
-          {/* COPY — locked to left dark zone only (image untouched) */}
+          {/* Title + counter (desktop groups left column via lg:flex wrapper) */}
           <div
             className={cn(
-              "pointer-events-none absolute inset-y-0 left-0 z-20 flex",
-              "w-full max-w-none items-start pt-[4.75rem]",
-              "md:w-[min(40%,28rem)] md:items-center md:pt-0",
-              "lg:w-[min(38%,30rem)]",
+              "contents",
+              "lg:pointer-events-none lg:absolute lg:inset-y-0 lg:left-0 lg:z-20 lg:flex lg:w-[min(38%,30rem)] lg:flex-col lg:justify-center",
             )}
           >
             <div
               ref={heroCopyRef}
               className={cn(
-                "hero-copy pointer-events-auto relative flex w-full flex-col items-start overflow-hidden",
-                "px-5 pb-4 sm:px-6 sm:pb-6",
-                "md:ml-6 md:max-w-full md:px-0 md:pb-0 lg:ml-10",
-                "will-change-transform",
+                "hero-poster__copy hero-copy pointer-events-auto relative order-2 flex w-full min-w-0 flex-col items-center will-change-transform",
+                "md:order-none md:col-start-1 md:row-start-1 md:items-start md:self-end md:overflow-hidden",
+                "lg:ml-10 lg:max-w-full lg:items-start lg:self-auto",
               )}
             >
-              <p className="hero-copy__eyebrow mb-4 text-[12px] font-medium uppercase tracking-[0.32em] text-[var(--hero-accent-pink)] sm:mb-5 sm:text-[13px]">
+              <p className="hero-copy__eyebrow mb-2 hidden text-[11px] font-medium uppercase tracking-[0.26em] text-[var(--hero-accent-pink)] md:mb-3 md:block lg:mb-5 lg:text-[13px] lg:tracking-[0.32em]">
                 {homeCollage.eyebrow}
               </p>
 
               <div
                 ref={heroTitleRef}
-                className="hero-title-lockup relative flex w-full items-stretch gap-1 will-change-transform sm:gap-2"
+                className="hero-poster__title hero-title-lockup relative flex w-full max-w-[min(100%,17.5rem)] items-stretch justify-center gap-0.5 will-change-transform sm:max-w-[19rem] sm:gap-1 md:max-w-none md:justify-start md:gap-1 lg:gap-2"
               >
                 <h1
                   id="collage-brand"
                   className={cn(
-                    "hero-title-lockup__words relative z-10 min-w-0",
+                    "hero-title-lockup__words relative z-10 min-w-0 shrink",
                     "font-[family-name:var(--font-family-bebas)] uppercase text-white",
-                    "text-[clamp(2.05rem,5.5vw,4.75rem)] leading-[0.82] tracking-[0.02em]",
+                    "text-[clamp(1.55rem,7.2vw,2.15rem)] leading-[0.82] tracking-[0.02em]",
+                    "sm:text-[clamp(1.65rem,6.5vw,2.35rem)]",
+                    "md:text-[clamp(1.75rem,3.8vw,2.85rem)]",
+                    "lg:text-[clamp(2.05rem,5.5vw,4.75rem)]",
                   )}
                 >
                   <span className="block">Grand</span>
@@ -400,17 +387,49 @@ export function HeroVideoReveal({ className }: HeroVideoRevealProps) {
                 >
                   VI
                 </span>
-                <span className="sr-only">
-                  {" "}
-                  VI
-                </span>
+                <span className="sr-only"> VI</span>
               </div>
+            </div>
 
-              <div
-                ref={heroBarRef}
-                className="mt-7 w-full max-w-[22rem] will-change-transform sm:mt-8 sm:max-w-[24rem]"
-              >
-                <BannerGameCounter />
+            <div
+              ref={heroBarRef}
+              className={cn(
+                "hero-poster__counter pointer-events-auto order-4 w-full min-w-0 will-change-transform",
+                "mx-auto max-w-[14rem] sm:max-w-[14.5rem]",
+                "md:order-none md:col-start-1 md:row-start-2 md:mx-0 md:max-w-[14rem]",
+                "lg:mt-8 lg:max-w-[22rem]",
+              )}
+            >
+              <BannerGameCounter />
+            </div>
+          </div>
+
+          {/* Collage */}
+          <div
+            className={cn(
+              "hero-poster__art relative z-[5] order-3 mx-auto w-full min-w-0 shrink-0",
+              "max-w-[min(100%,19rem)] sm:max-w-[20rem]",
+              "md:order-none md:col-start-2 md:row-span-2 md:row-start-1 md:mx-0 md:flex md:h-full md:max-w-none md:items-center md:justify-end",
+              "lg:absolute lg:inset-y-0 lg:right-0 lg:col-auto lg:row-auto",
+              "lg:flex lg:w-[min(62%,1040px)] lg:items-center lg:justify-end lg:pr-10 lg:pl-4 xl:pr-12",
+            )}
+          >
+            <div
+              ref={heroBgRef}
+              className="hero-poster__art-motion relative w-full max-w-full will-change-transform"
+            >
+              <div className="hero-poster__art-glow" aria-hidden />
+              <div className="hero-poster__art-plane w-full">
+                <Image
+                  src={homeCollage.collageSrc}
+                  alt="Grand Theft Auto 6 key-art collage"
+                  width={1024}
+                  height={576}
+                  priority
+                  fetchPriority="high"
+                  sizes="(max-width: 767px) 100vw, (max-width: 1023px) 56vw, 62vw"
+                  className="hero-poster__art-image relative z-[1] block h-auto w-full max-w-full object-contain"
+                />
               </div>
             </div>
           </div>

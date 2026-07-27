@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { resolveMdxPath } from "@/lib/security/slug";
 
 const contentRoot = path.join(process.cwd(), "content");
 
@@ -18,13 +19,13 @@ export function listMdxSlugs(collection: string): string[] {
 }
 
 export function mdxFileExists(collection: string, slug: string) {
-  const filePath = path.join(getContentDir(collection), `${slug}.mdx`);
-  return fs.existsSync(filePath);
+  const filePath = resolveMdxPath(getContentDir(collection), slug);
+  return filePath !== null && fs.existsSync(filePath);
 }
 
 export function readMdxFile(collection: string, slug: string) {
-  const filePath = path.join(getContentDir(collection), `${slug}.mdx`);
-  if (!fs.existsSync(filePath)) {
+  const filePath = resolveMdxPath(getContentDir(collection), slug);
+  if (!filePath || !fs.existsSync(filePath)) {
     return null;
   }
   const raw = fs.readFileSync(filePath, "utf8");

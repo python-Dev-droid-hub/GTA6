@@ -2,6 +2,7 @@
 @import "../styles/tokens.css";
 @import "../styles/hero.css";
 @import "../styles/experience.css";
+@import "../styles/character-collage.css";
 
 @theme inline {
   /* Colors */

@@ -1,0 +1,94 @@
+/* Character detail — intro / closing image collages (mobile + tablet) */
+
+.character-collage__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .character-collage__grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .character-collage__grid {
+    gap: 1rem;
+  }
+}
+
+.character-collage__cell {
+  overflow: hidden;
+  background-color: #0c0b14;
+}
+
+.character-collage__cell img,
+.character-collage__cell video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.character-collage__cell--wide img,
+.character-collage__cell--wide video {
+  object-fit: cover;
+  object-position: center center;
+}
+
+@media (max-width: 767px) {
+  .character-collage__cell--portrait img {
+    max-height: min(78vw, 420px);
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .character-collage__cell--wide img,
+  .character-collage__cell--wide video {
+    max-height: min(56vw, 280px);
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .character-collage__cell--portrait img {
+    max-height: min(52vw, 520px);
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .character-collage__cell--wide img,
+  .character-collage__cell--wide video {
+    max-height: min(44vw, 380px);
+    object-fit: cover;
+  }
+}
+
+.character-collage__pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .character-collage__pair {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .character-collage__pair .character-collage__cell--bar {
+    grid-column: span 7;
+  }
+
+  .character-collage__pair .character-collage__cell--boat {
+    grid-column: span 5;
+  }
+}
+
+@media (min-width: 1024px) {
+  .character-collage__pair {
+    gap: 1rem;
+  }
+}

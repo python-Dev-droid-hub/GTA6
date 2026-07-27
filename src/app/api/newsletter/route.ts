@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "Invalid JSON" }, { status: 400 });
   }
 
-  const email = body.email?.trim().toLowerCase() ?? "";
+  const email = body.email?.trim().toLowerCase().slice(0, 254) ?? "";
   if (!EMAIL_RE.test(email)) {
     return NextResponse.json(
       { ok: false, error: "Enter a valid email address." },

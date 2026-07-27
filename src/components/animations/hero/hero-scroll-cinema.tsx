@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
@@ -27,6 +27,8 @@ export type HeroScrollCinemaProps = {
   scrubVh?: number;
   ariaLabel?: string;
   className?: string;
+  /** Foreground copy / HUD layered above the scrub video */
+  children?: ReactNode;
 };
 
 /**
@@ -43,6 +45,7 @@ export function HeroScrollCinema({
   scrubVh = 4.2,
   ariaLabel,
   className,
+  children,
 }: HeroScrollCinemaProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
@@ -261,6 +264,10 @@ export function HeroScrollCinema({
             </div>
           </div>
         </div>
+
+        {children ? (
+          <div className="absolute inset-0 z-10 flex flex-col">{children}</div>
+        ) : null}
       </div>
     </section>
   );

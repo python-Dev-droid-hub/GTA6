@@ -13,7 +13,7 @@ const TYPES = new Set([
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const q = searchParams.get("q") ?? "";
+  const q = (searchParams.get("q") ?? "").trim().slice(0, 200);
   const typeParam = searchParams.get("type") ?? "all";
   const type = (TYPES.has(typeParam) ? typeParam : "all") as
     | SearchDocType
