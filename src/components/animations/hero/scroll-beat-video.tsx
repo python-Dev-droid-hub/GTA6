@@ -29,13 +29,11 @@ export type ScrollBeatVideoProps = {
   endEyebrow?: string;
   endTitle?: string;
   endTitleFrom?: number;
-  /** Punchier grade + neon glow (Leonida character clips). */
   vivid?: boolean;
 };
 
 /**
  * Full-bleed clip scrubbed by scroll (pinned).
- * Seeks only while the pin is active — keeps other clips idle for speed.
  */
 export function ScrollBeatVideo({
   videoSrc,
@@ -57,6 +55,7 @@ export function ScrollBeatVideo({
   const endTitleRef = useRef<HTMLDivElement>(null);
   const seekRef = useRef(createVideoScrubSeek());
   const activeRef = useRef(false);
+  const armedRef = useRef(false);
   const reduced = usePrefersReducedMotion();
   const showEndTitle = Boolean(endTitle);
 
@@ -68,37 +67,50 @@ export function ScrollBeatVideo({
     if (!section || !pin || !video) return;
 
     const offset = Math.max(0, startOffset);
+    let videoLoadStarted = false;
+    let progress = 0;
+
     prepareScrubVideo(video, "none");
     seekRef.current = createVideoScrubSeek();
     activeRef.current = false;
-    let videoLoadStarted = false;
+    armedRef.current = false;
 
-    const tick = () => {
-      if (!activeRef.current || !seekRef.current.ready) return;
-      advanceVideoScrubSeek(video, seekRef.current, CHARACTER_VIDEO_SCRUB.seek);
+    const scrubStart = (dur: number) =>
+      Math.min(offset, Math.max(dur - 0.05, 0));
+    const scrubEnd = (dur: number) =>
+      Math.max(dur - CHARACTER_VIDEO_SCRUB.seek.frameDur * 0.35, 0);
+
+    const applySeekFromProgress = (p: number) => {
+      const dur = seekRef.current.duration;
+      if (dur <= 0) return;
+      const start = scrubStart(dur);
+      const end = scrubEnd(dur);
+      seekRef.current.target = start + p * Math.max(end - start, 0.05);
     };
-    gsap.ticker.add(tick);
 
     const arm = () => {
+      if (armedRef.current) return;
       if (!Number.isFinite(video.duration) || video.duration <= 0) return;
-      const start = Math.min(offset, Math.max(video.duration - 0.05, 0));
+
+      armedRef.current = true;
       seekRef.current.duration = video.duration;
-      seekRef.current.current = start;
-      seekRef.current.target = start;
       seekRef.current.ready = true;
+      seekRef.current.busy = false;
+      applySeekFromProgress(progress);
+      seekRef.current.current = seekRef.current.target;
       try {
-        video.currentTime = start;
+        video.currentTime = seekRef.current.target;
       } catch {
         /* ignore */
       }
-      requestAnimationFrame(() => ScrollTrigger.refresh());
     };
 
     const ensureVideoLoad = () => {
-      if (videoLoadStarted || video.readyState >= 1) {
-        if (video.readyState >= 1) arm();
+      if (armedRef.current || video.readyState >= 1) {
+        arm();
         return;
       }
+      if (videoLoadStarted) return;
       videoLoadStarted = true;
       video.preload = "auto";
       try {
@@ -108,23 +120,29 @@ export function ScrollBeatVideo({
       }
     };
 
-    if (video.readyState >= 1) arm();
     video.addEventListener("loadedmetadata", arm);
     video.addEventListener("loadeddata", arm);
+    if (video.readyState >= 1) arm();
 
     const io = new IntersectionObserver(
       (entries) => {
         if (entries.some((e) => e.isIntersecting)) ensureVideoLoad();
       },
-      { rootMargin: "80% 0px 80% 0px", threshold: 0 },
+      { rootMargin: "100% 0px 100% 0px" },
     );
     io.observe(section);
 
+    const tick = () => {
+      if (!activeRef.current || !seekRef.current.ready) return;
+      advanceVideoScrubSeek(video, seekRef.current, CHARACTER_VIDEO_SCRUB.seek);
+    };
+    gsap.ticker.add(tick);
+
     const ctx = gsap.context(() => {
-      const proxy = { t: 0 };
       const titleEl = endTitleRef.current;
       if (titleEl) gsap.set(titleEl, { opacity: 0, y: 28 });
 
+      const proxy = { t: 0 };
       gsap.to(proxy, {
         t: 1,
         ease: "none",
@@ -149,18 +167,15 @@ export function ScrollBeatVideo({
             ensureVideoLoad();
             activeRef.current = true;
           },
-          onUpdate: () => {
+          onUpdate: (self) => {
             activeRef.current = true;
+            progress = self.progress;
             ensureVideoLoad();
-            const dur = seekRef.current.duration;
-            if (dur <= 0) return;
-            const start = Math.min(offset, Math.max(dur - 0.05, 0));
-            const span = Math.max(dur - start, 0.05);
-            seekRef.current.target = start + proxy.t * span;
+            applySeekFromProgress(progress);
 
             if (titleEl) {
               const local = Math.min(
-                Math.max((proxy.t - endTitleFrom) / (1 - endTitleFrom), 0),
+                Math.max((progress - endTitleFrom) / (1 - endTitleFrom), 0),
                 1,
               );
               gsap.set(titleEl, {
@@ -173,7 +188,7 @@ export function ScrollBeatVideo({
             activeRef.current = false;
             const dur = seekRef.current.duration;
             if (dur > 0) {
-              const end = Math.max(dur - CHARACTER_VIDEO_SCRUB.seek.frameDur, 0);
+              const end = scrubEnd(dur);
               seekRef.current.target = end;
               seekRef.current.current = end;
               try {
@@ -187,7 +202,7 @@ export function ScrollBeatVideo({
             activeRef.current = false;
             const dur = seekRef.current.duration;
             if (dur > 0) {
-              const start = Math.min(offset, Math.max(dur - 0.05, 0));
+              const start = scrubStart(dur);
               seekRef.current.target = start;
               seekRef.current.current = start;
               try {
