@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { brandLogoDataUri } from "@/constants/brand";
+import { brandLogoDataUri } from "@/lib/brand-logo.server";
 
 export const runtime = "nodejs";
 export const size = { width: 32, height: 32 };
