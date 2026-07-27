@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { BRAND_LOGO_SRC } from "@/constants/brand";
 import { siteConfig } from "@/constants/site";
 
 export default function manifest(): MetadataRoute.Manifest {
@@ -13,10 +14,16 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: "en",
     icons: [
       {
-        src: siteConfig.ogImage,
-        sizes: "any",
-        type: "image/jpeg",
+        src: BRAND_LOGO_SRC,
+        sizes: "512x512",
+        type: "image/png",
         purpose: "any",
+      },
+      {
+        src: BRAND_LOGO_SRC,
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
       },
     ],
     categories: ["entertainment", "games"],

@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BRAND_LOGO_SRC } from "@/constants/brand";
 import { siteConfig } from "@/constants/site";
 import { cn } from "@/utils/cn";
-
-export const BRAND_LOGO_SRC = "/images/brand/gta6-logo-clear.png";
 
 export type BrandMarkProps = {
   href?: string;

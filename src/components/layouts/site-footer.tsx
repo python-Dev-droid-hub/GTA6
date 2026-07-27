@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { BrandMark, BRAND_LOGO_SRC } from "@/components/layouts/brand-mark";
+import { BrandMark } from "@/components/layouts/brand-mark";
+import { BRAND_LOGO_SRC } from "@/constants/brand";
 import { siteConfig } from "@/constants/site";
 import { legal } from "@/constants/legal";
 import { cn } from "@/utils/cn";
