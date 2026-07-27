@@ -45,35 +45,21 @@ export function MenuPeoplePanel({
   return (
     <div className="absolute inset-0 grid h-dvh max-h-dvh grid-rows-[minmax(36dvh,42dvh)_minmax(0,1fr)] overflow-hidden lg:grid-cols-[minmax(0,1.35fr)_minmax(22rem,0.95fr)] lg:grid-rows-none">
       <aside className="relative min-h-0 overflow-hidden bg-[#12121e] lg:h-full">
-        {characters.map((c) => {
-          const isOn = active?.slug === c.slug;
-          const broken = failed[c.slug];
-          return (
-            <div
-              key={`${c.slug}:${c.imageSrc}`}
-              className={cn(
-                "absolute inset-0 transition-opacity duration-500 ease-out",
-                isOn ? "opacity-100" : "opacity-0",
-              )}
-              aria-hidden={!isOn}
-            >
-              {!broken ? (
-                <Image
-                  src={c.imageSrc}
-                  alt=""
-                  fill
-                  priority={c.slug === characters[0]?.slug}
-                  sizes="(max-width: 1023px) 100vw, 60vw"
-                  className="object-cover object-center lg:object-[center_22%]"
-                  onError={() => onFail(c.slug)}
-                />
-              ) : (
-                <div className="absolute inset-0 bg-[#12121e]" />
-              )}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080a14] via-transparent to-transparent lg:hidden" />
-            </div>
-          );
-        })}
+        {active && !failed[active.slug] ? (
+          <Image
+            key={`${active.slug}:${active.imageSrc}`}
+            src={active.imageSrc}
+            alt=""
+            fill
+            loading="lazy"
+            sizes="(max-width: 1023px) 100vw, 60vw"
+            className="object-cover object-center lg:object-[center_22%]"
+            onError={() => onFail(active.slug)}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-[#12121e]" />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#080a14] via-transparent to-transparent lg:hidden" />
       </aside>
 
       <div className="relative z-10 flex h-full min-h-0 flex-col overflow-hidden bg-[#080a14] lg:border-l lg:border-white/5">

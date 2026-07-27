@@ -178,6 +178,7 @@ export function ScrollBeatVideo({
               vivid && "contrast-[1.06] saturate-[1.2]",
             )}
             priority={priorityPoster}
+            loading={priorityPoster ? undefined : "lazy"}
             unoptimized
           />
           {!reduced ? (
@@ -187,7 +188,7 @@ export function ScrollBeatVideo({
               poster={posterSrc}
               muted
               playsInline
-              preload="auto"
+              preload="none"
               tabIndex={-1}
               aria-hidden
             >

@@ -234,6 +234,7 @@ export function HeroScrollCinema({
                 src={posterSrc}
                 alt=""
                 fill
+                loading="lazy"
                 sizes="100vw"
                 className={cn(
                   "object-cover transition-opacity duration-500",
@@ -251,7 +252,7 @@ export function HeroScrollCinema({
                   poster={posterSrc}
                   muted
                   playsInline
-                  preload="auto"
+                  preload="none"
                   tabIndex={-1}
                   aria-hidden
                 >

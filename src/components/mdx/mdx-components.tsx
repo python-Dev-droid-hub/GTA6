@@ -12,6 +12,7 @@ function ProseImage({ src, alt = "" }: ComponentProps<"img">) {
         src={src}
         alt={alt}
         fill
+        loading="lazy"
         className="object-cover"
         sizes="(max-width: 768px) 100vw, 720px"
       />

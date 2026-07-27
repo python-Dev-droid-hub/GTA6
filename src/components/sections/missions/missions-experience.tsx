@@ -31,6 +31,7 @@ function MissionCard({
           src={mission.imageSrc}
           alt={mission.imageAlt}
           fill
+          loading="lazy"
           sizes="(max-width: 640px) 100vw, 16rem"
           className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           unoptimized

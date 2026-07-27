@@ -24,6 +24,7 @@ export function VintageVehiclePanelView({
           src={panel.image.src}
           alt={panel.image.alt}
           fill
+          loading="lazy"
           quality={100}
           unoptimized
           className="object-cover object-center"

@@ -223,6 +223,7 @@ export function TrailerFacade({
             src={posterSrc}
             alt={posterAlt}
             fill
+            loading="lazy"
             sizes="(max-width: 768px) 100vw, 90vw"
             className="object-cover transition-cinema group-hover:scale-[1.03]"
           />

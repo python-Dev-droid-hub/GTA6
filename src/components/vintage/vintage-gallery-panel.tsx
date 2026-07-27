@@ -27,6 +27,7 @@ export function VintageGalleryPanelView({
             src={topLeft.src}
             alt={topLeft.alt}
             fill
+            loading="lazy"
             quality={100}
             unoptimized
             className="object-cover"
@@ -43,6 +44,7 @@ export function VintageGalleryPanelView({
             src={bottomLeft.src}
             alt={bottomLeft.alt}
             fill
+            loading="lazy"
             quality={100}
             unoptimized
             className="object-cover object-center"
@@ -59,6 +61,7 @@ export function VintageGalleryPanelView({
             src={tallRight.src}
             alt={tallRight.alt}
             fill
+            loading="lazy"
             quality={100}
             unoptimized
             className="object-cover object-center"

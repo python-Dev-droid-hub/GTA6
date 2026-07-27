@@ -28,7 +28,7 @@ export function VintageBonusesPanelView({
           src={panel.image.src}
           alt={panel.image.alt}
           fill
-          priority
+          loading="lazy"
           quality={100}
           unoptimized
           className="object-cover object-[40%_center]"

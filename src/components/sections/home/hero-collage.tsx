@@ -96,7 +96,8 @@ export function HeroCollage({ className }: HeroCollageProps) {
                     src={panel.src}
                     alt={panel.alt}
                     fill
-                    priority={panel.id === "pair" || panel.id === "sky"}
+                    priority={panel.id === "pair"}
+                    loading={panel.id === "pair" ? undefined : "lazy"}
                     sizes="(max-width: 768px) 50vw, 33vw"
                     className="object-cover"
                   />

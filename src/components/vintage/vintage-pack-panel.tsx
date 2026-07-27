@@ -31,7 +31,7 @@ export function VintagePackPanelView({ panel }: { panel: VintagePackPanel }) {
           src={panel.image.src}
           alt={panel.image.alt}
           fill
-          priority
+          loading="lazy"
           quality={100}
           unoptimized
           className="vintage-pack-art h-full w-full object-contain object-center"

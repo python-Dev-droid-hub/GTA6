@@ -63,7 +63,6 @@ export function LeonidaCharacterDetail({
           posterAlt={clip1.caption ?? `${name} clip`}
           sectionHeight="200vh"
           startOffset={clip1.startOffset ?? DEFAULT_CLIP_OFFSET}
-          priorityPoster
           endEyebrow={eyebrow}
           endTitle={name}
           endTitleFrom={0.58}
@@ -102,7 +101,7 @@ export function LeonidaCharacterDetail({
                 height={1200}
                 sizes="(max-width: 767px) 100vw, (max-width: 1023px) 42vw, 34vw"
                 className="h-auto w-full"
-                priority
+                loading="lazy"
                 unoptimized
               />
             </figure>
@@ -118,7 +117,7 @@ export function LeonidaCharacterDetail({
                 playsInline
                 autoPlay
                 loop
-                preload="metadata"
+                preload="none"
                 aria-label={car.alt}
               />
             ) : (
@@ -129,6 +128,7 @@ export function LeonidaCharacterDetail({
                 height={900}
                 sizes="(max-width: 767px) 100vw, (max-width: 1023px) 58vw, 66vw"
                 className="h-auto w-full"
+                loading="lazy"
                 unoptimized
               />
             )}

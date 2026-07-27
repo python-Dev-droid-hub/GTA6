@@ -224,6 +224,7 @@ export function UltimateHorizontalExperience() {
               src={lightbox.src}
               alt={lightbox.alt}
               fill
+              loading="lazy"
               className="object-contain"
               sizes="90vw"
             />

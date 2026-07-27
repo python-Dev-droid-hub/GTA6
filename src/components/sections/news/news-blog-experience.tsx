@@ -28,6 +28,7 @@ function BlogPostCard({ post }: { post: BlogPost }) {
             src={post.coverSrc}
             alt={post.coverAlt}
             fill
+            loading="lazy"
             sizes="(max-width: 768px) 100vw, 33vw"
             className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
             unoptimized
@@ -185,6 +186,7 @@ export function NewsBlogExperience() {
                   src={blogFeatured.coverSrc}
                   alt={blogFeatured.coverAlt}
                   fill
+                  loading="lazy"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                   unoptimized

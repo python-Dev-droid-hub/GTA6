@@ -33,7 +33,7 @@ export function UltimateHeroPanelView({
             src={panel.imageSrc}
             alt={panel.imageAlt}
             fill
-            priority
+            loading="lazy"
             sizes="55vw"
             quality={100}
             unoptimized
@@ -99,7 +99,7 @@ export function UltimateHeroPanelView({
         src={panel.imageSrc}
         alt={panel.imageAlt}
         fill
-        priority={panel.id === "looks"}
+        loading="lazy"
         sizes="100vw"
         quality={100}
         unoptimized

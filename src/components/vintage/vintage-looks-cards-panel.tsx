@@ -26,6 +26,7 @@ export function VintageLooksCardsPanelView({
           src={panel.hero.src}
           alt={panel.hero.alt}
           fill
+          loading="lazy"
           quality={100}
           unoptimized
           className="object-cover object-center"
@@ -39,6 +40,7 @@ export function VintageLooksCardsPanelView({
             src={cardB.src}
             alt={cardB.alt}
             fill
+            loading="lazy"
             quality={100}
             unoptimized
             className="object-cover"
@@ -54,6 +56,7 @@ export function VintageLooksCardsPanelView({
             src={cardA.src}
             alt={cardA.alt}
             fill
+            loading="lazy"
             quality={100}
             unoptimized
             className="object-cover"

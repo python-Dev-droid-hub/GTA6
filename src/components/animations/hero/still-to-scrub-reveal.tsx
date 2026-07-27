@@ -246,6 +246,7 @@ export function StillToScrubReveal({
             src={posterSrc}
             alt={posterAlt}
             fill
+            loading="lazy"
             sizes="100vw"
             className="object-cover"
             unoptimized
@@ -276,6 +277,7 @@ export function StillToScrubReveal({
             src={posterSrc}
             alt=""
             fill
+            loading="lazy"
             sizes="100vw"
             className={cn(
               "object-cover object-[center_22%]",
@@ -289,7 +291,7 @@ export function StillToScrubReveal({
             poster={posterSrc}
             muted
             playsInline
-            preload="auto"
+            preload="none"
             tabIndex={-1}
             aria-hidden
           >
@@ -317,6 +319,7 @@ export function StillToScrubReveal({
             src={stillSrc}
             alt={stillAlt}
             fill
+            loading="lazy"
             sizes="100vw"
             className={cn(
               "object-cover",

@@ -48,6 +48,7 @@ export function HomeMediaBento({ className }: HomeMediaBentoProps) {
               alt=""
               fill
               sizes="100vw"
+              loading="lazy"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-ink-950/85 via-ink-950/40 to-transparent" />
@@ -70,6 +71,7 @@ export function HomeMediaBento({ className }: HomeMediaBentoProps) {
               alt=""
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
+              loading="lazy"
               className="object-cover"
             />
             <div className="absolute inset-0 bg-ink-950/55" />
@@ -89,6 +91,7 @@ export function HomeMediaBento({ className }: HomeMediaBentoProps) {
               alt=""
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
+              loading="lazy"
               className="object-cover"
             />
             <div className="absolute inset-0 bg-ink-950/55" />

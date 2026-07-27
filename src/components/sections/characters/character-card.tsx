@@ -24,6 +24,7 @@ export function CharacterCard({ character, className }: CharacterCardProps) {
             src={character.portraitSrc}
             alt={character.portraitAlt}
             fill
+            loading="lazy"
             sizes="(max-width: 768px) 100vw, 33vw"
             className="object-cover transition-cinema group-hover:scale-[1.05]"
           />

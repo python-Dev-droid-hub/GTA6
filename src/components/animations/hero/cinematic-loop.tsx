@@ -59,6 +59,7 @@ export function CinematicLoop({
           src={posterSrc}
           alt={posterAlt}
           fill
+          loading="lazy"
           sizes="100vw"
           className="object-cover"
         />
@@ -70,7 +71,7 @@ export function CinematicLoop({
             muted
             playsInline
             loop
-            preload="metadata"
+            preload="none"
             tabIndex={-1}
             aria-hidden
           >

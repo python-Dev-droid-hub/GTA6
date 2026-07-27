@@ -44,6 +44,7 @@ export function UltimateMediaCard({
           src={item.src}
           alt={item.alt}
           fill
+          loading="lazy"
           sizes="(max-width: 768px) 80vw, 40vw"
           quality={100}
           unoptimized

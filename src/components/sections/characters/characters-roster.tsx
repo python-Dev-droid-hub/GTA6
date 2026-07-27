@@ -50,37 +50,24 @@ export function CharactersRoster({
       role="region"
       aria-label="Characters"
     >
-      {/* Portrait — fills remaining page */}
+      {/* Portrait — only load the active character (lazy on switch) */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        {characters.map((c) => {
-          const isOn = active?.slug === c.slug;
-          const broken = failed[c.slug];
-          return (
-            <div
-              key={c.slug}
-              className={cn(
-                "absolute inset-0 transition-opacity duration-500 ease-out",
-                isOn ? "opacity-100" : "opacity-0",
-              )}
-            >
-              {!broken ? (
-                <Image
-                  src={c.imageSrc}
-                  alt=""
-                  fill
-                  priority={c.slug === characters[0]?.slug}
-                  sizes="100vw"
-                  className="object-cover object-[center_20%]"
-                  onError={() => onFail(c.slug)}
-                />
-              ) : (
-                <div className="absolute inset-0 bg-[#12121e]" />
-              )}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0c0c16] via-[#0c0c16]/85 to-transparent md:via-[#0c0c16]/55 md:to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c16]/70 via-transparent to-[#0c0c16]/25" />
-            </div>
-          );
-        })}
+        {active && !failed[active.slug] ? (
+          <Image
+            key={active.slug}
+            src={active.imageSrc}
+            alt=""
+            fill
+            loading="lazy"
+            sizes="100vw"
+            className="object-cover object-[center_20%]"
+            onError={() => onFail(active.slug)}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-[#12121e]" />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0c0c16] via-[#0c0c16]/85 to-transparent md:via-[#0c0c16]/55 md:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c16]/70 via-transparent to-[#0c0c16]/25" />
       </div>
 
       {/* Left chrome */}

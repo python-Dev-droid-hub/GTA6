@@ -29,6 +29,7 @@ export function DistrictCard({ district, className }: DistrictCardProps) {
           src={district.imageSrc}
           alt={district.imageAlt}
           fill
+          loading="lazy"
           sizes="(max-width: 768px) 85vw, 30vw"
           className="object-cover transition-cinema group-hover:scale-[1.04]"
         />

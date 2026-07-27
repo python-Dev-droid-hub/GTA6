@@ -58,6 +58,7 @@ export function CharacterClipPlayer({
             src={posterImage}
             alt={`${name} clip poster`}
             fill
+            loading="lazy"
             sizes="(max-width: 768px) 100vw, 28rem"
             className="object-cover"
           />

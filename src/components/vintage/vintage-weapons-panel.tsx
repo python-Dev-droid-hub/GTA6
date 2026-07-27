@@ -24,6 +24,7 @@ export function VintageWeaponsPanelView({
           src={panel.left.src}
           alt={panel.left.alt}
           fill
+          loading="lazy"
           quality={100}
           unoptimized
           className="object-cover object-center"
@@ -56,6 +57,7 @@ export function VintageWeaponsPanelView({
           src={panel.right.src}
           alt={panel.right.alt}
           fill
+          loading="lazy"
           quality={100}
           unoptimized
           className="object-cover object-center"

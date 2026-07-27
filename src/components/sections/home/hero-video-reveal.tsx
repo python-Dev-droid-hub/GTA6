@@ -293,6 +293,7 @@ export function HeroVideoReveal({ className }: HeroVideoRevealProps) {
             src={clip.posterSrc}
             alt={clip.posterAlt}
             fill
+            loading="lazy"
             sizes="100vw"
             className="object-cover"
           />

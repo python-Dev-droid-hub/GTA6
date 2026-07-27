@@ -133,6 +133,7 @@ export function CinemaPosterCard({
               imageClassName,
             )}
             priority={prominent}
+            loading={prominent ? undefined : "lazy"}
           />
         ) : (
           <Image
@@ -142,6 +143,7 @@ export function CinemaPosterCard({
             sizes="(max-width: 1024px) 92vw, 1600px"
             quality={100}
             unoptimized
+            loading="lazy"
             className={cn(
               "object-cover object-[28%_center]",
               (prominent || sunset) &&
@@ -157,6 +159,7 @@ export function CinemaPosterCard({
               src={figureSrc}
               alt={figureAlt}
               fill
+              loading="lazy"
               sizes="35vw"
               className={cn(
                 "object-cover object-top drop-shadow-[0_18px_40px_rgba(0,0,0,0.5)]",

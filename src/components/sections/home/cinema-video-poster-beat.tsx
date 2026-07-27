@@ -272,6 +272,7 @@ export function CinemaVideoPosterBeat({
                 alt={videoPosterAlt}
                 fill
                 priority={id === "beat-vintage"}
+                loading={id === "beat-vintage" ? undefined : "lazy"}
                 quality={90}
                 sizes="100vw"
                 className={cn(
@@ -293,7 +294,7 @@ export function CinemaVideoPosterBeat({
                 )}
                 muted
                 playsInline
-                preload="auto"
+                preload="none"
                 disablePictureInPicture
                 tabIndex={-1}
                 aria-hidden

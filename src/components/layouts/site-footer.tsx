@@ -111,6 +111,7 @@ export function SiteFooter({ className }: SiteFooterProps) {
               alt=""
               width={1024}
               height={576}
+              loading="lazy"
               className="h-11 w-auto object-contain sm:h-12"
               aria-hidden
             />

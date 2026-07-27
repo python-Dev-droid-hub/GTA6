@@ -62,6 +62,7 @@ export function CharacterSection({
               alt=""
               fill
               priority={priority}
+              loading={priority ? undefined : "lazy"}
               sizes="100vw"
               className="object-cover"
             />
@@ -88,6 +89,7 @@ export function CharacterSection({
               alt=""
               fill
               priority={priority}
+              loading={priority ? undefined : "lazy"}
               sizes="(max-width: 768px) 70vw, 36rem"
               className="object-contain object-bottom drop-shadow-[0_20px_60px_rgba(0,0,0,0.65)]"
             />
