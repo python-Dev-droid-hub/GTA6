@@ -128,5 +128,14 @@ export function buildMetadata({
 }
 
 export function getSiteOrigin(): string {
-  return siteConfig.url.replace(/\/$/, "");
+  const url = siteConfig.url.replace(/\/$/, "");
+  // Hard guard — sitemap must never advertise localhost to crawlers
+  if (
+    (process.env.VERCEL_ENV === "production" ||
+      process.env.NODE_ENV === "production") &&
+    /localhost|127\.0\.0\.1/i.test(url)
+  ) {
+    return "https://grandtheftautocity.com";
+  }
+  return url;
 }
