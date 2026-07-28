@@ -9,6 +9,7 @@ import {
   Pacifico,
 } from "next/font/google";
 import { buildMetadata } from "@/lib/seo/metadata";
+import { GoogleAnalytics } from "@/components/seo/google-analytics";
 import "./globals.css";
 
 const display = Barlow_Condensed({
@@ -85,6 +86,7 @@ export default function RootLayout({
         className="min-h-dvh bg-background text-foreground antialiased"
         suppressHydrationWarning
       >
+        <GoogleAnalytics />
         {children}
       </body>
     </html>

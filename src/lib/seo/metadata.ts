@@ -118,6 +118,9 @@ export function buildMetadata({
             "max-video-preview": -1,
           },
         },
+    verification: {
+      google: "7CBKGjtW0MvRk3o66iJ6bYfJtlp-RaFMwsHOH3HffLk",
+    },
     other: {
       "rss-feed": absoluteUrl("/feed.xml"),
     },
