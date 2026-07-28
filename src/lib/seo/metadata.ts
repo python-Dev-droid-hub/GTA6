@@ -46,17 +46,19 @@ export function buildMetadata({
   );
 
   return {
-    metadataBase: new URL(siteConfig.url),
+    metadataBase: new URL(getSiteOrigin()),
     title: pageTitle,
     description,
     applicationName: siteConfig.name,
     icons: {
       icon: [
-        { url: "/favicon.png", sizes: "64x64", type: "image/png" },
-        { url: "/icon.png", sizes: "64x64", type: "image/png" },
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/favicon-48.png", sizes: "48x48", type: "image/png" },
+        { url: "/favicon-96.png", sizes: "96x96", type: "image/png" },
+        { url: "/favicon-192.png", sizes: "192x192", type: "image/png" },
       ],
       apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
-      shortcut: "/favicon.png",
+      shortcut: "/favicon.ico",
     },
     authors: [{ name: `${siteConfig.name} Fan Experience` }],
     creator: `${siteConfig.name} Fan Experience`,
@@ -135,7 +137,7 @@ export function getSiteOrigin(): string {
       process.env.NODE_ENV === "production") &&
     /localhost|127\.0\.0\.1/i.test(url)
   ) {
-    return "https://grandtheftautocity.com";
+    return "https://www.grandtheftautocity.com";
   }
   return url;
 }

@@ -25,7 +25,7 @@ export function ToolShell({
       <Container size="wide" className="flex flex-col gap-10">
         <div className="flex flex-col gap-4">
           <Link
-            href="/tools"
+            href="/"
             className="w-fit font-mono text-xs uppercase tracking-[0.22em] text-neon-cyan hover:text-paper"
           >
             ← Tools hub

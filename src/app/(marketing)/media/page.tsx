@@ -5,7 +5,7 @@ import {
 
 export const metadata = makePlaceholderMetadata(
   "Media",
-  "Trailers, galleries, and downloads — wallpapers live at /wallpapers.",
+  "Trailers and cinematic drops from the fan archive.",
   "/media",
 );
 
@@ -13,7 +13,7 @@ export default function MediaPage() {
   return (
     <PlaceholderPage
       title="Media"
-      description="Use the home trailer player for now. Full galleries expand next. Wallpapers are live."
+      description="Use the home trailer player for now. Full galleries expand next."
       path="/media"
     />
   );

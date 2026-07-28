@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { ButtonLink } from "@/components/ui/button-link";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -22,21 +21,18 @@ export default function NotFound() {
           Lost in the neon
         </h1>
         <p className="text-lead">
-          That page is not on the map. Head home or search the coast.
+          That page is not on the map. Head home or browse characters and news.
         </p>
         <div className="flex flex-wrap gap-3">
           <ButtonLink href="/" variant="gradient">
             Home
           </ButtonLink>
-          <ButtonLink href="/search" variant="outline">
-            Search
+          <ButtonLink href="/characters" variant="outline">
+            Characters
           </ButtonLink>
-          <Link
-            href="/tools/map"
-            className="font-mono text-xs uppercase tracking-[0.2em] text-paper-muted self-center hover:text-paper"
-          >
-            Open map
-          </Link>
+          <ButtonLink href="/news" variant="outline">
+            News
+          </ButtonLink>
         </div>
       </Container>
     </main>

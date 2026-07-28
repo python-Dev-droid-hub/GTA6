@@ -43,7 +43,7 @@ export function WorldPreview({
               title="A city that never cools down"
               description="Beaches, downtown glow, and the keys beyond — peek the districts before the full world tour."
             />
-            <ButtonLink href="/world" variant="gradient" size="md" className="shrink-0">
+            <ButtonLink href="/characters" variant="gradient" size="md" className="shrink-0">
               Explore world
             </ButtonLink>
           </div>

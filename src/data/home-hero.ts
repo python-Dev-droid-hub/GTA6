@@ -25,8 +25,8 @@ export const homeHero: HomeHeroContent = {
       variant: "gradient",
     },
     {
-      label: "Explore World",
-      href: "/world",
+      label: "Explore Characters",
+      href: "/characters",
       variant: "outline",
     },
   ],

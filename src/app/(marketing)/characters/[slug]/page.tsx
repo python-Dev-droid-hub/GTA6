@@ -7,7 +7,6 @@ import { JsonLd } from "@/components/seo/json-ld";
 import Image from "next/image";
 import {
   getCharacterBySlug,
-  getCharacterSlugs,
 } from "@/lib/mdx/characters";
 import {
   getLeonidaCharacter,
@@ -20,9 +19,7 @@ import { spacing } from "@/constants/design";
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  const mdx = getCharacterSlugs();
-  const leonida = getLeonidaSlugs();
-  return [...new Set([...mdx, ...leonida])].map((slug) => ({ slug }));
+  return getLeonidaSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props) {

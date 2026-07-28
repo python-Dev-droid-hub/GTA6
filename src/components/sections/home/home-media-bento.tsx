@@ -79,7 +79,7 @@ export function HomeMediaBento({ className }: HomeMediaBentoProps) {
               <h3 className="font-display text-2xl uppercase tracking-[0.08em] text-paper">
                 Only on the coast
               </h3>
-              <ButtonLink href="/story" variant="outline" size="sm" className="w-fit rounded-full">
+              <ButtonLink href="/characters" variant="outline" size="sm" className="w-fit rounded-full">
                 Read more
               </ButtonLink>
             </div>

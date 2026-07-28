@@ -31,7 +31,7 @@ export function StoryScrollSection({ className }: { className?: string }) {
               title="Scroll the heat"
               description="A spoiler-safe beat strip — narrative temperature without dumping plot."
             />
-            <ButtonLink href="/story" variant="outline" size="md" className="w-fit">
+            <ButtonLink href="/characters" variant="outline" size="md" className="w-fit">
               Full story page
             </ButtonLink>
             <div className="max-w-sm">

@@ -19,7 +19,7 @@ export function DistrictCard({ district, className }: DistrictCardProps) {
   return (
     <article className={cn("h-full min-w-0", className)}>
       <Link
-        href={`/world#${district.slug}`}
+        href={`/characters`}
         className={cn(
           "group relative block aspect-[16/11] overflow-hidden rounded-lg border border-border",
           "transition-cinema hover:border-vice-pink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring",

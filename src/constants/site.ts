@@ -28,7 +28,7 @@ function resolveSiteUrl(): string {
 
   // Canonical production domain (never ship localhost in sitemap/robots/OG)
   if (process.env.VERCEL_ENV === "production" || process.env.NODE_ENV === "production") {
-    return "https://grandtheftautocity.com";
+    return "https://www.grandtheftautocity.com";
   }
 
   const preview = process.env.VERCEL_URL
@@ -114,23 +114,21 @@ export const footerNav: NavGroup[] = [
     items: [
       { label: "Characters", href: "/characters" },
       { label: "Missions", href: "/missions" },
-      { label: "World", href: "/world" },
-      { label: "Wallpapers", href: "/wallpapers" },
+      { label: "Media", href: "/media" },
+      { label: "Blogs", href: "/news" },
     ],
   },
   {
     title: "Content",
     items: [
-      { label: "Blogs", href: "/news" },
       { label: "FAQs", href: "/faq" },
-      { label: "Guides", href: "/guides" },
-      { label: "Tools", href: "/tools" },
+      { label: "Ultimate", href: "/ultimate" },
+      { label: "Vintage", href: "/vintage" },
     ],
   },
   {
     title: "Legal",
     items: [
-      { label: "Disclaimer", href: "/legal/disclaimer" },
       { label: "Privacy", href: "/legal/privacy" },
       { label: "Terms", href: "/legal/terms" },
     ],

@@ -1,15 +1,7 @@
 import { NextResponse } from "next/server";
 import { searchDocs, type SearchDocType } from "@/lib/search";
 
-const TYPES = new Set([
-  "all",
-  "article",
-  "character",
-  "guide",
-  "tool",
-  "vehicle",
-  "weapon",
-]);
+const TYPES = new Set(["all", "article", "character"]);
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

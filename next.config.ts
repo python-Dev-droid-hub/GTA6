@@ -38,6 +38,42 @@ const nextConfig: NextConfig = {
       "@react-three/fiber",
     ],
   },
+  async redirects() {
+    const gone = [
+      "/world",
+      "/guides",
+      "/guides/:slug",
+      "/vehicles",
+      "/weapons",
+      "/wallpapers",
+      "/tools",
+      "/tools/map",
+      "/tools/release-converter",
+      "/tools/fps-calculator",
+      "/tools/pc-checker",
+      "/story",
+      "/legal/disclaimer",
+      "/characters/cal",
+      "/characters/jason",
+      "/characters/lucia",
+      "/news/trailer-breakdown",
+      "/news/vice-city-map-tease",
+      "/news/cast-chemistry",
+      "/news/welcome-to-vice-city",
+      "/news/gameplay-update-2",
+      "/news/building-a-living-world",
+      "/news/characters-spotlight-lucia",
+      "/news/world-exploration",
+      "/news/community-event-vice-nights",
+      "/guides/getting-started",
+      "/guides/pc-performance-mindset",
+    ];
+    return gone.map((source) => ({
+      source,
+      destination: "/",
+      permanent: true,
+    }));
+  },
   async headers() {
     return [
       {

@@ -28,7 +28,7 @@ export function ToolsCTA({ className }: { className?: string }) {
               title="Fan tools"
               description="Map, launch converter, FPS math, and PC heuristics — labeled as unofficial."
             />
-            <ButtonLink href="/tools" variant="outline" size="md">
+            <ButtonLink href="/characters" variant="outline" size="md">
               Open tools hub
             </ButtonLink>
           </div>

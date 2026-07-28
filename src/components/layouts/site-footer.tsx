@@ -11,7 +11,7 @@ export type SiteFooterProps = {
 };
 
 const legalLinks = [
-  { label: "Corporate", href: "/legal/disclaimer" },
+  { label: "Corporate", href: "/legal/terms" },
   { label: "Privacy", href: "/legal/privacy" },
   { label: "Cookie Settings", href: "/legal/privacy#cookies" },
   { label: "Cookie Policy", href: "/legal/privacy" },

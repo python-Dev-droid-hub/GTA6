@@ -31,8 +31,8 @@ export const cinematicCharacters: CinematicCharacter[] = [
     fgImage: "/images/characters/lucia.jpg",
     posterImage: "/images/cinema/beats/beat-01.jpg",
     videoSrc: "/videos/cinema/beats/beat-01.mp4",
-    exploreLabel: "Explore the Coast",
-    exploreHref: "/world",
+    exploreLabel: "Meet Lucia",
+    exploreHref: "/characters/lucia-caminos",
     priority: true,
   },
   {
@@ -48,8 +48,8 @@ export const cinematicCharacters: CinematicCharacter[] = [
     fgImage: "/images/characters/jason.jpg",
     posterImage: "/images/cinema/beats/beat-03.jpg",
     videoSrc: "/videos/cinema/beats/beat-03.mp4",
-    exploreLabel: "Explore Downtown",
-    exploreHref: "/world",
+    exploreLabel: "Meet Jason",
+    exploreHref: "/characters/jason-duval",
   },
   {
     id: "cal",
@@ -64,7 +64,7 @@ export const cinematicCharacters: CinematicCharacter[] = [
     fgImage: "/images/characters/cal.jpg",
     posterImage: "/images/cinema/beats/beat-06.jpg",
     videoSrc: "/videos/cinema/beats/beat-06.mp4",
-    exploreLabel: "Explore the Keys",
-    exploreHref: "/world",
+    exploreLabel: "Meet Cal",
+    exploreHref: "/characters/cal-hampton",
   },
 ];

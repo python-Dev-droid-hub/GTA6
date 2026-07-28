@@ -254,7 +254,7 @@ export function MissionsExperience() {
             </div>
           </div>
           <Link
-            href="/world"
+            href="/characters"
             className={cn(
               "inline-flex shrink-0 items-center gap-2 border border-[#ff4fc3] px-5 py-3",
               "font-[family-name:var(--font-family-orbitron)] text-[11px] uppercase tracking-[0.18em] text-[#ff9ad0]",

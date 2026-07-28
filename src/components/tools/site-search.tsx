@@ -10,10 +10,6 @@ const TYPE_OPTIONS: { value: SearchDocType | "all"; label: string }[] = [
   { value: "all", label: "All" },
   { value: "article", label: "News" },
   { value: "character", label: "Characters" },
-  { value: "guide", label: "Guides" },
-  { value: "tool", label: "Tools" },
-  { value: "vehicle", label: "Vehicles" },
-  { value: "weapon", label: "Weapons" },
 ];
 
 export type SiteSearchProps = {
