@@ -1,4 +1,5 @@
-import { siteConfig } from "@/constants/site";
+import { BRAND_LOGO_SRC } from "@/constants/brand";
+import { siteConfig, socialLinks } from "@/constants/site";
 import { legal } from "@/constants/legal";
 import { absoluteUrl } from "@/lib/seo/metadata";
 import type { ArticleFrontmatter } from "@/types/content";
@@ -24,11 +25,12 @@ export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: `${siteConfig.name} Fan Experience`,
+    name: "Grand Theft Auto City 6",
+    url: "https://www.grandtheftautocity.com/",
+    logo: absoluteUrl(BRAND_LOGO_SRC),
+    sameAs: socialLinks.map((link) => link.href),
     description: legal.shortDisclaimer,
-    url: siteConfig.url,
     disambiguatingDescription: "Unofficial fan website",
-    logo: absoluteUrl(siteConfig.ogImage),
   };
 }
 
