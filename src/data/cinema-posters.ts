@@ -10,7 +10,7 @@ export const cinemaPosters = {
       "Exclusive looks, heat, and hardware — scroll the full Ultimate drop.",
     ctaLabel: "Explore Ultimate",
     ctaHref: "/ultimate",
-    imageSrc: "/images/posters/ultimate-cta-bg.jpg?v=ue-uhd",
+    imageSrc: "/images/posters/ultimate-cta-bg.balanced.jpg?v=equal-inset",
     imageAlt: "Ultimate Edition collage — neon coast key art",
     holdImage: "/images/posters/void.jpg",
     ctaTone: "peach" as const,
@@ -18,7 +18,8 @@ export const cinemaPosters = {
     align: "right" as const,
     textAlign: "left" as const,
     frame: "wide" as const,
-    imageClassName: "object-cover object-left",
+    /** Vertically center the collage in the 2.1:1 cover crop (not image center). */
+    imageClassName: "object-cover object-[left_57%]",
   },
   people: {
     eyebrow: "Pre-Order Bonuses",

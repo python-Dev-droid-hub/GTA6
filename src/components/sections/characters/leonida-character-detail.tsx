@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import { ScrollBeatVideo } from "@/components/animations/hero/scroll-beat-video";
-import { StillToScrubReveal } from "@/components/animations/hero/still-to-scrub-reveal";
 import {
   getLeonidaStill,
   type LeonidaCharacter,
@@ -13,13 +13,86 @@ export type LeonidaCharacterDetailProps = {
   character: LeonidaCharacter;
 };
 
-const DEFAULT_CLIP_OFFSET = 0.5;
+/** Skip only a short black flash — never eat half a short banner. */
+const DEFAULT_CLIP_OFFSET = 0.08;
+
+function CollageLoopVideo({
+  src,
+  poster,
+  alt,
+}: {
+  src: string;
+  poster: string;
+  alt: string;
+}) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.loop = true;
+
+    const tryPlay = () => {
+      video.play().catch(() => {
+        /* autoplay may be blocked until gesture */
+      });
+    };
+
+    const ensureLoad = () => {
+      if (video.readyState >= 2) {
+        tryPlay();
+        return;
+      }
+      video.preload = "auto";
+      try {
+        video.load();
+      } catch {
+        /* ignore */
+      }
+    };
+
+    video.addEventListener("loadeddata", tryPlay);
+    video.addEventListener("canplay", tryPlay);
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) ensureLoad();
+      },
+      { rootMargin: "80% 0px" },
+    );
+    io.observe(video);
+
+    return () => {
+      io.disconnect();
+      video.removeEventListener("loadeddata", tryPlay);
+      video.removeEventListener("canplay", tryPlay);
+      video.pause();
+    };
+  }, [src]);
+
+  return (
+    <video
+      ref={ref}
+      className="h-auto w-full"
+      src={src}
+      poster={poster}
+      muted
+      playsInline
+      loop
+      preload="none"
+      aria-label={alt}
+    />
+  );
+}
 
 /**
  * Shared Only-in-Leonida character page template.
  * Feed any `LeonidaCharacter` from `src/data/leonida-characters.ts`.
  *
- * Flow: clip1 (+ name) → intro collage → still→clip2 (+ quote) → closing collage → nav
+ * Flow: clip1 (+ name) → intro collage → clip2 scrub (+ quote) → closing collage → nav
  */
 export function LeonidaCharacterDetail({
   character,
@@ -109,16 +182,10 @@ export function LeonidaCharacterDetail({
 
           <figure className="character-collage__cell character-collage__cell--wide md:col-span-7 lg:col-span-8">
             {car.videoSrc ? (
-              <video
-                className="h-auto w-full"
+              <CollageLoopVideo
                 src={car.videoSrc}
                 poster={car.src}
-                muted
-                playsInline
-                autoPlay
-                loop
-                preload="none"
-                aria-label={car.alt}
+                alt={car.alt}
               />
             ) : (
               <Image
@@ -170,18 +237,17 @@ export function LeonidaCharacterDetail({
       </section>
 
       {clip2 ? (
-        <StillToScrubReveal
+        <ScrollBeatVideo
           id={`${character.slug}-clip-2`}
-          stillSrc={clip2.posterSrc}
-          stillAlt={clip2.caption ?? `${name} clip 2`}
           videoSrc={clip2.videoSrc}
           posterSrc={clip2.posterSrc}
           posterAlt={clip2.caption ?? `${name} clip 2`}
-          sectionHeight="200vh"
+          sectionHeight="160vh"
           startOffset={clip2.startOffset ?? 0}
           endEyebrow="Leonida"
           endTitle={quotes[0]}
           endTitleFrom={0.55}
+          endTitleVariant="quote"
           vivid
         />
       ) : null}

@@ -4,7 +4,7 @@
  * Page flow (same for every character):
  * 1. Clip 1 scrub → name at end
  * 2. Intro collage (tagline + lead + bike/car/bar/boat)
- * 3. Still → clip 2 scrub → quote heading at end
+ * 3. Clip 2 scrub → quote heading at end
  * 4. Closing collage (quotes[1] + bio + night/rifle)
  * 5. Prev / next nav (auto-linked from array order)
  *
@@ -123,15 +123,15 @@ const leonidaCharacterEntries: LeonidaCharacterInput[] = [
     clips: [
       {
         id: "clip-01",
-        videoSrc: "/videos/characters/jason/clip-01.mp4",
-        posterSrc: "/images/characters/jason/02-car.jpg",
+        videoSrc: "/videos/characters/jason/clip-01.mp4?v=cover-fit-2",
+        posterSrc: "/images/characters/jason/02-car.jpg?v=cover-fit-2",
         caption: "Another day in paradise",
-        startOffset: 0.5,
+        startOffset: 0.08,
       },
       {
         id: "clip-02",
-        videoSrc: "/videos/characters/jason/clip-02.mp4",
-        posterSrc: "/images/characters/jason/04-rifle.jpg",
+        videoSrc: "/videos/characters/jason/clip-02.mp4?v=cover-fit-2",
+        posterSrc: "/images/characters/jason/04-rifle.jpg?v=cover-fit-2",
         caption: "If anything happens",
         startOffset: 0.15,
       },
@@ -190,15 +190,15 @@ const leonidaCharacterEntries: LeonidaCharacterInput[] = [
     clips: [
       {
         id: "clip-01",
-        videoSrc: "/videos/characters/lucia/clip-01.mp4",
-        posterSrc: "/images/characters/lucia/02-pool.png",
+        videoSrc: "/videos/characters/lucia/clip-01.mp4?v=cover-fit-2",
+        posterSrc: "/images/characters/lucia/02-pool.png?v=cover-fit-2",
         caption: "Only smart moves from here",
         startOffset: 0.1,
       },
       {
         id: "clip-02",
-        videoSrc: "/videos/characters/lucia/clip-02.mp4",
-        posterSrc: "/images/characters/lucia/07-trailer-still.jpg",
+        videoSrc: "/videos/characters/lucia/clip-02.mp4?v=cover-fit-2",
+        posterSrc: "/images/characters/lucia/07-trailer-still.jpg?v=cover-fit-2",
         caption: "Who you know and what you got",
         startOffset: 0.1,
       },
@@ -257,15 +257,15 @@ const leonidaCharacterEntries: LeonidaCharacterInput[] = [
     clips: [
       {
         id: "clip-01",
-        videoSrc: "/videos/characters/cal/clip-banner.mp4",
-        posterSrc: "/images/characters/cal/06-clip1-poster.jpg",
+        videoSrc: "/videos/characters/cal/clip-banner.mp4?v=cover-fit-2",
+        posterSrc: "/images/characters/cal/06-clip1-poster.jpg?v=cover-fit-2",
         caption: "What if everything on the internet was true?",
         startOffset: 0.1,
       },
       {
         id: "clip-02",
-        videoSrc: "/videos/characters/cal/clip-scrub-24.mp4",
-        posterSrc: "/images/characters/cal/05-clip2-still.jpg",
+        videoSrc: "/videos/characters/cal/clip-scrub-24.mp4?v=cover-fit-2",
+        posterSrc: "/images/characters/cal/05-clip2-still.jpg?v=cover-fit-2",
         caption: "The psychopaths are in charge",
         startOffset: 0.1,
       },
@@ -324,15 +324,15 @@ const leonidaCharacterEntries: LeonidaCharacterInput[] = [
     clips: [
       {
         id: "clip-01",
-        videoSrc: "/videos/characters/boobie/clip-banner.mp4",
-        posterSrc: "/images/characters/boobie/05-banner-poster.jpg",
+        videoSrc: "/videos/characters/boobie/clip-banner.mp4?v=cover-fit-2",
+        posterSrc: "/images/characters/boobie/05-banner-poster.jpg?v=cover-fit-2",
         caption: "It's all about heart — the Jack of Hearts.",
         startOffset: 0.1,
       },
       {
         id: "clip-02",
-        videoSrc: "/videos/characters/boobie/clip-scrub-05.mp4",
-        posterSrc: "/images/characters/boobie/08-clip2-still.jpg",
+        videoSrc: "/videos/characters/boobie/clip-scrub-05.mp4?v=cover-fit-2",
+        posterSrc: "/images/characters/boobie/08-clip2-still.jpg?v=cover-fit-2",
         caption: "The club money pay for the studio, and the drug money pay for it all.",
         startOffset: 0,
       },
@@ -391,15 +391,15 @@ const leonidaCharacterEntries: LeonidaCharacterInput[] = [
     clips: [
       {
         id: "clip-01",
-        videoSrc: "/videos/characters/drequan/clip-banner-hq.mp4",
-        posterSrc: "/images/characters/drequan/06-banner-poster.jpg",
+        videoSrc: "/videos/characters/drequan/clip-banner-hq.mp4?v=cover-fit-2",
+        posterSrc: "/images/characters/drequan/06-banner-poster.jpg?v=cover-fit-2",
         caption: "Only Raw… Records",
         startOffset: 0.075,
       },
       {
         id: "clip-02",
-        videoSrc: "/videos/characters/drequan/clip-scrub-hq.mp4",
-        posterSrc: "/images/characters/drequan/07-clip2-still.jpg",
+        videoSrc: "/videos/characters/drequan/clip-scrub-hq.mp4?v=face-top-1",
+        posterSrc: "/images/characters/drequan/07-clip2-still.jpg?v=face-top-1",
         caption: "Dancers are like my A&Rs. If the record's a hit, DJs gonna be spinnin' it.",
         startOffset: 0.1,
       },
@@ -433,7 +433,7 @@ const leonidaCharacterEntries: LeonidaCharacterInput[] = [
         id: "car",
         src: "/images/characters/real-dimez/07-collage-poster.jpg",
         alt: "Real Dimez dancing on a car hood",
-        videoSrc: "/videos/characters/real-dimez/clip-collage.mp4",
+        videoSrc: "/videos/characters/real-dimez/clip-collage.mp4?v=cover-fit-2",
       },
       {
         id: "bar",
@@ -459,15 +459,15 @@ const leonidaCharacterEntries: LeonidaCharacterInput[] = [
     clips: [
       {
         id: "clip-01",
-        videoSrc: "/videos/characters/real-dimez/clip-banner.mp4",
-        posterSrc: "/images/characters/real-dimez/05-banner-poster.jpg",
+        videoSrc: "/videos/characters/real-dimez/clip-banner.mp4?v=cover-fit-2",
+        posterSrc: "/images/characters/real-dimez/05-banner-poster.jpg?v=cover-fit-2",
         caption: "Viral videos. Viral hooks.",
         startOffset: 0.1,
       },
       {
         id: "clip-02",
-        videoSrc: "/videos/characters/real-dimez/clip-scrub.mp4",
-        posterSrc: "/images/characters/real-dimez/06-clip2-still.jpg",
+        videoSrc: "/videos/characters/real-dimez/clip-scrub.mp4?v=cover-fit-2",
+        posterSrc: "/images/characters/real-dimez/06-clip2-still.jpg?v=cover-fit-2",
         caption: "All my dimes in this club. Meet my twin, make it a dub.",
         startOffset: 0.1,
       },
@@ -526,15 +526,15 @@ const leonidaCharacterEntries: LeonidaCharacterInput[] = [
     clips: [
       {
         id: "clip-01",
-        videoSrc: "/videos/characters/raul/clip-first-fill.mp4",
-        posterSrc: "/images/characters/raul/05-banner-poster.jpg",
+        videoSrc: "/videos/characters/raul/clip-first-fill.mp4?v=cover-fit-2",
+        posterSrc: "/images/characters/raul/05-banner-poster.jpg?v=cover-fit-2",
         caption: "Experience counts.",
         startOffset: 0,
       },
       {
         id: "clip-02",
-        videoSrc: "/videos/characters/raul/clip-second-fill.mp4",
-        posterSrc: "/images/characters/raul/06-clip2-still.jpg",
+        videoSrc: "/videos/characters/raul/clip-second-fill.mp4?v=cover-fit-2",
+        posterSrc: "/images/characters/raul/06-clip2-still.jpg?v=cover-fit-2",
         caption:
           "Life is full of surprises, my friend. I think we'd all be wise to remember that.",
         startOffset: 0.1,
@@ -594,15 +594,15 @@ const leonidaCharacterEntries: LeonidaCharacterInput[] = [
     clips: [
       {
         id: "clip-01",
-        videoSrc: "/videos/characters/brian/clip-banner.mp4",
-        posterSrc: "/images/characters/brian/05-banner-poster.jpg",
+        videoSrc: "/videos/characters/brian/clip-banner.mp4?v=cover-fit-2",
+        posterSrc: "/images/characters/brian/05-banner-poster.jpg?v=cover-fit-2",
         caption: "Looks like a Leonida beach bum — moves like a great white shark.",
         startOffset: 0,
       },
       {
         id: "clip-02",
-        videoSrc: "/videos/characters/brian/clip-scrub-fill.mp4",
-        posterSrc: "/images/characters/brian/06-clip2-still.jpg",
+        videoSrc: "/videos/characters/brian/clip-scrub-fill.mp4?v=cover-fit-2",
+        posterSrc: "/images/characters/brian/06-clip2-still.jpg?v=cover-fit-2",
         caption:
           "I hauled so much grass in that plane, I could make the state of Leonida levitate.",
         startOffset: 0.1,

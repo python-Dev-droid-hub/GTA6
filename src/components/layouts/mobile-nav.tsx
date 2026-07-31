@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import { BrandMark } from "@/components/layouts/brand-mark";
@@ -30,6 +30,9 @@ const menuLinks: MenuLink[] = [
   { label: "Blogs", href: "/news", chevron: true },
 ];
 
+/** Stable id — useId() mismatched across SSR/client under the experience provider tree. */
+const PANEL_ID = "site-mobile-nav-panel";
+
 function CloseButton({ onClick }: { onClick: () => void }) {
   return (
     <button
@@ -57,7 +60,6 @@ export function MobileNav() {
   const [open, setOpen] = useState(false);
   const [view, setView] = useState<"main" | "people">("main");
   const pathname = usePathname();
-  const panelId = useId();
 
   const closeMenu = () => {
     setOpen(false);
@@ -104,7 +106,7 @@ export function MobileNav() {
           "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
         )}
         aria-expanded={open}
-        aria-controls={panelId}
+        aria-controls={PANEL_ID}
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => (open ? closeMenu() : setOpen(true))}
       >
@@ -114,7 +116,7 @@ export function MobileNav() {
 
       {open ? (
         <div
-          id={panelId}
+          id={PANEL_ID}
           className="site-menu fixed inset-0 z-[60] grid lg:grid-cols-[minmax(0,1.35fr)_minmax(22rem,0.95fr)]"
           role="dialog"
           aria-modal="true"

@@ -1,12 +1,13 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 import {
   CHARACTER_VIDEO_SCRUB,
+  clampClipStartOffset,
   prepareScrubVideo,
 } from "@/utils/character-video-scrub";
 import {
@@ -29,6 +30,8 @@ export type ScrollBeatVideoProps = {
   endEyebrow?: string;
   endTitle?: string;
   endTitleFrom?: number;
+  /** `hero` = character name lockup; `quote` = multi-line quote overlay */
+  endTitleVariant?: "hero" | "quote";
   vivid?: boolean;
 };
 
@@ -47,6 +50,7 @@ export function ScrollBeatVideo({
   endEyebrow,
   endTitle,
   endTitleFrom = 0.62,
+  endTitleVariant = "hero",
   vivid = false,
 }: ScrollBeatVideoProps) {
   const sectionRef = useRef<HTMLElement>(null);
@@ -58,6 +62,7 @@ export function ScrollBeatVideo({
   const armedRef = useRef(false);
   const reduced = usePrefersReducedMotion();
   const showEndTitle = Boolean(endTitle);
+  const [frameReady, setFrameReady] = useState(false);
 
   useLayoutEffect(() => {
     if (reduced) return;
@@ -66,17 +71,18 @@ export function ScrollBeatVideo({
     const video = videoRef.current;
     if (!section || !pin || !video) return;
 
-    const offset = Math.max(0, startOffset);
     let videoLoadStarted = false;
     let progress = 0;
+    let resolvedOffset = Math.max(0, startOffset);
 
     prepareScrubVideo(video, "none");
     seekRef.current = createVideoScrubSeek();
     activeRef.current = false;
     armedRef.current = false;
+    setFrameReady(false);
 
     const scrubStart = (dur: number) =>
-      Math.min(offset, Math.max(dur - 0.05, 0));
+      Math.min(resolvedOffset, Math.max(dur - 0.05, 0));
     const scrubEnd = (dur: number) =>
       Math.max(dur - CHARACTER_VIDEO_SCRUB.seek.frameDur * 0.35, 0);
 
@@ -88,11 +94,16 @@ export function ScrollBeatVideo({
       seekRef.current.target = start + p * Math.max(end - start, 0.05);
     };
 
+    const markReady = () => {
+      if (video.readyState >= 2) setFrameReady(true);
+    };
+
     const arm = () => {
       if (armedRef.current) return;
       if (!Number.isFinite(video.duration) || video.duration <= 0) return;
 
       armedRef.current = true;
+      resolvedOffset = clampClipStartOffset(startOffset, video.duration);
       seekRef.current.duration = video.duration;
       seekRef.current.ready = true;
       seekRef.current.busy = false;
@@ -103,6 +114,7 @@ export function ScrollBeatVideo({
       } catch {
         /* ignore */
       }
+      markReady();
     };
 
     const ensureVideoLoad = () => {
@@ -120,15 +132,22 @@ export function ScrollBeatVideo({
       }
     };
 
+    const onSeeked = () => {
+      seekRef.current.busy = false;
+      markReady();
+    };
+
     video.addEventListener("loadedmetadata", arm);
     video.addEventListener("loadeddata", arm);
+    video.addEventListener("seeked", onSeeked);
+    video.addEventListener("canplay", markReady);
     if (video.readyState >= 1) arm();
 
     const io = new IntersectionObserver(
       (entries) => {
         if (entries.some((e) => e.isIntersecting)) ensureVideoLoad();
       },
-      { rootMargin: "100% 0px 100% 0px" },
+      { rootMargin: "120% 0px 120% 0px" },
     );
     io.observe(section);
 
@@ -221,6 +240,8 @@ export function ScrollBeatVideo({
       gsap.ticker.remove(tick);
       video.removeEventListener("loadedmetadata", arm);
       video.removeEventListener("loadeddata", arm);
+      video.removeEventListener("seeked", onSeeked);
+      video.removeEventListener("canplay", markReady);
       video.pause();
       ctx.revert();
     };
@@ -245,7 +266,7 @@ export function ScrollBeatVideo({
             fill
             sizes="100vw"
             className={cn(
-              "object-cover",
+              "object-cover object-top",
               vivid && "contrast-[1.06] saturate-[1.2]",
             )}
             priority={priorityPoster}
@@ -255,7 +276,10 @@ export function ScrollBeatVideo({
           {!reduced ? (
             <video
               ref={videoRef}
-              className="absolute inset-0 h-full w-full min-h-full min-w-full object-cover"
+              className={cn(
+                "absolute inset-0 size-full object-cover object-top transition-opacity duration-300",
+                frameReady ? "opacity-100" : "opacity-0",
+              )}
               poster={posterSrc}
               muted
               playsInline
@@ -296,10 +320,12 @@ export function ScrollBeatVideo({
             ) : null}
             <h1
               className={cn(
-                "mt-3 max-w-4xl font-[family-name:var(--font-family-bebas)] uppercase",
-                "text-[clamp(2.35rem,11vw,7.5rem)] leading-[0.88] tracking-[0.02em] break-words",
-                "text-[#f3ead2]",
+                "mt-3 font-[family-name:var(--font-family-bebas)] uppercase",
+                "break-words text-[#f3ead2]",
                 "drop-shadow-[0_8px_28px_rgba(0,0,0,0.65)]",
+                endTitleVariant === "quote"
+                  ? "max-w-3xl text-[clamp(1.15rem,2.6vw,1.85rem)] leading-[1.12] tracking-[0.04em]"
+                  : "max-w-4xl text-[clamp(2.25rem,8vw,5.5rem)] leading-[0.9] tracking-[0.02em]",
               )}
             >
               {endTitle}

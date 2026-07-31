@@ -5,6 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { BannerGameCounter } from "@/components/sections/home/banner-game-counter";
+import { CinemaPosterCard } from "@/components/sections/home/cinema-poster-card";
 import { homeCollage } from "@/data/home-collage";
 import { cinemaBeatById } from "@/data/cinema-beats";
 import { legal } from "@/constants/legal";
@@ -14,6 +15,7 @@ import {
   createVideoScrubSeek,
 } from "@/utils/video-scrub-seek";
 import { cn } from "@/utils/cn";
+import type { CinemaPosterCardProps } from "@/components/sections/home/cinema-poster-card";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +23,11 @@ const SCRUB_START = 0.34;
 
 export type HeroVideoRevealProps = {
   className?: string;
+  /**
+   * CTA that pulls up over the first scrub video end —
+   * same pattern as CinemaVideoPosterBeat + vintage poster.
+   */
+  poster?: CinemaPosterCardProps;
 };
 
 /**
@@ -28,7 +35,8 @@ export type HeroVideoRevealProps = {
  * Existing collage asset only; composition / type / HUD / motion redesigned.
  * Content: subtitle + title lockup + launch countdown (no description).
  */
-export function HeroVideoReveal({ className }: HeroVideoRevealProps) {
+export function HeroVideoReveal({ className, poster }: HeroVideoRevealProps) {
+  const rootRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const heroLayerRef = useRef<HTMLDivElement>(null);
@@ -39,6 +47,8 @@ export function HeroVideoReveal({ className }: HeroVideoRevealProps) {
   const sixRef = useRef<HTMLSpanElement>(null);
   const videoLayerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const posterSectionRef = useRef<HTMLElement>(null);
+  const posterCardRef = useRef<HTMLDivElement>(null);
   const seekRef = useRef(createVideoScrubSeek());
   const reduced = usePrefersReducedMotion();
 
@@ -184,10 +194,13 @@ export function HeroVideoReveal({ className }: HeroVideoRevealProps) {
             if (p >= SCRUB_START * 0.15) {
               ensureVideoLoad();
             }
-            // Keep banner above following CTAs until cinema handoff
-            gsap.set(section, {
-              zIndex: p < SCRUB_START * 0.55 ? 30 : 5,
-            });
+            // Collage stays above site chrome early; once cinema scrub
+            // owns the pin, drop under the pull-up CTA (nested poster).
+            if (!poster) {
+              gsap.set(section, {
+                zIndex: p < SCRUB_START * 0.55 ? 30 : 5,
+              });
+            }
             if (p < SCRUB_START) {
               seekRef.current.target = 0;
               return;
@@ -199,7 +212,7 @@ export function HeroVideoReveal({ className }: HeroVideoRevealProps) {
             }
           },
           onLeaveBack: () => {
-            gsap.set(section, { zIndex: 30 });
+            if (!poster) gsap.set(section, { zIndex: 30 });
             // Restore hero chrome when returning to top
             gsap.set([six, heroBar, heroCopy, heroTitle], {
               opacity: 1,
@@ -264,18 +277,49 @@ export function HeroVideoReveal({ className }: HeroVideoRevealProps) {
       video.pause();
       ctx.revert();
     };
-  }, [reduced, clip]);
+  }, [reduced, clip, !!poster]);
+
+  useLayoutEffect(() => {
+    if (reduced || !poster) return;
+    const posterSection = posterSectionRef.current;
+    const card = posterCardRef.current;
+    if (!posterSection || !card) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        card,
+        { opacity: 0.55, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: posterSection,
+            start: "top 88%",
+            end: "top 42%",
+            scrub: 0.38,
+          },
+        },
+      );
+    }, posterSection);
+
+    return () => ctx.revert();
+  }, [reduced, !!poster]);
 
   if (!clip) return null;
 
   return (
+    <div
+      ref={rootRef}
+      className={cn("relative z-[12] bg-[#03020c]", className)}
+    >
     <section
       ref={sectionRef}
       id="hero-collage"
       className={cn(
-        "relative isolate z-30 w-full bg-[#03020c]",
+        "relative isolate w-full bg-[#03020c]",
+        poster ? "z-10" : "z-30",
         !reduced && "h-[210vh]",
-        className,
       )}
       aria-label="Grand Theft Auto 6 launch"
     >
@@ -439,5 +483,27 @@ export function HeroVideoReveal({ className }: HeroVideoRevealProps) {
 
       <p className="sr-only">{legal.shortDisclaimer}</p>
     </section>
+
+    {poster ? (
+      <section
+        ref={posterSectionRef}
+        id="beat-trailer"
+        className={cn(
+          "relative z-40",
+          "-mt-[32dvh] md:-mt-[34dvh]",
+          "bg-transparent pb-16 pt-0 md:pb-24",
+        )}
+        aria-label={poster.title}
+      >
+        <div ref={posterCardRef} className="w-full will-change-transform">
+          <CinemaPosterCard {...poster} prominent />
+        </div>
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[55%] bg-ink-950"
+          aria-hidden
+        />
+      </section>
+    ) : null}
+    </div>
   );
 }

@@ -1,12 +1,13 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 import {
   CHARACTER_VIDEO_SCRUB,
+  clampClipStartOffset,
   prepareScrubVideo,
 } from "@/utils/character-video-scrub";
 import {
@@ -17,7 +18,7 @@ import { cn } from "@/utils/cn";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HANDOFF = 0.18;
+const HANDOFF = 0.12;
 
 export type StillToScrubRevealProps = {
   stillSrc: string;
@@ -64,6 +65,7 @@ export function StillToScrubReveal({
   const armedRef = useRef(false);
   const reduced = usePrefersReducedMotion();
   const showEndTitle = Boolean(endTitle);
+  const [frameReady, setFrameReady] = useState(false);
 
   useLayoutEffect(() => {
     if (reduced) return;
@@ -74,7 +76,7 @@ export function StillToScrubReveal({
     const video = videoRef.current;
     if (!section || !pin || !stillLayer || !videoLayer || !video) return;
 
-    const offset = Math.max(0, startOffset);
+    let resolvedOffset = Math.max(0, startOffset);
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
     const titleEl = endTitleRef.current;
     let videoLoadStarted = false;
@@ -84,10 +86,11 @@ export function StillToScrubReveal({
     seekRef.current = createVideoScrubSeek();
     activeRef.current = false;
     armedRef.current = false;
+    setFrameReady(false);
     if (titleEl) gsap.set(titleEl, { opacity: 0, y: 28 });
 
     const scrubStart = (dur: number) =>
-      Math.min(offset, Math.max(dur - 0.05, 0));
+      Math.min(resolvedOffset, Math.max(dur - 0.05, 0));
     const scrubEnd = (dur: number) =>
       Math.max(dur - CHARACTER_VIDEO_SCRUB.seek.frameDur * 0.35, 0);
 
@@ -151,6 +154,7 @@ export function StillToScrubReveal({
       if (!Number.isFinite(video.duration) || video.duration <= 0) return;
 
       armedRef.current = true;
+      resolvedOffset = clampClipStartOffset(startOffset, video.duration);
       seekRef.current.duration = video.duration;
       seekRef.current.ready = true;
       seekRef.current.busy = false;
@@ -161,6 +165,7 @@ export function StillToScrubReveal({
       } catch {
         /* ignore */
       }
+      if (video.readyState >= 2) setFrameReady(true);
     };
 
     const ensureVideoLoad = () => {
@@ -178,8 +183,14 @@ export function StillToScrubReveal({
       }
     };
 
+    const onSeeked = () => {
+      seekRef.current.busy = false;
+      if (video.readyState >= 2) setFrameReady(true);
+    };
+
     video.addEventListener("loadedmetadata", arm);
     video.addEventListener("loadeddata", arm);
+    video.addEventListener("seeked", onSeeked);
     if (video.readyState >= 1) arm();
 
     const io = new IntersectionObserver(
@@ -214,7 +225,6 @@ export function StillToScrubReveal({
           anticipatePin: 1,
           invalidateOnRefresh: true,
           fastScrollEnd: true,
-          pinType: "fixed",
           onToggle: (self) => {
             activeRef.current = self.isActive;
             if (!self.isActive) seekRef.current.busy = false;
@@ -222,7 +232,8 @@ export function StillToScrubReveal({
           onUpdate: (self) => {
             activeRef.current = true;
             progress = self.progress;
-            if (progress >= HANDOFF * 0.2) ensureVideoLoad();
+            // Prefetch as soon as the beat pins — don't wait for handoff
+            ensureVideoLoad();
             applyVisual(progress);
             applySeekFromProgress(progress);
           },
@@ -258,6 +269,7 @@ export function StillToScrubReveal({
       gsap.ticker.remove(tick);
       video.removeEventListener("loadedmetadata", arm);
       video.removeEventListener("loadeddata", arm);
+      video.removeEventListener("seeked", onSeeked);
       video.pause();
       ctx.revert();
     };
@@ -277,7 +289,7 @@ export function StillToScrubReveal({
             fill
             loading="lazy"
             sizes="100vw"
-            className="object-cover"
+            className="object-cover object-top"
             unoptimized
           />
         </div>
@@ -309,14 +321,17 @@ export function StillToScrubReveal({
             loading="lazy"
             sizes="100vw"
             className={cn(
-              "object-cover object-[center_22%]",
+              "object-cover object-top",
               vivid && "contrast-[1.06] saturate-[1.2]",
             )}
             unoptimized
           />
           <video
             ref={videoRef}
-            className="absolute inset-0 h-full w-full min-h-full min-w-full object-cover object-[center_22%]"
+            className={cn(
+              "absolute inset-0 size-full object-cover object-top transition-opacity duration-300",
+              frameReady ? "opacity-100" : "opacity-0",
+            )}
             poster={posterSrc}
             muted
             playsInline
@@ -351,7 +366,7 @@ export function StillToScrubReveal({
             loading="lazy"
             sizes="100vw"
             className={cn(
-              "object-cover",
+              "object-cover object-top",
               vivid && "contrast-[1.06] saturate-[1.15]",
             )}
             unoptimized

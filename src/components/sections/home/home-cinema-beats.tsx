@@ -16,31 +16,12 @@ export type HomeCinemaBeatsProps = {
 export function HomeCinemaBeats({ className }: HomeCinemaBeatsProps) {
   const b2 = cinemaBeatById["beat-02"];
   const blogScrub = cinemaBeatById["beat-blog-scrub"];
-  const { trailer, people, trailer2, blog } = cinemaPosters;
+  const { people, trailer2, blog } = cinemaPosters;
 
   if (!b2 || !blogScrub) return null;
 
   return (
     <div className={cn("relative z-10 bg-ink-950", className)}>
-      <CinemaPosterSection
-        id="beat-trailer"
-        eyebrow={trailer.eyebrow}
-        title={trailer.title}
-        description={trailer.description}
-        ctaLabel={trailer.ctaLabel}
-        ctaHref={trailer.ctaHref}
-        imageSrc={trailer.imageSrc}
-        imageAlt={trailer.imageAlt}
-        ctaTone={trailer.ctaTone}
-        palette={trailer.palette}
-        align={trailer.align}
-        textAlign={trailer.textAlign}
-        frame={trailer.frame}
-        imageClassName={trailer.imageClassName}
-        prominent
-        pullUpOverVideo
-      />
-
       <CinemaVideoPosterBeat
         id="beat-vintage"
         videoHeight="200vh"
