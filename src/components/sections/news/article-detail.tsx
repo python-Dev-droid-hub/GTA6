@@ -164,7 +164,6 @@ export function ArticleDetail({
   readingMinutes,
 }: ArticleDetailProps) {
   const sectionCount = headings.filter((h) => h.level === 2).length;
-  const hasToc = sectionCount > 0;
   const latestPosts = getPublishedBlogPosts()
     .filter((post) => post.slug !== slug)
     .slice(0, 4);
