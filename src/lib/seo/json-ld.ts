@@ -101,13 +101,24 @@ export function articleJsonLd(input: {
   slug: string;
   meta: ArticleFrontmatter;
 }) {
+  const keywords = [
+    ...(input.meta.keywords ?? []),
+    input.meta.tag,
+    input.meta.category,
+  ].filter((t): t is string => Boolean(t));
+
   return {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: input.meta.title,
+    headline: input.meta.seoTitle ?? input.meta.title,
+    alternativeHeadline: input.meta.seoTitle
+      ? input.meta.title
+      : undefined,
     description: input.meta.description,
     datePublished: input.meta.date,
     image: [absoluteUrl(input.meta.cover)],
+    keywords: [...new Set(keywords)].join(", "),
+    articleSection: input.meta.category ?? input.meta.tag,
     author: {
       "@type": "Organization",
       name: `${siteConfig.name} Fan Experience`,

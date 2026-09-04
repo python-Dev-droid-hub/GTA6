@@ -5,7 +5,22 @@ export type ArticleFrontmatter = {
   tag: string;
   cover: string;
   coverAlt: string;
+  /** Browser / OG title when different from on-page H1 */
+  seoTitle?: string;
+  category?: string;
+  keywords?: string[];
   draft?: boolean;
+  /**
+   * Optional schedule time (ISO-8601). When set, the post stays hidden until
+   * this instant even if `date` is earlier. Falls back to `date` when omitted.
+   */
+  publishAt?: string;
+};
+
+export type ArticleHeading = {
+  id: string;
+  text: string;
+  level: 2 | 3;
 };
 
 export type CharacterFrontmatter = {

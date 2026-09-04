@@ -1,3 +1,5 @@
+import { isContentPublished } from "@/lib/content/publish";
+
 export type BlogCategory =
   | "all"
   | "news"
@@ -14,6 +16,9 @@ export type BlogPost = {
   coverSrc: string;
   coverAlt: string;
   featured?: boolean;
+  draft?: boolean;
+  /** Optional schedule override (ISO-8601). Falls back to `date`. */
+  publishAt?: string;
 };
 
 export const blogCategories: { id: BlogCategory; label: string }[] = [
@@ -24,24 +29,59 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
   { id: "development", label: "Development" },
 ];
 
+/** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
-    slug: "new-screenshots-revealed",
-    title: "New Screenshots Revealed",
+    slug: "gta-6-vs-gta-5",
+    title: "GTA 6 vs GTA 5: What’s Changed After 13 Years?",
     excerpt:
-      "Fresh stills from the Leonida coast — beaches, skyline, and the heat of midday Vice.",
-    date: "2024-05-12",
-    category: "news",
-    coverSrc: "/images/blog/screenshots.jpg",
-    coverAlt: "Aerial view of a crowded Vice City beach",
+      "GTA 6 vs GTA 5 explained: discover the biggest changes in Vice City, protagonists, graphics, AI, physics, world density, and gameplay.",
+    date: "2026-09-07",
+    publishAt: "2026-09-07T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-vs-gta-5.jpg",
+    coverAlt:
+      "GTA 6 vs GTA 5 comparison — Los Santos 2013 beside Vice City and Leonida 2026",
+  },
+  {
+    slug: "how-to-play-gta-6-on-ps5",
+    title: "How to Start Playing Grand Theft Auto 6 on PS5?",
+    excerpt:
+      "Learn how to start playing GTA 6 on PS5, including console compatibility, pre-orders, storage, pre-loading, DualSense, and 3D audio.",
+    date: "2026-09-04",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-ps5-setup-guide.jpg",
+    coverAlt:
+      "How to start playing Grand Theft Auto VI on PS5 — Vice City setup guide with DualSense and launch details",
     featured: true,
   },
 ];
 
-export const blogFeatured =
-  blogPosts.find((p) => p.featured) ?? blogPosts[0];
+/** Live posts only (draft + schedule aware). Call at request/render time. */
+export function getPublishedBlogPosts(now: Date = new Date()): BlogPost[] {
+  return blogPosts
+    .filter((post) =>
+      isContentPublished(
+        {
+          draft: post.draft,
+          date: post.date,
+          publishAt: post.publishAt,
+        },
+        now,
+      ),
+    )
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
+}
 
-export const blogGridPosts = blogPosts.filter((p) => !p.featured);
+export function getBlogFeatured(now: Date = new Date()) {
+  const published = getPublishedBlogPosts(now);
+  return published.find((p) => p.featured) ?? published[0] ?? null;
+}
+
+export function getBlogGridPosts(now: Date = new Date()) {
+  const featured = getBlogFeatured(now);
+  return getPublishedBlogPosts(now).filter((p) => p.slug !== featured?.slug);
+}
 
 export function filterBlogPosts(
   posts: BlogPost[],

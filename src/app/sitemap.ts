@@ -2,7 +2,10 @@ import type { MetadataRoute } from "next";
 import { absoluteUrl, getSiteOrigin } from "@/lib/seo/metadata";
 import { getAllArticles } from "@/lib/mdx/articles";
 import { getLeonidaSlugs } from "@/data/leonida-characters";
-import { blogPosts } from "@/data/blog";
+import { getPublishedBlogPosts } from "@/data/blog";
+import { CONTENT_REVALIDATE_SECONDS } from "@/lib/content/publish";
+
+export const revalidate = CONTENT_REVALIDATE_SECONDS;
 
 type StaticRoute = {
   path: string;
@@ -38,9 +41,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const articleBySlug = new Map(
-    getAllArticles().map((article) => [article.slug, article]),
+    getAllArticles(now).map((article) => [article.slug, article]),
   );
-  for (const post of blogPosts) {
+  for (const post of getPublishedBlogPosts(now)) {
     if (!articleBySlug.has(post.slug)) {
       articleBySlug.set(post.slug, {
         slug: post.slug,

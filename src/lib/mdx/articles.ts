@@ -2,10 +2,16 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import readingTime from "reading-time";
 import { listMdxSlugs, readMdxFile } from "@/lib/mdx/fs";
 import { mdxComponents } from "@/components/mdx/mdx-components";
-import type { ArticleFrontmatter } from "@/types/content";
+import { isContentPublished } from "@/lib/content/publish";
+import type { ArticleFrontmatter, ArticleHeading } from "@/types/content";
 import type { NewsArticlePreview } from "@/data/news";
+import { slugify } from "@/utils/slugify";
 
 function assertArticle(data: Record<string, unknown>): ArticleFrontmatter {
+  const keywords = Array.isArray(data.keywords)
+    ? data.keywords.map((k) => String(k))
+    : undefined;
+
   return {
     title: String(data.title ?? "Untitled"),
     description: String(data.description ?? ""),
@@ -13,21 +19,50 @@ function assertArticle(data: Record<string, unknown>): ArticleFrontmatter {
     tag: String(data.tag ?? "News"),
     cover: String(data.cover ?? "/images/hero-poster.png"),
     coverAlt: String(data.coverAlt ?? ""),
+    seoTitle: data.seoTitle ? String(data.seoTitle) : undefined,
+    category: data.category ? String(data.category) : undefined,
+    keywords,
     draft: Boolean(data.draft),
+    publishAt: data.publishAt ? String(data.publishAt) : undefined,
   };
+}
+
+/** Pull ## / ### headings for TOC — skips fenced code blocks. */
+export function extractArticleHeadings(content: string): ArticleHeading[] {
+  const headings: ArticleHeading[] = [];
+  let inCode = false;
+
+  for (const line of content.split("\n")) {
+    if (line.trimStart().startsWith("```")) {
+      inCode = !inCode;
+      continue;
+    }
+    if (inCode) continue;
+
+    const match = /^(#{2,3})\s+(.+)$/.exec(line);
+    if (!match) continue;
+
+    const level = match[1].length as 2 | 3;
+    const text = match[2].replace(/\s+#+\s*$/, "").trim();
+    if (!text) continue;
+
+    headings.push({ id: slugify(text), text, level });
+  }
+
+  return headings;
 }
 
 export function getArticleSlugs(): string[] {
   return listMdxSlugs("articles");
 }
 
-export function getAllArticles(): NewsArticlePreview[] {
+export function getAllArticles(now: Date = new Date()): NewsArticlePreview[] {
   return getArticleSlugs()
     .map((slug) => {
       const file = readMdxFile("articles", slug);
       if (!file) return null;
       const meta = assertArticle(file.frontmatter as Record<string, unknown>);
-      if (meta.draft) return null;
+      if (!isContentPublished(meta, now)) return null;
       return {
         slug,
         title: meta.title,
@@ -42,15 +77,17 @@ export function getAllArticles(): NewsArticlePreview[] {
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export function getLatestArticles(limit = 3): NewsArticlePreview[] {
-  return getAllArticles().slice(0, limit);
+export function getLatestArticles(limit = 3, now: Date = new Date()) {
+  return getAllArticles(now).slice(0, limit);
 }
 
-export async function getArticleBySlug(slug: string) {
+export async function getArticleBySlug(slug: string, now: Date = new Date()) {
   const file = readMdxFile("articles", slug);
   if (!file) return null;
   const meta = assertArticle(file.frontmatter as Record<string, unknown>);
-  if (meta.draft) return null;
+  if (!isContentPublished(meta, now)) return null;
+
+  const headings = extractArticleHeadings(file.content);
 
   const { content: body } = await compileMDX({
     source: file.content,
@@ -61,6 +98,7 @@ export async function getArticleBySlug(slug: string) {
     slug,
     meta,
     body,
+    headings,
     readingMinutes: Math.max(1, Math.ceil(readingTime(file.content).minutes)),
   };
 }

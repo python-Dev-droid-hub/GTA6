@@ -6,9 +6,10 @@ import Link from "next/link";
 import { Search } from "lucide-react";
 import {
   blogCategories,
-  blogFeatured,
-  blogGridPosts,
   filterBlogPosts,
+  getBlogFeatured,
+  getBlogGridPosts,
+  getPublishedBlogPosts,
   type BlogCategory,
   type BlogPost,
 } from "@/data/blog";
@@ -73,10 +74,19 @@ export function NewsBlogExperience() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<BlogCategory>("all");
 
-  const filtered = useMemo(
-    () => filterBlogPosts(blogGridPosts, category, query),
-    [category, query],
-  );
+  // Why: evaluate schedule on each render so posts unlock without redeploy.
+  const published = getPublishedBlogPosts();
+  const featured = getBlogFeatured();
+  const gridPosts = getBlogGridPosts();
+
+  const showFeatured =
+    Boolean(featured) && category === "all" && !query.trim();
+
+  // Why: when the featured card is hidden (filter/search), include that post in the grid.
+  const filtered = useMemo(() => {
+    const source = showFeatured ? gridPosts : published;
+    return filterBlogPosts(source, category, query);
+  }, [category, query, showFeatured, gridPosts, published]);
 
   return (
     <div className="relative z-10 flex flex-col gap-10 pb-16 sm:gap-12 sm:pb-20">
@@ -175,16 +185,16 @@ export function NewsBlogExperience() {
           </div>
         </div>
 
-        {blogFeatured && category === "all" && !query.trim() ? (
+        {showFeatured && featured ? (
           <article className="mt-8 overflow-hidden border border-[#ff4fc3]/50 bg-[#0a0812]/90 shadow-[0_0_20px_rgba(255,45,111,0.16)] lg:mt-10">
             <Link
-              href={`/news/${blogFeatured.slug}`}
+              href={`/news/${featured.slug}`}
               className="grid lg:grid-cols-2"
             >
               <span className="relative aspect-[16/11] overflow-hidden lg:aspect-auto lg:min-h-[22rem]">
                 <Image
-                  src={blogFeatured.coverSrc}
-                  alt={blogFeatured.coverAlt}
+                  src={featured.coverSrc}
+                  alt={featured.coverAlt}
                   fill
                   loading="lazy"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -204,10 +214,10 @@ export function NewsBlogExperience() {
                     Featured
                   </span>
                   <time
-                    dateTime={blogFeatured.date}
+                    dateTime={featured.date}
                     className="font-[family-name:var(--font-family-orbitron)] text-[10px] uppercase tracking-[0.16em] text-white/50"
                   >
-                    {formatDate(blogFeatured.date, "en-US", {
+                    {formatDate(featured.date, "en-US", {
                       month: "long",
                       day: "numeric",
                       year: "numeric",
@@ -215,10 +225,10 @@ export function NewsBlogExperience() {
                   </time>
                 </span>
                 <h2 className="relative z-10 mt-4 font-[family-name:var(--font-family-bebas)] text-[clamp(1.65rem,5vw,3.25rem)] uppercase leading-[0.92] tracking-[0.03em] text-white break-words">
-                  {blogFeatured.title}
+                  {featured.title}
                 </h2>
                 <p className="relative z-10 mt-3 max-w-md text-[14px] leading-relaxed text-white/70 sm:text-[15px]">
-                  {blogFeatured.excerpt}
+                  {featured.excerpt}
                 </p>
               </span>
             </Link>
