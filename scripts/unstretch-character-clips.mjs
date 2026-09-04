@@ -48,7 +48,12 @@ const jobs = [
   { rel: "real-dimez/clip-scrub.mp4", crop: "1920:980:0:50", still: "real-dimez/06-clip2-still.jpg" },
   { rel: "real-dimez/clip-collage.mp4", crop: "1920:864:0:108" },
   { rel: "raul/clip-first-fill.mp4" },
-  { rel: "raul/clip-second-fill.mp4", still: "raul/06-clip2-still.jpg" },
+  {
+    rel: "raul/clip-second-fill.mp4",
+    // Portrait plate with blurred side mirrors on source — crop to true content
+    crop: "960:1080:480:0",
+    still: "raul/06-clip2-still.jpg",
+  },
   { rel: "brian/clip-banner.mp4" },
   {
     rel: "brian/clip-scrub-fill.mp4",

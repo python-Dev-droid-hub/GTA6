@@ -533,8 +533,8 @@ const leonidaCharacterEntries: LeonidaCharacterInput[] = [
       },
       {
         id: "clip-02",
-        videoSrc: "/videos/characters/raul/clip-second-fill.mp4?v=cover-fit-2",
-        posterSrc: "/images/characters/raul/06-clip2-still.jpg?v=cover-fit-2",
+        videoSrc: "/videos/characters/raul/clip-second-fill.mp4?v=side-crop-3",
+        posterSrc: "/images/characters/raul/06-clip2-still.jpg?v=side-crop-3",
         caption:
           "Life is full of surprises, my friend. I think we'd all be wise to remember that.",
         startOffset: 0.1,

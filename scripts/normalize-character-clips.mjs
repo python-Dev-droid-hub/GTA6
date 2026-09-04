@@ -46,7 +46,11 @@ const jobs = [
   { rel: "real-dimez/clip-scrub.mp4", still: "real-dimez/06-clip2-still.jpg" },
   { rel: "real-dimez/clip-collage.mp4" },
   { rel: "raul/clip-first-fill.mp4" },
-  { rel: "raul/clip-second-fill.mp4", still: "raul/06-clip2-still.jpg" },
+  {
+    rel: "raul/clip-second-fill.mp4",
+    crop: "960:1080:480:0",
+    still: "raul/06-clip2-still.jpg",
+  },
   { rel: "brian/clip-banner.mp4" },
   { rel: "brian/clip-scrub-fill.mp4", still: "brian/06-clip2-still.jpg" },
 ];
