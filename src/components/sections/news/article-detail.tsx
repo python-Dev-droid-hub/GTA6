@@ -54,8 +54,6 @@ function LatestBlogs({
 }: {
   posts: BlogPost[];
 }) {
-  if (!posts.length) return null;
-
   return (
     <section
       aria-labelledby="latest-blogs-heading"
@@ -68,42 +66,48 @@ function LatestBlogs({
         <Newspaper className="size-3.5" aria-hidden />
         Latest Blogs
       </p>
-      <ul className="space-y-4">
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <Link
-              href={`/news/${post.slug}`}
-              className="group flex gap-3 transition-colors"
-            >
-              <span className="relative size-14 shrink-0 overflow-hidden rounded-sm border border-border bg-ink-800">
-                <Image
-                  src={post.coverSrc}
-                  alt=""
-                  fill
-                  loading="lazy"
-                  sizes="56px"
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="line-clamp-2 text-[13px] leading-snug text-paper-muted transition-colors group-hover:text-paper">
-                  {post.title}
+      {posts.length ? (
+        <ul className="space-y-4">
+          {posts.map((post) => (
+            <li key={post.slug}>
+              <Link
+                href={`/news/${post.slug}`}
+                className="group flex gap-3 transition-colors"
+              >
+                <span className="relative size-14 shrink-0 overflow-hidden rounded-sm border border-border bg-ink-800">
+                  <Image
+                    src={post.coverSrc}
+                    alt=""
+                    fill
+                    loading="lazy"
+                    sizes="56px"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </span>
-                <time
-                  dateTime={post.date}
-                  className="mt-1 block font-mono text-[9px] uppercase tracking-[0.16em] text-paper-faint"
-                >
-                  {formatDate(post.date, "en-US", {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                  })}
-                </time>
-              </span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+                <span className="min-w-0 flex-1">
+                  <span className="line-clamp-2 text-[13px] leading-snug text-paper-muted transition-colors group-hover:text-paper">
+                    {post.title}
+                  </span>
+                  <time
+                    dateTime={post.date}
+                    className="mt-1 block font-mono text-[9px] uppercase tracking-[0.16em] text-paper-faint"
+                  >
+                    {formatDate(post.date, "en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
+                  </time>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-[13px] leading-relaxed text-paper-muted">
+          More guides are on the way. Check back soon for the next drop.
+        </p>
+      )}
       <Link
         href="/news"
         className="mt-4 inline-block font-mono text-[10px] uppercase tracking-[0.18em] text-neon-cyan transition-colors hover:text-paper"
@@ -164,7 +168,8 @@ export function ArticleDetail({
   const latestPosts = getPublishedBlogPosts()
     .filter((post) => post.slug !== slug)
     .slice(0, 4);
-  const showSidebar = hasToc || latestPosts.length > 0;
+  // Always keep the left rail — TOC and/or Latest Blogs.
+  const showSidebar = true;
 
   return (
     <div className="relative isolate bg-ink-950">
