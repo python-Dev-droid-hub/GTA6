@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { ArticleDetail } from "@/components/sections/news/article-detail";
 import { JsonLd } from "@/components/seo/json-ld";
-import { CONTENT_REVALIDATE_SECONDS } from "@/lib/content/publish";
 import {
   getAllArticles,
   getArticleBySlug,
@@ -11,8 +10,8 @@ import { buildMetadata } from "@/lib/seo/metadata";
 
 type Props = { params: Promise<{ slug: string }> };
 
-/** ISR so scheduled posts unlock without a full redeploy. */
-export const revalidate = CONTENT_REVALIDATE_SECONDS;
+/** ISR so scheduled posts unlock without a full redeploy (literal required by Next). */
+export const revalidate = 60;
 
 /** Only currently live posts at build; scheduled ones generate on first request after publishAt. */
 export function generateStaticParams() {

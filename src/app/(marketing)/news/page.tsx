@@ -1,11 +1,11 @@
 import { NewsBlogExperience } from "@/components/sections/news/news-blog-experience";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getPublishedBlogPosts } from "@/data/blog";
-import { CONTENT_REVALIDATE_SECONDS } from "@/lib/content/publish";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/seo/json-ld";
 
-export const revalidate = CONTENT_REVALIDATE_SECONDS;
+/** ISR interval (seconds) — must be a literal for Next segment config. */
+export const revalidate = 60;
 
 export const metadata = buildMetadata({
   title: "News & Blog",

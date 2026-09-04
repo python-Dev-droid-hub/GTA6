@@ -3,9 +3,9 @@ import { absoluteUrl, getSiteOrigin } from "@/lib/seo/metadata";
 import { getAllArticles } from "@/lib/mdx/articles";
 import { getLeonidaSlugs } from "@/data/leonida-characters";
 import { getPublishedBlogPosts } from "@/data/blog";
-import { CONTENT_REVALIDATE_SECONDS } from "@/lib/content/publish";
 
-export const revalidate = CONTENT_REVALIDATE_SECONDS;
+/** Literal required by Next segment config — keep in sync with CONTENT_REVALIDATE_SECONDS. */
+export const revalidate = 60;
 
 type StaticRoute = {
   path: string;

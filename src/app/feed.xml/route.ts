@@ -1,7 +1,8 @@
 import { buildRssXml } from "@/lib/seo/rss";
 import { CONTENT_REVALIDATE_SECONDS } from "@/lib/content/publish";
 
-export const revalidate = CONTENT_REVALIDATE_SECONDS;
+/** Literal required by Next segment config — keep in sync with CONTENT_REVALIDATE_SECONDS. */
+export const revalidate = 60;
 
 export function GET() {
   const xml = buildRssXml();
