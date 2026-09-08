@@ -32,6 +32,18 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "7-gta-6-mistakes-new-players-should-avoid",
+    title: "7 GTA 6 Mistakes New Players Should Avoid",
+    excerpt:
+      "Discover 7 common GTA 6 mistakes new players should avoid, from poor money management and vehicle upgrades to risky exploration and skipping side content.",
+    date: "2026-09-11",
+    publishAt: "2026-09-11T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/7-gta-6-mistakes-new-players-should-avoid.jpg",
+    coverAlt:
+      "Lucia beside a damaged sports car in neon Vice City after a police chase",
+  },
+  {
     slug: "gta-6-online-what-players-need-before-they-start",
     title: "GTA 6 Online: What Players Need Before They Start?",
     excerpt:
