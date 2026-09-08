@@ -32,6 +32,19 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-map-and-missions",
+    title: "A Beginner’s Guide to the GTA 6 Map and Missions",
+    excerpt:
+      "Explore the GTA 6 map, Vice City, Leonida, missions, heists, transportation, and gameplay tips in this beginner-friendly guide to Grand Theft Auto VI.",
+    date: "2026-09-08",
+    publishAt: "2026-09-08T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-map-and-missions.jpg",
+    coverAlt:
+      "Jason and Lucia in Leonida — GTA 6 map, Vice City skyline, countryside, and travel modes",
+    featured: true,
+  },
+  {
     slug: "gta-6-vs-gta-5",
     title: "GTA 6 vs GTA 5: What’s Changed After 13 Years?",
     excerpt:
@@ -53,7 +66,6 @@ export const blogPosts: BlogPost[] = [
     coverSrc: "/images/blog/gta-6-ps5-setup-guide.jpg",
     coverAlt:
       "How to start playing Grand Theft Auto VI on PS5 — Vice City setup guide with DualSense and launch details",
-    featured: true,
   },
 ];
 
