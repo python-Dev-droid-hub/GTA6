@@ -32,6 +32,18 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-features",
+    title: "Grand Theft Auto 6 Features That Change the Series",
+    excerpt:
+      "Discover the biggest GTA 6 features, including dynamic weather, advanced AI, dual protagonists, improved vehicle physics, seamless interiors, and robbery mechanics.",
+    date: "2026-09-09",
+    publishAt: "2026-09-09T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-features.jpg",
+    coverAlt:
+      "Jason and Lucia in Vice City — calm neon sunset beside a hurricane storm skyline",
+  },
+  {
     slug: "gta-6-map-and-missions",
     title: "A Beginner’s Guide to the GTA 6 Map and Missions",
     excerpt:
