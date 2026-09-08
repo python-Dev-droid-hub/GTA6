@@ -32,6 +32,18 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "what-to-do-first-in-grand-theft-auto-6",
+    title: "What to Do First in Grand Theft Auto 6?",
+    excerpt:
+      "Wondering what to do first in GTA 6? Discover beginner tips for exploring Leonida, choosing vehicles, finding safehouses, earning cash, and upgrading gear.",
+    date: "2026-09-12",
+    publishAt: "2026-09-12T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/what-to-do-first-in-grand-theft-auto-6.jpg",
+    coverAlt:
+      "Jason and Lucia overlooking neon Vice City at sunset from a Leonida overlook",
+  },
+  {
     slug: "7-gta-6-mistakes-new-players-should-avoid",
     title: "7 GTA 6 Mistakes New Players Should Avoid",
     excerpt:
