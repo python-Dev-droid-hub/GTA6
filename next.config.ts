@@ -68,11 +68,39 @@ const nextConfig: NextConfig = {
       "/guides/getting-started",
       "/guides/pc-performance-mindset",
     ];
-    return gone.map((source) => ({
-      source,
-      destination: "/",
-      permanent: true,
-    }));
+
+    /** Old shortened slugs → title-based slugs (SEO + bookmarks). */
+    const blogSlugMoves = [
+      {
+        source: "/news/how-to-play-gta-6-on-ps5",
+        destination: "/news/how-to-start-playing-grand-theft-auto-6-on-ps5",
+      },
+      {
+        source: "/news/gta-6-vs-gta-5",
+        destination: "/news/gta-6-vs-gta-5-whats-changed-after-13-years",
+      },
+      {
+        source: "/news/gta-6-map-and-missions",
+        destination: "/news/a-beginners-guide-to-the-gta-6-map-and-missions",
+      },
+      {
+        source: "/news/gta-6-features",
+        destination: "/news/grand-theft-auto-6-features-that-change-the-series",
+      },
+      {
+        source: "/news/gta-6-online",
+        destination: "/news/gta-6-online-what-players-need-before-they-start",
+      },
+    ];
+
+    return [
+      ...gone.map((source) => ({
+        source,
+        destination: "/",
+        permanent: true,
+      })),
+      ...blogSlugMoves.map((r) => ({ ...r, permanent: true })),
+    ];
   },
   async headers() {
     return [

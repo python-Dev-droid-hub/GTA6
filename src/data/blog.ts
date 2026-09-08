@@ -32,7 +32,7 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
-    slug: "gta-6-online",
+    slug: "gta-6-online-what-players-need-before-they-start",
     title: "GTA 6 Online: What Players Need Before They Start?",
     excerpt:
       "Get ready for GTA 6 Online with this beginner guide covering consoles, PC availability, storage, launch expectations, Rockstar accounts, and multiplayer preparation.",
@@ -44,7 +44,7 @@ export const blogPosts: BlogPost[] = [
       "Crew planning heists over a neon Vice City skyline — GTA 6 Online preparation guide",
   },
   {
-    slug: "gta-6-features",
+    slug: "grand-theft-auto-6-features-that-change-the-series",
     title: "Grand Theft Auto 6 Features That Change the Series",
     excerpt:
       "Discover the biggest GTA 6 features, including dynamic weather, advanced AI, dual protagonists, improved vehicle physics, seamless interiors, and robbery mechanics.",
@@ -56,7 +56,7 @@ export const blogPosts: BlogPost[] = [
       "Jason and Lucia in Vice City — calm neon sunset beside a hurricane storm skyline",
   },
   {
-    slug: "gta-6-map-and-missions",
+    slug: "a-beginners-guide-to-the-gta-6-map-and-missions",
     title: "A Beginner’s Guide to the GTA 6 Map and Missions",
     excerpt:
       "Explore the GTA 6 map, Vice City, Leonida, missions, heists, transportation, and gameplay tips in this beginner-friendly guide to Grand Theft Auto VI.",
@@ -69,7 +69,7 @@ export const blogPosts: BlogPost[] = [
     featured: true,
   },
   {
-    slug: "gta-6-vs-gta-5",
+    slug: "gta-6-vs-gta-5-whats-changed-after-13-years",
     title: "GTA 6 vs GTA 5: What’s Changed After 13 Years?",
     excerpt:
       "GTA 6 vs GTA 5 explained: discover the biggest changes in Vice City, protagonists, graphics, AI, physics, world density, and gameplay.",
@@ -81,7 +81,7 @@ export const blogPosts: BlogPost[] = [
       "GTA 6 vs GTA 5 comparison — Los Santos 2013 beside Vice City and Leonida 2026",
   },
   {
-    slug: "how-to-play-gta-6-on-ps5",
+    slug: "how-to-start-playing-grand-theft-auto-6-on-ps5",
     title: "How to Start Playing Grand Theft Auto 6 on PS5?",
     excerpt:
       "Learn how to start playing GTA 6 on PS5, including console compatibility, pre-orders, storage, pre-loading, DualSense, and 3D audio.",
