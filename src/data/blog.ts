@@ -32,6 +32,18 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-online",
+    title: "GTA 6 Online: What Players Need Before They Start?",
+    excerpt:
+      "Get ready for GTA 6 Online with this beginner guide covering consoles, PC availability, storage, launch expectations, Rockstar accounts, and multiplayer preparation.",
+    date: "2026-09-10",
+    publishAt: "2026-09-10T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-online.jpg",
+    coverAlt:
+      "Crew planning heists over a neon Vice City skyline — GTA 6 Online preparation guide",
+  },
+  {
     slug: "gta-6-features",
     title: "Grand Theft Auto 6 Features That Change the Series",
     excerpt:
