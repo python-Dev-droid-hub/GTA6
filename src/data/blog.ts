@@ -32,6 +32,18 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-tips-and-tricks",
+    title: "GTA 6 Tips and Tricks: 15 Things Every New Player Should Know",
+    excerpt:
+      "New to GTA 6? Discover 15 essential GTA 6 tips and tricks covering missions, money, vehicles, combat, exploration, settings, and gameplay for beginners.",
+    date: "2026-09-23",
+    publishAt: "2026-09-23T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-tips-and-tricks.jpg",
+    coverAlt:
+      "Jason, Lucia, and crew in neon Vice City with chase action — GTA 6 tips and tricks",
+  },
+  {
     slug: "gta-6-multiplayer-guide",
     title: "GTA 6 Multiplayer Guide: What to Expect from GTA 6 Online?",
     excerpt:
