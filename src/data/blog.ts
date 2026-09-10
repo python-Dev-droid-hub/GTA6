@@ -32,6 +32,18 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-multiplayer-guide",
+    title: "GTA 6 Multiplayer Guide: What to Expect from GTA 6 Online?",
+    excerpt:
+      "Discover what players can expect from GTA 6 Online, including multiplayer features, activities, missions, customization, progression, and the future of online gameplay.",
+    date: "2026-09-22",
+    publishAt: "2026-09-22T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-multiplayer-guide.jpg",
+    coverAlt:
+      "Heist chaos in neon Vice City with cash bags, police, and sports cars — GTA 6 multiplayer guide",
+  },
+  {
     slug: "gta-6-ps5-settings-guide",
     title: "GTA 6 Settings Guide: Best PS5 Settings for a Better Experience",
     excerpt:
