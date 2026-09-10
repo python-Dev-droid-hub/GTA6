@@ -32,6 +32,18 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-vehicles-guide",
+    title: "GTA 6 Vehicles Guide: Cars, Bikes, Boats, and More",
+    excerpt:
+      "Explore the GTA 6 vehicles guide covering cars, bikes, boats, aircraft, and more. Discover what players should know about transportation in GTA 6.",
+    date: "2026-09-15",
+    publishAt: "2026-09-15T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-vehicles-guide.jpg",
+    coverAlt:
+      "Supercar, sportbike, and boats on a neon Vice City coastal road — GTA 6 vehicles guide",
+  },
+  {
     slug: "gta-6-characters-and-story",
     title: "GTA 6 Characters and Story: Everything New Players Should Know",
     excerpt:
