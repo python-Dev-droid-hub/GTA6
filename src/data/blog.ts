@@ -32,6 +32,18 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-missions-guide",
+    title: "GTA 6 Missions Guide: Tips for Completing Missions Successfully",
+    excerpt:
+      "Master GTA 6 missions with useful tips and strategies for completing objectives, handling challenges, earning rewards, and progressing through the game successfully.",
+    date: "2026-09-18",
+    publishAt: "2026-09-18T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-missions-guide.jpg",
+    coverAlt:
+      "Jason and Lucia planning a mission beside a sports car in neon Vice City — GTA 6 missions guide",
+  },
+  {
     slug: "gta-6-money-guide",
     title: "GTA 6 Money Guide: How to Build Your In-Game Wealth?",
     excerpt:
