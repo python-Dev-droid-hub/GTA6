@@ -123,10 +123,10 @@ const leonidaCharacterEntries: LeonidaCharacterInput[] = [
     clips: [
       {
         id: "clip-01",
-        videoSrc: "/videos/characters/jason/clip-01.mp4?v=cover-fit-2",
-        posterSrc: "/images/characters/jason/02-car.jpg?v=cover-fit-2",
+        videoSrc: "/videos/characters/jason/clip-01.mp4?v=start-trim-010",
+        posterSrc: "/images/characters/jason/02-car.jpg?v=start-trim-010",
         caption: "Another day in paradise",
-        startOffset: 0.08,
+        startOffset: 0,
       },
       {
         id: "clip-02",
