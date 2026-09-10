@@ -32,6 +32,18 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-ps5-settings-guide",
+    title: "GTA 6 Settings Guide: Best PS5 Settings for a Better Experience",
+    excerpt:
+      "Find the best GTA 6 PS5 settings for graphics, performance, controls, audio, and display. Optimize your settings for a smoother and better GTA 6 experience.",
+    date: "2026-09-21",
+    publishAt: "2026-09-21T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-ps5-settings-guide.jpg",
+    coverAlt:
+      "PlayStation 5 and DualSense with GTA 6 performance settings on TV — best PS5 settings guide",
+  },
+  {
     slug: "gta-6-missions-guide",
     title: "GTA 6 Missions Guide: Tips for Completing Missions Successfully",
     excerpt:
