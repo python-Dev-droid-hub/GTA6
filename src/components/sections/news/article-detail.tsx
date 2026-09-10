@@ -7,7 +7,6 @@ import { Badge } from "@/components/ui/badge";
 import { getPublishedBlogPosts, type BlogPost } from "@/data/blog";
 import type { ArticleFrontmatter, ArticleHeading } from "@/types/content";
 import { formatDate } from "@/utils/format-date";
-import { cn } from "@/utils/cn";
 
 export type ArticleDetailProps = {
   slug: string;
@@ -118,43 +117,12 @@ function LatestBlogs({
   );
 }
 
-function GuideChecklist({ headings }: { headings: ArticleHeading[] }) {
-  const sections = headings.filter((h) => h.level === 2);
-  if (sections.length < 3) return null;
-
-  return (
-    <aside
-      aria-label="Guide checklist"
-      className="mb-10 rounded-md border border-vice-pink/35 bg-gradient-to-br from-ink-800/90 to-ink-900/90 p-5 sm:p-6"
-    >
-      <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-vice-pink">
-        Quick checklist
-      </p>
-      <p className="mt-1 text-sm text-paper-muted">
-        Work through these steps before launch day.
-      </p>
-      <ol className="mt-4 grid gap-2 sm:grid-cols-2">
-        {sections.map((heading, index) => (
-          <li key={heading.id}>
-            <a
-              href={`#${heading.id}`}
-              className="flex items-start gap-3 rounded-sm border border-border/80 bg-ink-950/50 px-3 py-2.5 text-[13px] text-paper transition-colors hover:border-neon-cyan/40 hover:bg-ink-800"
-            >
-              <span className="mt-0.5 font-mono text-[10px] text-neon-cyan">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className="leading-snug">{heading.text}</span>
-            </a>
-          </li>
-        ))}
-      </ol>
-    </aside>
-  );
-}
-
 /**
- * Editorial article shell: breadcrumb, hero cover, checklist, sticky TOC, prose.
+ * Editorial article shell: breadcrumb, hero cover, sticky TOC, prose.
  * Why a dedicated layout: thin page.tsx stays composition-only; reading UX is shared.
+ *
+ * Sidebar (TOC + Latest Blogs) is rendered once for all breakpoints. Do not duplicate
+ * those blocks behind `lg:hidden` / `hidden lg:block` — crawlers still index both copies.
  */
 export function ArticleDetail({
   slug,
@@ -167,8 +135,6 @@ export function ArticleDetail({
   const latestPosts = getPublishedBlogPosts()
     .filter((post) => post.slug !== slug)
     .slice(0, 4);
-  // Always keep the left rail — TOC and/or Latest Blogs.
-  const showSidebar = true;
 
   return (
     <div className="relative isolate bg-ink-950">
@@ -259,31 +225,15 @@ export function ArticleDetail({
       </Container>
 
       <Container size="content" className="relative pb-16 pt-10 sm:pb-24 sm:pt-12">
-        <div
-          className={cn(
-            "gap-10 lg:gap-14",
-            showSidebar
-              ? "lg:grid lg:grid-cols-[minmax(0,15.5rem)_minmax(0,1fr)]"
-              : "",
-          )}
-        >
-          {showSidebar ? (
-            <aside className="hidden lg:block">
-              <div className="sticky top-28 space-y-5">
-                <ArticleToc headings={headings} />
-                <LatestBlogs posts={latestPosts} />
-              </div>
-            </aside>
-          ) : null}
-
-          <div className="min-w-0 max-w-3xl">
-            <GuideChecklist headings={headings} />
-
-            {/* Mobile: latest blogs above body when sidebar is hidden */}
-            <div className="mb-10 lg:hidden">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,15.5rem)_minmax(0,1fr)] lg:gap-14">
+          <aside className="min-w-0">
+            <div className="space-y-5 lg:sticky lg:top-28">
+              <ArticleToc headings={headings} />
               <LatestBlogs posts={latestPosts} />
             </div>
+          </aside>
 
+          <div className="min-w-0 max-w-3xl">
             <article className="article-body">{body}</article>
 
             {meta.keywords?.length ? (
