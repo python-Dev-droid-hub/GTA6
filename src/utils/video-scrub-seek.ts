@@ -71,11 +71,11 @@ export function advanceVideoScrubSeek(
   const gap = clamped - seek.current;
   const abs = Math.abs(gap);
 
-  // Keep internal playhead close to scroll (esp. reverse)
-  if (abs > 0.35) {
+  // Keep internal playhead close to scroll (esp. reverse) without hard cuts
+  if (abs > 0.55) {
     seek.current = clamped;
   } else if (abs > 0.0002) {
-    const base = abs > snapGap ? snapLerp : abs > snapGap * 0.35 ? 0.55 : lerp;
+    const base = abs > snapGap ? snapLerp : abs > snapGap * 0.35 ? 0.48 : lerp;
     const alpha = 1 - Math.pow(1 - base, dt * 60);
     seek.current += gap * alpha;
   } else {

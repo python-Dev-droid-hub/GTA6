@@ -1,16 +1,16 @@
 /**
  * Shared scrub tuning for Leonida character page videos.
- * Tuned for all-intra (every-frame keyframe) clips — snappy both directions.
+ * Tuned for all-intra clips — smooth scroll→frame follow (not snappy/stuttery).
  */
 export const CHARACTER_VIDEO_SCRUB = {
-  /** Low scrub lag = tight scroll→frame sync */
-  scrollScrub: 0.14,
+  /** GSAP scrub lag (seconds). Higher = silkier catch-up. */
+  scrollScrub: 0.34,
   seek: {
-    lerp: 0.62,
-    snapGap: 0.04,
-    snapLerp: 0.94,
+    lerp: 0.36,
+    snapGap: 0.07,
+    snapLerp: 0.72,
     frameDur: 1 / 30,
-    busyTimeoutMs: 22,
+    busyTimeoutMs: 48,
   },
 } as const;
 
