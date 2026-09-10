@@ -190,8 +190,8 @@ const leonidaCharacterEntries: LeonidaCharacterInput[] = [
     clips: [
       {
         id: "clip-01",
-        videoSrc: "/videos/characters/lucia/clip-01.mp4?v=cover-fit-2",
-        posterSrc: "/images/characters/lucia/02-pool.png?v=cover-fit-2",
+        videoSrc: "/videos/characters/lucia/clip-01.mp4?v=poster-match-1",
+        posterSrc: "/images/characters/lucia/08-clip1-poster.jpg?v=poster-match-1",
         caption: "Only smart moves from here",
         startOffset: 0.1,
       },
