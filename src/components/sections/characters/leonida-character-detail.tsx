@@ -242,13 +242,14 @@ export function LeonidaCharacterDetail({
           videoSrc={clip2.videoSrc}
           posterSrc={clip2.posterSrc}
           posterAlt={clip2.caption ?? `${name} clip 2`}
-          sectionHeight="160vh"
+          sectionHeight="130vh"
           startOffset={clip2.startOffset ?? 0}
           endEyebrow="Leonida"
           endTitle={quotes[0]}
           endTitleFrom={0.55}
           endTitleVariant="quote"
           vivid
+          priorityPoster
         />
       ) : null}
 

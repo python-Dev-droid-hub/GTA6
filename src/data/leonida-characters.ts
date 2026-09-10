@@ -197,10 +197,10 @@ const leonidaCharacterEntries: LeonidaCharacterInput[] = [
       },
       {
         id: "clip-02",
-        videoSrc: "/videos/characters/lucia/clip-02.mp4?v=cover-fit-2",
-        posterSrc: "/images/characters/lucia/07-trailer-still.jpg?v=cover-fit-2",
+        videoSrc: "/videos/characters/lucia/clip-02.mp4?v=trim-intra-1",
+        posterSrc: "/images/characters/lucia/09-clip2-poster.jpg?v=trim-intra-1",
         caption: "Who you know and what you got",
-        startOffset: 0.1,
+        startOffset: 0,
       },
     ],
   },

@@ -259,27 +259,29 @@ export function ScrollBeatVideo({
         ref={pinRef}
         className="relative z-[1] h-dvh min-h-dvh w-full overflow-hidden bg-ink-950"
       >
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 size-full">
           <Image
             src={posterSrc}
             alt={posterAlt}
             fill
             sizes="100vw"
             className={cn(
-              "object-cover object-top",
+              "object-cover object-center",
               vivid && "contrast-[1.06] saturate-[1.2]",
             )}
+            style={{ objectFit: "cover", objectPosition: "center" }}
             priority={priorityPoster}
-            loading={priorityPoster ? undefined : "lazy"}
+            loading={priorityPoster ? "eager" : "lazy"}
             unoptimized
           />
           {!reduced ? (
             <video
               ref={videoRef}
               className={cn(
-                "absolute inset-0 size-full object-cover object-top transition-opacity duration-300",
+                "absolute inset-0 size-full object-cover object-center transition-opacity duration-300",
                 frameReady ? "opacity-100" : "opacity-0",
               )}
+              style={{ objectFit: "cover", objectPosition: "center" }}
               poster={posterSrc}
               muted
               playsInline
