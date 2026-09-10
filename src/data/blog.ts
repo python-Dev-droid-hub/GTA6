@@ -32,6 +32,18 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-weapons-guide",
+    title: "GTA 6 Weapons Guide: What New Players Need to Know",
+    excerpt:
+      "Explore the GTA 6 weapons guide and learn what new players should know about weapons, combat, weapon types, customization, and gameplay mechanics.",
+    date: "2026-09-16",
+    publishAt: "2026-09-16T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-weapons-guide.jpg",
+    coverAlt:
+      "Jason and Lucia with rifles and tactical gear in neon Vice City — GTA 6 weapons guide",
+  },
+  {
     slug: "gta-6-vehicles-guide",
     title: "GTA 6 Vehicles Guide: Cars, Bikes, Boats, and More",
     excerpt:
