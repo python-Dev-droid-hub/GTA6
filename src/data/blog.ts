@@ -32,6 +32,18 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-characters-and-story",
+    title: "GTA 6 Characters and Story: Everything New Players Should Know",
+    excerpt:
+      "Discover everything players should know about GTA 6 characters and story, including Lucia, Jason, the storyline, Vice City setting, gameplay, and new features.",
+    date: "2026-09-14",
+    publishAt: "2026-09-14T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-characters-and-story.jpg",
+    coverAlt:
+      "Lucia and Jason back-to-back in neon Vice City at sunset — GTA 6 characters and story",
+  },
+  {
     slug: "what-to-do-first-in-grand-theft-auto-6",
     title: "What to Do First in Grand Theft Auto 6?",
     excerpt:
