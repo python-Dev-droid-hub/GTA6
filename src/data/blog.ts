@@ -32,6 +32,18 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-money-guide",
+    title: "GTA 6 Money Guide: How to Build Your In-Game Wealth?",
+    excerpt:
+      "Learn how to build in-game wealth in GTA 6 with this money guide covering missions, businesses, rewards, activities, and smart ways to grow your virtual cash.",
+    date: "2026-09-17",
+    publishAt: "2026-09-17T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-money-guide.jpg",
+    coverAlt:
+      "Jason and Lucia on a Vice City balcony with cash and wealth UI — GTA 6 money guide",
+  },
+  {
     slug: "gta-6-weapons-guide",
     title: "GTA 6 Weapons Guide: What New Players Need to Know",
     excerpt:
