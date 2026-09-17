@@ -12,7 +12,7 @@ export type SiteFooterProps = {
 const legalLinks = [
   { label: "Corporate", href: "/legal/corporate" },
   { label: "Privacy", href: "/legal/privacy" },
-  { label: "Cookie Settings", href: "/legal/cookies#settings" },
+  { label: "Cookie Settings", href: "/legal/cookie-settings" },
   { label: "Cookie Policy", href: "/legal/cookies" },
   { label: "Legal Advisory", href: "/legal/terms" },
 ] as const;

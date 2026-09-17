@@ -133,7 +133,7 @@ export default function PrivacyPage() {
             <p className={body}>
               You can manage available cookie preferences through our{" "}
               <Link
-                href="/legal/cookies#settings"
+                href="/legal/cookie-settings"
                 className="text-neon-cyan underline-offset-2 transition-colors hover:text-paper hover:underline"
               >
                 Cookie Settings

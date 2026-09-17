@@ -25,6 +25,7 @@ const STATIC_ROUTES: StaticRoute[] = [
   { path: "/legal/corporate", changeFrequency: "yearly", priority: 0.3 },
   { path: "/legal/privacy", changeFrequency: "yearly", priority: 0.3 },
   { path: "/legal/cookies", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/legal/cookie-settings", changeFrequency: "yearly", priority: 0.3 },
   { path: "/legal/terms", changeFrequency: "yearly", priority: 0.3 },
 ];
 

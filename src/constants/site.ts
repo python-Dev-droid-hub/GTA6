@@ -131,6 +131,7 @@ export const footerNav: NavGroup[] = [
     items: [
       { label: "Corporate", href: "/legal/corporate" },
       { label: "Privacy", href: "/legal/privacy" },
+      { label: "Cookie Settings", href: "/legal/cookie-settings" },
       { label: "Cookie Policy", href: "/legal/cookies" },
       { label: "Legal Advisory", href: "/legal/terms" },
     ],

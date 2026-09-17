@@ -164,14 +164,14 @@ export default function CookiePolicyPage() {
             </p>
           </section>
 
-          <section id="settings" aria-labelledby="cookies-managing">
+          <section aria-labelledby="cookies-managing">
             <h2 id="cookies-managing" className={sectionTitle}>
               5. Managing Cookies
             </h2>
             <p className={body}>
               You can manage available cookie preferences through our{" "}
               <Link
-                href="/legal/cookies#settings"
+                href="/legal/cookie-settings"
                 className="text-neon-cyan underline-offset-2 transition-colors hover:text-paper hover:underline"
               >
                 Cookie Settings
