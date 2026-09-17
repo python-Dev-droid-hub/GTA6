@@ -2,8 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { BrandMark } from "@/components/layouts/brand-mark";
 import { BRAND_LOGO_SRC } from "@/constants/brand";
-import { siteConfig, socialLinks } from "@/constants/site";
-import { legal } from "@/constants/legal";
+import { socialLinks } from "@/constants/site";
 import { cn } from "@/utils/cn";
 
 export type SiteFooterProps = {
@@ -11,23 +10,17 @@ export type SiteFooterProps = {
 };
 
 const legalLinks = [
-  { label: "Corporate", href: "/legal/terms" },
+  { label: "Corporate", href: "/legal/corporate" },
   { label: "Privacy", href: "/legal/privacy" },
-  { label: "Cookie Settings", href: "/legal/privacy#cookies" },
-  { label: "Cookie Policy", href: "/legal/privacy" },
-  { label: "Legal", href: "/legal/terms" },
-  {
-    label: "Do Not Sell or Share My Personal Information",
-    href: "/legal/privacy",
-  },
+  { label: "Cookie Settings", href: "/legal/cookies#settings" },
+  { label: "Cookie Policy", href: "/legal/cookies" },
+  { label: "Legal Advisory", href: "/legal/terms" },
 ] as const;
 
 /**
  * Centered launch-style footer — logo, dispatch pill, socials, legal row.
  */
 export function SiteFooter({ className }: SiteFooterProps) {
-  const year = new Date().getFullYear();
-
   return (
     <footer
       className={cn(
@@ -49,37 +42,38 @@ export function SiteFooter({ className }: SiteFooterProps) {
         <Link
           href="/news"
           className={cn(
-            "group grid w-full max-w-[960px] items-center gap-4 rounded-full border border-white/20",
+            "group grid w-full max-w-[960px] grid-cols-[auto_minmax(0,1fr)_minmax(0,1.05fr)] items-center",
+            "gap-2.5 rounded-full border border-white/20",
             "bg-gradient-to-r from-white/[0.06] via-white/[0.03] to-white/[0.06]",
-            "px-5 py-4 transition-cinema",
+            "px-3.5 py-3 transition-cinema",
             "hover:border-white/40 hover:from-white/[0.09] hover:to-white/[0.09]",
             "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring",
-            "sm:grid-cols-[auto_minmax(0,1fr)_minmax(0,1.05fr)] sm:gap-6 sm:px-7 sm:py-5",
+            "sm:gap-6 sm:px-7 sm:py-5",
             "md:gap-8 md:px-9 md:py-5",
           )}
         >
-          <span className="flex shrink-0 items-center justify-center sm:justify-start">
+          <span className="flex shrink-0 items-center justify-start">
             <Image
               src={BRAND_LOGO_SRC}
               alt=""
               width={1024}
               height={576}
               loading="lazy"
-              className="h-11 w-auto object-contain sm:h-12"
+              className="h-9 w-auto object-contain sm:h-12"
               aria-hidden
             />
           </span>
 
-          <span className="flex min-w-0 flex-col gap-1 text-center sm:border-r sm:border-white/15 sm:pr-6 sm:text-left md:pr-8">
-            <span className="font-mono text-[0.62rem] uppercase tracking-[0.28em] text-white/55">
+          <span className="flex min-w-0 flex-col gap-0.5 border-r border-white/15 pr-2.5 text-left sm:gap-1 sm:pr-6 md:pr-8">
+            <span className="font-mono text-[0.5rem] uppercase tracking-[0.2em] text-white/55 sm:text-[0.62rem] sm:tracking-[0.28em]">
               Official fan channel
             </span>
-            <span className="font-[family-name:var(--font-family-display)] text-[1.05rem] font-bold uppercase leading-tight tracking-[0.06em] text-white sm:text-lg md:text-[1.35rem]">
+            <span className="font-[family-name:var(--font-family-display)] text-[0.82rem] font-bold uppercase leading-tight tracking-[0.04em] text-white sm:text-lg sm:tracking-[0.06em] md:text-[1.35rem]">
               Stay in the loop
             </span>
           </span>
 
-          <span className="min-w-0 text-center text-[0.85rem] leading-relaxed text-white/75 sm:text-left sm:text-[0.9rem] md:text-[0.95rem]">
+          <span className="min-w-0 text-left text-[0.68rem] leading-snug text-white/75 sm:text-[0.9rem] sm:leading-relaxed md:text-[0.95rem]">
             Trailers, launch window notes, and exclusive archive drops —
             delivered as they land.
           </span>
@@ -128,10 +122,6 @@ export function SiteFooter({ className }: SiteFooterProps) {
             ))}
           </ul>
         </nav>
-
-        <p className="mt-8 max-w-2xl text-center text-[0.7rem] leading-relaxed text-white/40">
-          {legal.shortDisclaimer} © {year} {siteConfig.shortName}.
-        </p>
       </div>
     </footer>
   );

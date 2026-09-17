@@ -129,8 +129,10 @@ export const footerNav: NavGroup[] = [
   {
     title: "Legal",
     items: [
+      { label: "Corporate", href: "/legal/corporate" },
       { label: "Privacy", href: "/legal/privacy" },
-      { label: "Terms", href: "/legal/terms" },
+      { label: "Cookie Policy", href: "/legal/cookies" },
+      { label: "Legal Advisory", href: "/legal/terms" },
     ],
   },
 ];

@@ -22,7 +22,9 @@ const STATIC_ROUTES: StaticRoute[] = [
   { path: "/faq", changeFrequency: "monthly", priority: 0.75 },
   { path: "/ultimate", changeFrequency: "monthly", priority: 0.7 },
   { path: "/vintage", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/legal/corporate", changeFrequency: "yearly", priority: 0.3 },
   { path: "/legal/privacy", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/legal/cookies", changeFrequency: "yearly", priority: 0.3 },
   { path: "/legal/terms", changeFrequency: "yearly", priority: 0.3 },
 ];
 
