@@ -5,7 +5,7 @@ export type BlogCategory =
   | "news"
   | "updates"
   | "events"
-  | "development";
+  | "missions";
 
 export type BlogPost = {
   slug: string;
@@ -26,11 +26,59 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
   { id: "news", label: "News" },
   { id: "updates", label: "Updates" },
   { id: "events", label: "Events" },
-  { id: "development", label: "Development" },
+  { id: "missions", label: "Missions" },
 ];
 
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "gta-vice-city-guardian-angels",
+    title: "GTA Vice City “Guardian Angels” Mission: How to Protect Diaz?",
+    excerpt:
+      "Learn how to complete Guardian Angels in GTA Vice City, including collecting weapons, protecting Ricardo Diaz, surviving the attack, and recovering the stolen money.",
+    date: "2026-09-29",
+    publishAt: "2026-09-29T09:00:00+05:00",
+    category: "missions",
+    coverSrc: "/images/blog/gta-vice-city-guardian-angels.jpg",
+    coverAlt:
+      "Ricardo Diaz behind a teal car during a Washington Beach shootout — Guardian Angels mission",
+  },
+  {
+    slug: "gta-vice-city-jury-fury",
+    title: "GTA Vice City “Jury Fury” Mission Guide: How to Complete the Mission?",
+    excerpt:
+      "Learn how to complete the Jury Fury mission in GTA Vice City by finding both jurors, damaging their vehicles, avoiding common mistakes, and completing the objectives.",
+    date: "2026-09-28",
+    publishAt: "2026-09-28T09:00:00+05:00",
+    category: "missions",
+    coverSrc: "/images/blog/gta-vice-city-jury-fury.jpg",
+    coverAlt:
+      "Tommy Vercetti with a baseball bat intimidating a juror on a neon Vice City street — Jury Fury mission",
+  },
+  {
+    slug: "gta-vice-city-back-alley-brawl",
+    title: "GTA Vice City “Back Alley Brawl” Mission: How to Pass It?",
+    excerpt:
+      "Learn how to pass the Back Alley Brawl mission in GTA Vice City, including finding the chef, winning the fight, collecting the phone, and following Lance Vance.",
+    date: "2026-09-25",
+    publishAt: "2026-09-25T09:00:00+05:00",
+    category: "missions",
+    coverSrc: "/images/blog/gta-vice-city-back-alley-brawl.jpg",
+    coverAlt:
+      "Tommy Vercetti facing the chef and associates in a neon Vice City alley — Back Alley Brawl mission",
+  },
+  {
+    slug: "gta-vice-city-the-party",
+    title: "GTA Vice City “The Party” Mission: How to Complete It?",
+    excerpt:
+      "Learn how to complete The Party mission in GTA Vice City, including changing clothes, taking Mercedes to the club, returning to Cortez's yacht, and escaping attackers.",
+    date: "2026-09-24",
+    publishAt: "2026-09-24T09:00:00+05:00",
+    category: "missions",
+    coverSrc: "/images/blog/gta-vice-city-the-party.jpg",
+    coverAlt:
+      "Tommy Vercetti in a white suit at Cortez's yacht during a neon Vice City shootout — The Party mission",
+  },
   {
     slug: "gta-6-tips-and-tricks",
     title: "GTA 6 Tips and Tricks: 15 Things Every New Player Should Know",
@@ -74,7 +122,7 @@ export const blogPosts: BlogPost[] = [
       "Master GTA 6 missions with useful tips and strategies for completing objectives, handling challenges, earning rewards, and progressing through the game successfully.",
     date: "2026-09-18",
     publishAt: "2026-09-18T09:00:00+05:00",
-    category: "updates",
+    category: "missions",
     coverSrc: "/images/blog/gta-6-missions-guide.jpg",
     coverAlt:
       "Jason and Lucia planning a mission beside a sports car in neon Vice City — GTA 6 missions guide",
@@ -182,7 +230,7 @@ export const blogPosts: BlogPost[] = [
       "Explore the GTA 6 map, Vice City, Leonida, missions, heists, transportation, and gameplay tips in this beginner-friendly guide to Grand Theft Auto VI.",
     date: "2026-09-08",
     publishAt: "2026-09-08T09:00:00+05:00",
-    category: "updates",
+    category: "missions",
     coverSrc: "/images/blog/gta-6-map-and-missions.jpg",
     coverAlt:
       "Jason and Lucia in Leonida — GTA 6 map, Vice City skyline, countryside, and travel modes",

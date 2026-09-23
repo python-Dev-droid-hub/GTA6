@@ -18,6 +18,49 @@ function MissionCard({
 }: {
   mission: ReturnType<typeof getMissionsByCategory>[number];
 }) {
+  const action = mission.href ? (
+    <Link
+      href={mission.href}
+      aria-label={`Open walkthrough for ${mission.title}`}
+      className={cn(
+        "inline-flex size-12 items-center justify-center rounded-full border border-[#ff4fc3] text-[#ff7ad9]",
+        "shadow-[0_0_14px_rgba(255,79,195,0.35)] transition-[background-color,color,box-shadow] duration-200",
+        "hover:bg-[#ff4fc3] hover:text-white hover:shadow-[0_0_20px_rgba(255,79,195,0.55)]",
+        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff4fc3]",
+      )}
+    >
+      <Play className="size-5 fill-current" aria-hidden />
+    </Link>
+  ) : (
+    <button
+      type="button"
+      aria-label={`Preview ${mission.title}`}
+      className={cn(
+        "inline-flex size-12 items-center justify-center rounded-full border border-[#ff4fc3] text-[#ff7ad9]",
+        "shadow-[0_0_14px_rgba(255,79,195,0.35)] transition-[background-color,color,box-shadow] duration-200",
+        "hover:bg-[#ff4fc3] hover:text-white hover:shadow-[0_0_20px_rgba(255,79,195,0.55)]",
+        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff4fc3]",
+      )}
+    >
+      <Play className="size-5 fill-current" aria-hidden />
+    </button>
+  );
+
+  const title = (
+    <h3 className="break-words font-[family-name:var(--font-family-bebas)] text-[1.25rem] uppercase leading-none tracking-[0.04em] text-white sm:text-[1.45rem] md:text-[1.7rem]">
+      {mission.href ? (
+        <Link
+          href={mission.href}
+          className="transition-colors hover:text-[#ff9ad0] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff4fc3]"
+        >
+          {mission.title}
+        </Link>
+      ) : (
+        mission.title
+      )}
+    </h3>
+  );
+
   return (
     <article
       className={cn(
@@ -27,6 +70,11 @@ function MissionCard({
       )}
     >
       <div className="relative aspect-[16/10] overflow-hidden sm:aspect-[4/3] lg:aspect-[16/11]">
+        {mission.href ? (
+          <Link href={mission.href} className="absolute inset-0 z-10" tabIndex={-1} aria-hidden>
+            <span className="sr-only">{mission.title}</span>
+          </Link>
+        ) : null}
         <Image
           src={mission.imageSrc}
           alt={mission.imageAlt}
@@ -46,9 +94,7 @@ function MissionCard({
       </div>
 
       <div className="flex min-w-0 flex-col gap-2.5 py-0.5">
-        <h3 className="break-words font-[family-name:var(--font-family-bebas)] text-[1.25rem] uppercase leading-none tracking-[0.04em] text-white sm:text-[1.45rem] md:text-[1.7rem]">
-          {mission.title}
-        </h3>
+        {title}
         <p className="inline-flex items-center gap-1.5 font-[family-name:var(--font-family-orbitron)] text-[10px] uppercase tracking-[0.18em] text-[#ff7ad9]">
           <MapPin className="size-3.5 shrink-0" aria-hidden />
           {mission.location}
@@ -83,18 +129,7 @@ function MissionCard({
       </div>
 
       <div className="flex items-center justify-end sm:col-span-2 lg:col-span-1 lg:pl-2">
-        <button
-          type="button"
-          aria-label={`Preview ${mission.title}`}
-          className={cn(
-            "inline-flex size-12 items-center justify-center rounded-full border border-[#ff4fc3] text-[#ff7ad9]",
-            "shadow-[0_0_14px_rgba(255,79,195,0.35)] transition-[background-color,color,box-shadow] duration-200",
-            "hover:bg-[#ff4fc3] hover:text-white hover:shadow-[0_0_20px_rgba(255,79,195,0.55)]",
-            "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff4fc3]",
-          )}
-        >
-          <Play className="size-5 fill-current" aria-hidden />
-        </button>
+        {action}
       </div>
     </article>
   );

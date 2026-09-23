@@ -23,6 +23,10 @@ export type Mission = {
     rp: string;
     stars: string;
   };
+  /** Optional walkthrough / blog link. */
+  href?: string;
+  /** Optional schedule — hidden until this time (ISO-8601). */
+  publishAt?: string;
 };
 
 export const missionCategories: {
@@ -39,8 +43,72 @@ export const missionCategories: {
 
 export const missions: Mission[] = [
   {
-    id: "the-long-night",
+    id: "the-party",
     number: "01",
+    title: "The Party",
+    location: "Ocean Beach",
+    summary:
+      "Cortez invites Tommy to a yacht party that turns into a rescue when attackers hit. Change clothes, drop Mercedes at Pole Position, then escape the shootout.",
+    tags: ["Story", "Walkthrough"],
+    categories: ["story"],
+    imageSrc: "/images/missions/the-party.jpg",
+    imageAlt:
+      "Tommy Vercetti at Cortez's yacht during a neon Vice City shootout — The Party mission",
+    rewards: { cash: "$500", rp: "—", stars: "—" },
+    href: "/news/gta-vice-city-the-party",
+    publishAt: "2026-09-24T09:00:00+05:00",
+  },
+  {
+    id: "back-alley-brawl",
+    number: "02",
+    title: "Back Alley Brawl",
+    location: "Vice Point",
+    summary:
+      "Kent Paul sends Tommy after a chef in a back alley. Win the brawl, grab the phone, then follow Lance Vance.",
+    tags: ["Story", "Walkthrough", "Combat"],
+    categories: ["story"],
+    imageSrc: "/images/missions/back-alley-brawl.jpg",
+    imageAlt:
+      "Tommy Vercetti facing the chef and associates in a neon Vice City alley — Back Alley Brawl mission",
+    rewards: { cash: "$500", rp: "—", stars: "—" },
+    href: "/news/gta-vice-city-back-alley-brawl",
+    publishAt: "2026-09-25T09:00:00+05:00",
+  },
+  {
+    id: "jury-fury",
+    number: "03",
+    title: "Jury Fury",
+    location: "Vice Point",
+    summary:
+      "Ken Rosenberg wants two jurors intimidated. Damage their cars, scare them off, and do not kill the targets.",
+    tags: ["Story", "Walkthrough"],
+    categories: ["story"],
+    imageSrc: "/images/missions/jury-fury.jpg",
+    imageAlt:
+      "Tommy Vercetti with a baseball bat intimidating a juror on a neon Vice City street — Jury Fury mission",
+    rewards: { cash: "$500", rp: "—", stars: "—" },
+    href: "/news/gta-vice-city-jury-fury",
+    publishAt: "2026-09-28T09:00:00+05:00",
+  },
+  {
+    id: "guardian-angels",
+    number: "04",
+    title: "Guardian Angels",
+    location: "Washington Beach",
+    summary:
+      "Protect Ricardo Diaz during a drug deal, survive the Haitian attack, then chase down the stolen money.",
+    tags: ["Story", "Walkthrough", "Combat"],
+    categories: ["story"],
+    imageSrc: "/images/missions/guardian-angels.jpg",
+    imageAlt:
+      "Ricardo Diaz behind a teal car during a Washington Beach shootout — Guardian Angels mission",
+    rewards: { cash: "$1,000", rp: "—", stars: "—" },
+    href: "/news/gta-vice-city-guardian-angels",
+    publishAt: "2026-09-29T09:00:00+05:00",
+  },
+  {
+    id: "the-long-night",
+    number: "05",
     title: "The Long Night",
     location: "Vice City",
     summary:
@@ -53,7 +121,7 @@ export const missions: Mission[] = [
   },
   {
     id: "club-inferno",
-    number: "02",
+    number: "06",
     title: "Club Inferno",
     location: "Vice City",
     summary:
@@ -66,7 +134,7 @@ export const missions: Mission[] = [
   },
   {
     id: "alligator-alley",
-    number: "03",
+    number: "07",
     title: "Alligator Alley",
     location: "Leonida Keys",
     summary:
@@ -79,7 +147,7 @@ export const missions: Mission[] = [
   },
   {
     id: "federal-disturbance",
-    number: "04",
+    number: "08",
     title: "Federal Disturbance",
     location: "Downtown VC",
     summary:
@@ -92,7 +160,7 @@ export const missions: Mission[] = [
   },
   {
     id: "iron-legion",
-    number: "05",
+    number: "09",
     title: "Iron Legion",
     location: "Port Bellhorn",
     summary:
@@ -113,7 +181,18 @@ export const missionPreviews = missions.map((m) => ({
   district: m.location,
 }));
 
-export function getMissionsByCategory(category: MissionCategory): Mission[] {
-  if (category === "all") return missions;
-  return missions.filter((m) => m.categories.includes(category));
+function isMissionLive(mission: Mission, now: Date = new Date()): boolean {
+  if (!mission.publishAt) return true;
+  const at = new Date(mission.publishAt);
+  if (Number.isNaN(at.getTime())) return true;
+  return at.getTime() <= now.getTime();
+}
+
+export function getMissionsByCategory(
+  category: MissionCategory,
+  now: Date = new Date(),
+): Mission[] {
+  const live = missions.filter((m) => isMissionLive(m, now));
+  if (category === "all") return live;
+  return live.filter((m) => m.categories.includes(category));
 }
