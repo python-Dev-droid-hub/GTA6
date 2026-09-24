@@ -1,0 +1,8 @@
+tmp
+**/*.bak.mp4
+**/*.pre-*.bak.mp4
+**/*.pre-starttrim*.bak.mp4
+**/*.pre-sidefix.bak.mp4
+node_modules
+.next
+.git
