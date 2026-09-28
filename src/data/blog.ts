@@ -32,6 +32,103 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-vice-city-mall-shootout-mission-guide",
+    title: "GTA Vice City “Mall Shootout” Mission: How to Complete the Mission?",
+    excerpt:
+      "Learn how to complete the Mall Shootout mission in GTA Vice City. Find out how to start the mission, survive the shootout, chase the target, and finish it.",
+    date: "2026-10-09",
+    publishAt: "2026-10-09T09:00:00+05:00",
+    category: "missions",
+    coverSrc: "/images/blog/gta-vice-city-mall-shootout-mission.jpg",
+    coverAlt: "GTA Vice City Mall Shootout mission at Washington Beach Mall",
+  },
+  {
+    slug: "gta-vice-city-all-hands-on-deck-mission-guide",
+    title:
+      "GTA Vice City “All Hands-on Deck!” Mission: How to Protect Colonel Cortez?",
+    excerpt:
+      "Learn how to complete All Hands-on Deck in GTA Vice City. Discover how to protect Colonel Cortez, defeat attacking boats and helicopters, and finish the mission.",
+    date: "2026-10-08",
+    publishAt: "2026-10-08T09:00:00+05:00",
+    category: "missions",
+    coverSrc: "/images/blog/gta-vice-city-all-hands-on-deck-mission.jpg",
+    coverAlt:
+      "GTA Vice City All Hands-on Deck mission with Tommy protecting Colonel Cortez's yacht from attacking boats and helicopters",
+  },
+  {
+    slug: "gta-vice-city-riot",
+    title: "GTA Vice City “Riot” Mission: How to Start and Complete the Riot?",
+    excerpt:
+      "Learn how to start and complete the Riot mission in GTA Vice City, including the outfit, protest, vehicle objectives, police tips, and walkthrough.",
+    date: "2026-10-07",
+    publishAt: "2026-10-07T09:00:00+05:00",
+    category: "missions",
+    coverSrc: "/images/blog/gta-vice-city-riot.jpg",
+    coverAlt:
+      "Riot at a Vice City Construction site with workers fighting at sunset — Riot mission",
+  },
+  {
+    slug: "gta-vice-city-an-old-friend",
+    title: "GTA Vice City “An Old Friend” Mission: How to Complete It?",
+    excerpt:
+      "Learn how to complete An Old Friend in GTA Vice City, including leaving the airport, driving to Ken Rosenberg's office, and finishing the opening mission.",
+    date: "2026-10-06",
+    publishAt: "2026-10-06T09:00:00+05:00",
+    category: "missions",
+    coverSrc: "/images/blog/gta-vice-city-an-old-friend.jpg",
+    coverAlt:
+      "Tommy Vercetti at Escobar International Airport at sunset — An Old Friend opening mission",
+  },
+  {
+    slug: "gta-vice-city-keep-your-friends-close",
+    title:
+      "GTA Vice City “Keep Your Friends Close...” Mission: How to Complete the Final Mission?",
+    excerpt:
+      "Learn how to complete GTA Vice City’s final mission, Keep Your Friends Close..., including defending the estate, defeating Lance, and facing Sonny Forelli.",
+    date: "2026-10-05",
+    publishAt: "2026-10-05T09:00:00+05:00",
+    category: "missions",
+    coverSrc: "/images/blog/gta-vice-city-keep-your-friends-close.jpg",
+    coverAlt:
+      "Tommy Vercetti defending the Vercetti Estate during the final shootout — Keep Your Friends Close... mission",
+  },
+  {
+    slug: "gta-vice-city-the-job",
+    title: "GTA Vice City “The Job” Mission: How to Complete the Bank Robbery?",
+    excerpt:
+      "Learn how to complete The Job mission in GTA Vice City, including the bank robbery, vault, police shootout, crew protection, getaway, and escape.",
+    date: "2026-10-02",
+    publishAt: "2026-10-02T09:00:00+05:00",
+    category: "missions",
+    coverSrc: "/images/blog/gta-vice-city-the-job.jpg",
+    coverAlt:
+      "Tommy Vercetti and crew during a bank heist shootout at El Banco Corrupto Grande — The Job mission",
+  },
+  {
+    slug: "gta-vice-city-shakedown",
+    title: "GTA Vice City “Shakedown” Mission: How to Complete It?",
+    excerpt:
+      "Learn how to complete the Shakedown mission in GTA Vice City by choosing a fast car, destroying store windows, following targets, and beating the timer.",
+    date: "2026-10-01",
+    publishAt: "2026-10-01T09:00:00+05:00",
+    category: "missions",
+    coverSrc: "/images/blog/gta-vice-city-shakedown.jpg",
+    coverAlt:
+      "Tommy Vercetti speeding past a shattered beauty supply storefront in neon Vice City — Shakedown mission",
+  },
+  {
+    slug: "gta-vice-city-sir-yes-sir",
+    title: "GTA Vice City “Sir, Yes Sir!” Mission: How to Steal the Tank?",
+    excerpt:
+      "Learn how to complete Sir, Yes Sir! in GTA Vice City, including finding the military convoy, stealing the Rhino tank, escaping the soldiers, and delivering it.",
+    date: "2026-09-30",
+    publishAt: "2026-09-30T09:00:00+05:00",
+    category: "missions",
+    coverSrc: "/images/blog/gta-vice-city-sir-yes-sir.jpg",
+    coverAlt:
+      "Rhino tank leading a military convoy through neon Vice City — Sir, Yes Sir! mission",
+  },
+  {
     slug: "gta-vice-city-guardian-angels",
     title: "GTA Vice City “Guardian Angels” Mission: How to Protect Diaz?",
     excerpt:

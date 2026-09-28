@@ -107,8 +107,135 @@ export const missions: Mission[] = [
     publishAt: "2026-09-29T09:00:00+05:00",
   },
   {
-    id: "the-long-night",
+    id: "sir-yes-sir",
     number: "05",
+    title: "Sir, Yes Sir!",
+    location: "Little Haiti",
+    summary:
+      "Phil Cassidy wants a Rhino. Stop the army convoy, steal the tank, then deliver it before the military closes in.",
+    tags: ["Story", "Walkthrough", "Vehicle"],
+    categories: ["story"],
+    imageSrc: "/images/missions/sir-yes-sir.jpg",
+    imageAlt:
+      "Rhino tank leading a military convoy through neon Vice City — Sir, Yes Sir! mission",
+    rewards: { cash: "$1,000", rp: "—", stars: "—" },
+    href: "/news/gta-vice-city-sir-yes-sir",
+    publishAt: "2026-09-30T09:00:00+05:00",
+  },
+  {
+    id: "shakedown",
+    number: "06",
+    title: "Shakedown",
+    location: "Vice City",
+    summary:
+      "From the Vercetti Estate, smash store windows across town before the timer runs out. Speed and route matter more than fights.",
+    tags: ["Story", "Walkthrough", "Driving"],
+    categories: ["story"],
+    imageSrc: "/images/missions/shakedown.jpg",
+    imageAlt:
+      "Tommy Vercetti speeding past a shattered beauty supply storefront in neon Vice City — Shakedown mission",
+    rewards: { cash: "$1,000", rp: "—", stars: "—" },
+    href: "/news/gta-vice-city-shakedown",
+    publishAt: "2026-10-01T09:00:00+05:00",
+  },
+  {
+    id: "the-job",
+    number: "07",
+    title: "The Job",
+    location: "Little Havana",
+    summary:
+      "Rob El Banco Corrupto Grande with the crew, survive the police ambush, protect Hilary, then lose the heat on the getaway.",
+    tags: ["Story", "Walkthrough", "Heist"],
+    categories: ["story", "heist"],
+    imageSrc: "/images/missions/the-job.jpg",
+    imageAlt:
+      "Tommy Vercetti and crew during a bank heist shootout at El Banco Corrupto Grande — The Job mission",
+    rewards: { cash: "$50,000", rp: "—", stars: "—" },
+    href: "/news/gta-vice-city-the-job",
+    publishAt: "2026-10-02T09:00:00+05:00",
+  },
+  {
+    id: "keep-your-friends-close",
+    number: "08",
+    title: "Keep Your Friends Close...",
+    location: "Vercetti Estate",
+    summary:
+      "Defend the mansion from Sonny Forelli’s gang, deal with Lance’s betrayal, then finish the final confrontation.",
+    tags: ["Story", "Walkthrough", "Final"],
+    categories: ["story"],
+    imageSrc: "/images/missions/keep-your-friends-close.jpg",
+    imageAlt:
+      "Tommy Vercetti defending the Vercetti Estate during the final shootout — Keep Your Friends Close... mission",
+    rewards: { cash: "Finale", rp: "—", stars: "—" },
+    href: "/news/gta-vice-city-keep-your-friends-close",
+    publishAt: "2026-10-05T09:00:00+05:00",
+  },
+  {
+    id: "an-old-friend",
+    number: "09",
+    title: "An Old Friend",
+    location: "Escobar International Airport",
+    summary:
+      "Tommy arrives in Vice City. Leave the airport, drive to Ken Rosenberg’s office, and finish the opening mission.",
+    tags: ["Story", "Walkthrough", "Intro"],
+    categories: ["story"],
+    imageSrc: "/images/missions/an-old-friend.jpg",
+    imageAlt:
+      "Tommy Vercetti at Escobar International Airport at sunset — An Old Friend opening mission",
+    rewards: { cash: "—", rp: "—", stars: "—" },
+    href: "/news/gta-vice-city-an-old-friend",
+    publishAt: "2026-10-06T09:00:00+05:00",
+  },
+  {
+    id: "riot",
+    number: "10",
+    title: "Riot",
+    location: "Washington Beach",
+    summary:
+      "Avery Carrington wants chaos at a workers’ protest. Change clothes, start the fight, hit the targets, then get out before the cops close in.",
+    tags: ["Story", "Walkthrough"],
+    categories: ["story"],
+    imageSrc: "/images/missions/riot.jpg",
+    imageAlt:
+      "Riot at a Vice City Construction site with workers fighting at sunset — Riot mission",
+    rewards: { cash: "$500", rp: "—", stars: "—" },
+    href: "/news/gta-vice-city-riot",
+    publishAt: "2026-10-07T09:00:00+05:00",
+  },
+  {
+    id: "all-hands-on-deck",
+    number: "11",
+    title: "All Hands-on Deck!",
+    location: "Viceport",
+    summary:
+      "Protect Colonel Cortez’s yacht from boats and helicopters until he escapes Vice City.",
+    tags: ["Story", "Walkthrough", "Combat"],
+    categories: ["story"],
+    imageSrc: "/images/missions/all-hands-on-deck.jpg",
+    imageAlt:
+      "GTA Vice City All Hands-on Deck mission with Tommy protecting Colonel Cortez's yacht from attacking boats and helicopters",
+    rewards: { cash: "$2,000", rp: "—", stars: "—" },
+    href: "/news/gta-vice-city-all-hands-on-deck-mission-guide",
+    publishAt: "2026-10-08T09:00:00+05:00",
+  },
+  {
+    id: "mall-shootout",
+    number: "12",
+    title: "Mall Shootout",
+    location: "Washington Beach",
+    summary:
+      "Meet a contact at Washington Beach Mall, survive the shootout, then chase down the escaping target.",
+    tags: ["Story", "Walkthrough", "Combat"],
+    categories: ["story"],
+    imageSrc: "/images/missions/mall-shootout.jpg",
+    imageAlt: "GTA Vice City Mall Shootout mission at Washington Beach Mall",
+    rewards: { cash: "$500", rp: "—", stars: "—" },
+    href: "/news/gta-vice-city-mall-shootout-mission-guide",
+    publishAt: "2026-10-09T09:00:00+05:00",
+  },
+  {
+    id: "the-long-night",
+    number: "13",
     title: "The Long Night",
     location: "Vice City",
     summary:
@@ -121,7 +248,7 @@ export const missions: Mission[] = [
   },
   {
     id: "club-inferno",
-    number: "06",
+    number: "14",
     title: "Club Inferno",
     location: "Vice City",
     summary:
@@ -134,7 +261,7 @@ export const missions: Mission[] = [
   },
   {
     id: "alligator-alley",
-    number: "07",
+    number: "15",
     title: "Alligator Alley",
     location: "Leonida Keys",
     summary:
@@ -147,7 +274,7 @@ export const missions: Mission[] = [
   },
   {
     id: "federal-disturbance",
-    number: "08",
+    number: "16",
     title: "Federal Disturbance",
     location: "Downtown VC",
     summary:
@@ -160,7 +287,7 @@ export const missions: Mission[] = [
   },
   {
     id: "iron-legion",
-    number: "09",
+    number: "17",
     title: "Iron Legion",
     location: "Port Bellhorn",
     summary:
