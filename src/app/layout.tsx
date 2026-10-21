@@ -62,7 +62,12 @@ const script = Pacifico({
   display: "swap",
 });
 
-export const metadata: Metadata = buildMetadata();
+export const metadata: Metadata = {
+  ...buildMetadata(),
+  other: {
+    "google-adsense-account": "ca-pub-1659905027547791",
+  },
+};
 
 export const viewport: Viewport = {
   themeColor: "#03040a",
