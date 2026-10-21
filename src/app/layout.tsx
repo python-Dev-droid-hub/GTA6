@@ -9,9 +9,10 @@ import {
   Pacifico,
 } from "next/font/google";
 import { buildMetadata } from "@/lib/seo/metadata";
-import { GoogleAdSense } from "@/components/seo/google-adsense";
 import { GoogleAnalytics } from "@/components/seo/google-analytics";
 import "./globals.css";
+
+const ADSENSE_CLIENT_ID = "ca-pub-1659905027547791";
 
 const display = Barlow_Condensed({
   variable: "--font-barlow-condensed",
@@ -88,11 +89,18 @@ export default function RootLayout({
       className={`${display.variable} ${anton.variable} ${bebas.variable} ${orbitron.variable} ${sans.variable} ${mono.variable} ${script.variable}`}
       data-theme="dark"
     >
+      {/* Raw head script so AdSense crawlers see a literal <script src> (next/script is often missed). */}
+      <head>
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
         className="min-h-dvh bg-background text-foreground antialiased"
         suppressHydrationWarning
       >
-        <GoogleAdSense />
         <GoogleAnalytics />
         {children}
       </body>
