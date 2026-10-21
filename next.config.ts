@@ -26,6 +26,13 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 2560, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 30,
+    // Next 16 requires an explicit allowlist; omit `search` so ?v= cache-bust params work.
+    localPatterns: [
+      { pathname: "/images/**" },
+      { pathname: "/videos/**" },
+    ],
+    // Explicit qualities used by cinema / ultimate / vintage panels (default stays 75).
+    qualities: [75, 90, 100],
   },
   experimental: {
     optimizePackageImports: [

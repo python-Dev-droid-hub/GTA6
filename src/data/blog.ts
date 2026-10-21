@@ -32,6 +32,58 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-graphics-and-realism",
+    title:
+      "GTA 6 Graphics and Realism: 10 Details Fans Are Excited to Explore",
+    excerpt:
+      "Explore 10 GTA 6 graphics and realism details, from realistic water and lighting to character animations, weather, vehicle damage, and NPCs.",
+    date: "2026-10-23",
+    publishAt: "2026-10-23T21:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-graphics-and-realism.jpg",
+    coverAlt:
+      "Woman on a rainy neon Vice City street at twilight — GTA 6 graphics and realism",
+  },
+  {
+    slug: "gta-6-vehicles-cars-bikes-boats-aircraft",
+    title:
+      "GTA 6 Vehicles Guide: Which Cars and Transport Features Are Worth Watching?",
+    excerpt:
+      "Explore GTA 6 vehicles, including sports cars, muscle cars, motorcycles, boats, aircraft, off-road rides, customization, and police pursuits.",
+    date: "2026-10-23",
+    publishAt: "2026-10-23T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-vehicles-cars-bikes-boats-aircraft.jpg",
+    coverAlt:
+      "Supercar, muscle car, motorcycle, yacht, and helicopter on a Vice City coastal highway — GTA 6 vehicles guide",
+  },
+  {
+    slug: "gta-6-map-explained",
+    title:
+      "GTA 6 Map Explained: What We Know About Vice City and the State of Leonida?",
+    excerpt:
+      "Explore the GTA 6 map, from Vice City and the Leonida Keys to Grassrivers, Port Gellhorn, Ambrosia, and the state's vast wilderness.",
+    date: "2026-10-22",
+    publishAt: "2026-10-22T21:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-map-explained.jpg",
+    coverAlt:
+      "Overlook of Vice City, Leonida Keys, and coastal highways at sunset — GTA 6 map explained",
+  },
+  {
+    slug: "gta-6-launch-day-checklist",
+    title:
+      "GTA 6 Launch Day Checklist: Everything Players Should Prepare Before November 19, 2026",
+    excerpt:
+      "Get ready for GTA 6 on November 19, 2026! Check storage, pre-loads, console settings, controllers, accounts, and spoiler-free launch day tips.",
+    date: "2026-10-22",
+    publishAt: "2026-10-22T09:00:00+05:00",
+    category: "news",
+    coverSrc: "/images/blog/gta-6-launch-day-checklist.jpg",
+    coverAlt:
+      "Jason and Lucia with a sports car against a neon Vice City sunset — GTA 6 launch day checklist",
+  },
+  {
     slug: "gta-vice-city-mall-shootout-mission-guide",
     title: "GTA Vice City “Mall Shootout” Mission: How to Complete the Mission?",
     excerpt:
