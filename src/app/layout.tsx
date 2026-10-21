@@ -9,6 +9,7 @@ import {
   Pacifico,
 } from "next/font/google";
 import { buildMetadata } from "@/lib/seo/metadata";
+import { GoogleAdSense } from "@/components/seo/google-adsense";
 import { GoogleAnalytics } from "@/components/seo/google-analytics";
 import "./globals.css";
 
@@ -86,6 +87,7 @@ export default function RootLayout({
         className="min-h-dvh bg-background text-foreground antialiased"
         suppressHydrationWarning
       >
+        <GoogleAdSense />
         <GoogleAnalytics />
         {children}
       </body>
