@@ -431,6 +431,48 @@ export function getBlogFeatured(now: Date = new Date()) {
   return published.find((p) => p.featured) ?? published[0] ?? null;
 }
 
+/** Stable 0–n-1 index from slug so related picks differ per article. */
+function relatedSeed(slug: string, modulo: number): number {
+  if (modulo <= 0) return 0;
+  let hash = 0;
+  for (let i = 0; i < slug.length; i += 1) {
+    hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
+  }
+  return hash % modulo;
+}
+
+/**
+ * 2–3 sibling posts for in-article interlinking.
+ * Prefers the same category, then fills from other live posts with a stable rotation.
+ */
+export function getRelatedBlogPosts(
+  slug: string,
+  limit = 3,
+  now: Date = new Date(),
+): BlogPost[] {
+  const count = Math.min(Math.max(limit, 2), 3);
+  const published = getPublishedBlogPosts(now).filter((p) => p.slug !== slug);
+  if (!published.length) return [];
+
+  const current = blogPosts.find((p) => p.slug === slug);
+  const sameCategory = current
+    ? published.filter((p) => p.category === current.category)
+    : [];
+  const other = published.filter(
+    (p) => !sameCategory.some((s) => s.slug === p.slug),
+  );
+
+  const pool = [...sameCategory, ...other];
+  if (pool.length <= count) return pool;
+
+  const start = relatedSeed(slug, pool.length);
+  const picked: BlogPost[] = [];
+  for (let i = 0; i < pool.length && picked.length < count; i += 1) {
+    picked.push(pool[(start + i) % pool.length]!);
+  }
+  return picked;
+}
+
 export function getBlogGridPosts(now: Date = new Date()) {
   const featured = getBlogFeatured(now);
   return getPublishedBlogPosts(now).filter((p) => p.slug !== featured?.slug);

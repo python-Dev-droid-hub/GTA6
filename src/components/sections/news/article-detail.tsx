@@ -4,7 +4,11 @@ import type { ReactNode } from "react";
 import { ArrowLeft, Clock, CalendarDays, List, Newspaper } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
-import { getPublishedBlogPosts, type BlogPost } from "@/data/blog";
+import {
+  getPublishedBlogPosts,
+  getRelatedBlogPosts,
+  type BlogPost,
+} from "@/data/blog";
 import type { ArticleFrontmatter, ArticleHeading } from "@/types/content";
 import { formatDate } from "@/utils/format-date";
 
@@ -117,6 +121,56 @@ function LatestBlogs({
   );
 }
 
+function RelatedReading({ posts }: { posts: BlogPost[] }) {
+  if (!posts.length) return null;
+
+  return (
+    <nav
+      aria-labelledby="related-reading-heading"
+      className="mt-14 rounded-md border border-border bg-ink-900/60 p-5 sm:p-6"
+    >
+      <p
+        id="related-reading-heading"
+        className="font-mono text-[10px] uppercase tracking-[0.22em] text-neon-cyan"
+      >
+        Related reading
+      </p>
+      <p className="mt-2 text-sm text-paper-muted">
+        Keep exploring with these guides from the archive.
+      </p>
+      <ul className="mt-5 space-y-3">
+        {posts.map((post) => (
+          <li key={post.slug}>
+            <Link
+              href={`/news/${post.slug}`}
+              className="group flex gap-3 rounded-sm border border-transparent p-1 transition-colors hover:border-border hover:bg-ink-900"
+            >
+              <span className="relative size-16 shrink-0 overflow-hidden rounded-sm border border-border bg-ink-800 sm:size-[4.5rem]">
+                <Image
+                  src={post.coverSrc}
+                  alt=""
+                  fill
+                  loading="lazy"
+                  sizes="72px"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </span>
+              <span className="min-w-0 flex-1 py-0.5">
+                <span className="line-clamp-2 text-[14px] leading-snug text-paper transition-colors group-hover:text-vice-pink">
+                  {post.title}
+                </span>
+                <span className="mt-1 line-clamp-2 text-[12px] leading-relaxed text-paper-faint">
+                  {post.excerpt}
+                </span>
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
 /**
  * Editorial article shell: breadcrumb, hero cover, sticky TOC, prose.
  * Why a dedicated layout: thin page.tsx stays composition-only; reading UX is shared.
@@ -132,8 +186,10 @@ export function ArticleDetail({
   readingMinutes,
 }: ArticleDetailProps) {
   const sectionCount = headings.filter((h) => h.level === 2).length;
+  const relatedPosts = getRelatedBlogPosts(slug, 3);
+  const relatedSlugs = new Set(relatedPosts.map((p) => p.slug));
   const latestPosts = getPublishedBlogPosts()
-    .filter((post) => post.slug !== slug)
+    .filter((post) => post.slug !== slug && !relatedSlugs.has(post.slug))
     .slice(0, 4);
 
   return (
@@ -235,6 +291,8 @@ export function ArticleDetail({
 
           <div className="min-w-0 max-w-3xl">
             <article className="article-body">{body}</article>
+
+            <RelatedReading posts={relatedPosts} />
 
             {meta.keywords?.length ? (
               <footer className="mt-14 border-t border-border pt-8">
