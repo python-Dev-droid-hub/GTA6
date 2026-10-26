@@ -32,6 +32,58 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-wildlife-leonida",
+    title:
+      "GTA 6 Wildlife and Nature: Animals, Swamps, and Hidden Details in Leonida",
+    excerpt:
+      "Explore GTA 6 wildlife in Leonida, from alligators and tropical birds to swamps, marine life, diverse habitats, and hidden nature details.",
+    date: "2026-10-28",
+    publishAt: "2026-10-28T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-wildlife-leonida.jpg",
+    coverAlt:
+      "Alligator, flamingos, and wetland wildlife near Vice City at sunset — GTA 6 wildlife in Leonida",
+  },
+  {
+    slug: "gta-6-vice-city-vs-original",
+    title:
+      "What Makes GTA 6's Vice City Different from the Original GTA Vice City?",
+    excerpt:
+      "Compare GTA 6's Vice City with the 2002 classic. Explore map size, modern culture, wildlife, interiors, gameplay, and major differences.",
+    date: "2026-10-27",
+    publishAt: "2026-10-27T21:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-vice-city-vs-original.jpg",
+    coverAlt:
+      "Vice City then vs now — Tommy Vercetti beside Lucia and Jason in neon Leonida",
+  },
+  {
+    slug: "gta-6-wanted-system-police-chases",
+    title:
+      "GTA 6 Wanted System Explained: What Could Make Police Chases More Challenging?",
+    excerpt:
+      "Discover the GTA 6 wanted system, including police AI, witness reports, suspect tracking, hot areas, tactical pursuits, and escape strategies.",
+    date: "2026-10-27",
+    publishAt: "2026-10-27T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-wanted-system-police-chases.jpg",
+    coverAlt:
+      "Lucia and Jason fleeing police cars and a helicopter on a neon Vice City highway — GTA 6 wanted system",
+  },
+  {
+    slug: "lucia-vs-jason-gta-6-characters-story-guide",
+    title:
+      "Lucia vs. Jason in GTA 6: Characters, Story Roles, and What Players Should Know",
+    excerpt:
+      "Lucia and Jason take center stage in GTA 6. Explore their backgrounds, story roles, relationship, key differences, and what players should know.",
+    date: "2026-10-26",
+    publishAt: "2026-10-26T21:00:00+05:00",
+    category: "news",
+    coverSrc: "/images/blog/lucia-vs-jason-gta-6-characters-story-guide.jpg",
+    coverAlt:
+      "Lucia vs Jason in neon Vice City — GTA 6 characters and story guide",
+  },
+  {
     slug: "gta-6-graphics-and-realism",
     title:
       "GTA 6 Graphics and Realism: 10 Details Fans Are Excited to Explore",
