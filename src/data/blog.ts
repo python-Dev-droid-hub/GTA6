@@ -32,6 +32,123 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-lucia-and-jason-relationship",
+    title:
+      "GTA 6 Character Relationships: How Lucia and Jason Could Shape the Story and Gameplay?",
+    excerpt:
+      "Explore how Lucia and Jason's relationship could shape GTA 6's story, character switching, missions, player choices, and potential relationship mechanics.",
+    date: "2026-11-03",
+    publishAt: "2026-11-03T21:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-lucia-and-jason-relationship.jpg",
+    coverAlt:
+      "Lucia and Jason on a car hood in the Leonida marsh with Vice City skyline at sunset",
+  },
+  {
+    slug: "can-you-play-gta-6-offline",
+    title:
+      "Can You Play GTA 6 Offline? What Players Need to Know About Internet Requirements",
+    excerpt:
+      "Can you play GTA 6 offline? Learn about internet requirements, initial installation, activation, updates, and online multiplayer access.",
+    date: "2026-11-03",
+    publishAt: "2026-11-03T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/can-you-play-gta-6-offline.jpg",
+    coverAlt:
+      "PS5 DualSense and TV showing neon Vice City with online and offline Wi-Fi icons — GTA 6 offline play",
+  },
+  {
+    slug: "gta-6-safehouses-properties-garages",
+    title:
+      "GTA 6 Safehouses Explained: What Players Should Know About Properties and Hideouts?",
+    excerpt:
+      "Explore GTA 6 safehouses, garages, hideouts, property customization, and real estate. Discover what players can expect in Vice City and Leonida.",
+    date: "2026-11-02",
+    publishAt: "2026-11-02T21:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-safehouses-properties-garages.jpg",
+    coverAlt:
+      "Jason and Lucia at a luxury waterfront villa garage overlooking neon Vice City — GTA 6 safehouses",
+  },
+  {
+    slug: "gta-6-multiplayer-10-questions",
+    title:
+      "GTA 6 Multiplayer: 10 Questions Players Want Answered Before Playing Online",
+    excerpt:
+      "Discover 10 big GTA 6 multiplayer questions about crossplay, GTA Online progress, FiveM roleplay, anti-cheat, lobbies, and map expansions.",
+    date: "2026-11-02",
+    publishAt: "2026-11-02T09:00:00+05:00",
+    category: "news",
+    coverSrc: "/images/blog/gta-6-multiplayer-10-questions.jpg",
+    coverAlt:
+      "Crew overlooking neon Vice City at sunset with supercars and yacht — GTA 6 multiplayer",
+  },
+  {
+    slug: "is-gta-6-worth-the-hype",
+    title:
+      "Is GTA 6 Worth the Hype? Features, Expectations, and Questions Fans Still Have",
+    excerpt:
+      "Is GTA 6 worth the hype? Explore confirmed features, fan expectations, gameplay improvements, online rumors, and unanswered questions.",
+    date: "2026-10-30",
+    publishAt: "2026-10-30T21:00:00+05:00",
+    category: "news",
+    coverSrc: "/images/blog/is-gta-6-worth-the-hype.jpg",
+    coverAlt:
+      "Jason and Lucia at a neon Vice City waterfront with cash and champagne at sunset — is GTA 6 worth the hype",
+  },
+  {
+    slug: "gta-6-hidden-locations-secrets",
+    title:
+      "GTA 6 Hidden Locations and Secrets: How to Explore Leonida Beyond the Main Story?",
+    excerpt:
+      "Discover GTA 6 hidden locations, secret areas, underwater treasures, easter eggs, and exploration tips for uncovering Leonida's mysteries.",
+    date: "2026-10-30",
+    publishAt: "2026-10-30T09:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-hidden-locations-secrets.jpg",
+    coverAlt:
+      "Explorers at a swamp hideout with treasure and a bunker near Vice City — GTA 6 hidden locations",
+  },
+  {
+    slug: "gta-6-vs-gta-5-biggest-gameplay-changes",
+    title:
+      "GTA 6 vs. GTA 5: Which Gameplay Features Could Change the Most?",
+    excerpt:
+      "Compare GTA 6 vs GTA 5 gameplay, including Jason and Lucia, weapons, police AI, NPC behavior, vehicle physics, and world interactions.",
+    date: "2026-10-29",
+    publishAt: "2026-10-29T21:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-vs-gta-5-biggest-gameplay-changes.jpg",
+    coverAlt:
+      "GTA 5 vs GTA 6 split — Los Santos crew beside Lucia and Jason in neon Vice City",
+  },
+  {
+    slug: "gta-6-soundtrack-radio-stations",
+    title:
+      "GTA 6 Radio Stations and Soundtrack: What Players Want to Hear in Vice City?",
+    excerpt:
+      "Discover GTA 6 soundtrack details, rumored radio stations, confirmed songs, and fan-favorite artists players want to hear in Vice City.",
+    date: "2026-10-29",
+    publishAt: "2026-10-29T09:00:00+05:00",
+    category: "news",
+    coverSrc: "/images/blog/gta-6-soundtrack-radio-stations.jpg",
+    coverAlt:
+      "Neon Vice City radio scene with Real Dimez hosts, vinyls, and sports car — GTA 6 soundtrack",
+  },
+  {
+    slug: "can-your-pc-run-gta-6-requirements",
+    title:
+      "Can Your Gaming Setup Run GTA 6? What Console and PC Players Need to Know",
+    excerpt:
+      "Find out what PC specs GTA 6 may require, which consoles will support it, and how much RAM, VRAM, CPU power, and SSD storage you need.",
+    date: "2026-10-28",
+    publishAt: "2026-10-28T21:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/can-your-pc-run-gta-6-requirements.jpg",
+    coverAlt:
+      "Gaming PC hardware, PS5, and Xbox Series X with neon Vice City backdrop — GTA 6 PC requirements",
+  },
+  {
     slug: "gta-6-wildlife-leonida",
     title:
       "GTA 6 Wildlife and Nature: Animals, Swamps, and Hidden Details in Leonida",
