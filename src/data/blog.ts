@@ -32,6 +32,20 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-release-time-global-launch-times-november-19-2026",
+    title:
+      "What Time Does GTA 6 Release on November 19, 2026? Global Launch Times Explained",
+    excerpt:
+      "Find out exactly when GTA 6 releases worldwide on November 19, 2026. Check global launch times, preload dates, platforms, and launch-day preparation tips.",
+    date: "2026-11-06",
+    publishAt: "2026-11-06T22:00:00+05:00",
+    category: "news",
+    coverSrc:
+      "/images/blog/gta-6-release-time-global-launch-times-november-19-2026.jpg",
+    coverAlt:
+      "GTA 6 Release Time: Global Launch Times for November 19, 2026",
+  },
+  {
     slug: "gta-6-lucia-and-jason-relationship",
     title:
       "GTA 6 Character Relationships: How Lucia and Jason Could Shape the Story and Gameplay?",

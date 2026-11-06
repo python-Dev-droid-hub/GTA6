@@ -266,6 +266,7 @@ export function ArticleDetail({
             <Image
               src={meta.cover}
               alt={meta.coverAlt}
+              title={meta.coverAlt}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 1024px"
