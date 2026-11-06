@@ -32,6 +32,93 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-money-guide-how-to-earn-cash",
+    title:
+      "How Much Money Will You Need in GTA 6? Exploring Possible Ways to Earn Cash",
+    excerpt:
+      "Discover how to make money in GTA 6 through store robberies, jewelry fencing, bank heists, compound raids, and story missions. Explore cash, bank accounts, and the expected economy in Leonida.",
+    date: "2026-11-10",
+    publishAt: "2026-11-10T10:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-money-guide-how-to-earn-cash.jpg",
+    coverAlt: "GTA 6 Money Guide: How to Earn Cash and Build Your Empire",
+  },
+  {
+    slug: "gta-6-customization-guide-cars-outfits-weapons",
+    title:
+      "GTA 6 Customization Guide: Cars, Outfits, Weapons, and Character Appearance",
+    excerpt:
+      "Explore GTA 6 customization options for cars, outfits, weapons, and character appearance. Discover expected vehicle upgrades, hairstyles, tattoos, clothing, and weapon modifications in Leonida.",
+    date: "2026-11-09",
+    publishAt: "2026-11-09T22:00:00+05:00",
+    category: "updates",
+    coverSrc:
+      "/images/blog/gta-6-customization-guide-cars-outfits-weapons.jpg",
+    coverAlt: "GTA 6 Customization Guide: Cars, Outfits, Weapons & More",
+  },
+  {
+    slug: "gta-6-hidden-businesses-side-jobs",
+    title:
+      "Will GTA 6 Have Hidden Businesses and Side Jobs? What Players Can Expect",
+    excerpt:
+      "Will GTA 6 feature hidden businesses and side jobs? Explore expected pawn shops, chop shops, underground racing, smuggling, money laundering, and criminal activities in Vice City.",
+    date: "2026-11-09",
+    publishAt: "2026-11-09T10:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-hidden-businesses-side-jobs.jpg",
+    coverAlt: "GTA 6 Hidden Businesses & Side Jobs: What to Expect",
+  },
+  {
+    slug: "gta-6-first-24-hours-where-to-go-first-vice-city",
+    title:
+      "GTA 6 First 24 Hours: What Should Players Explore First in Vice City?",
+    excerpt:
+      "Discover where to explore during your first 24 hours in GTA 6, from Ocean Drive and Downtown Vice City to Grassrivers, the Leonida Keys, and nightlife.",
+    date: "2026-11-08",
+    publishAt: "2026-11-08T22:00:00+05:00",
+    category: "updates",
+    coverSrc:
+      "/images/blog/gta-6-first-24-hours-where-to-go-first-vice-city.jpg",
+    coverAlt: "GTA 6 First 24 Hours: Where to Go First in Vice City",
+  },
+  {
+    slug: "gta-5-online-progress-transfer-to-gta-6",
+    title:
+      "Can You Transfer Your GTA 5 Online Progress to GTA 6? Everything Players Should Know",
+    excerpt:
+      "Will GTA 5 Online progress transfer to GTA 6? Find out what happens to your GTA$ money, vehicles, properties, rank, character, and existing GTA Online progress.",
+    date: "2026-11-08",
+    publishAt: "2026-11-08T10:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-5-online-progress-transfer-to-gta-6.jpg",
+    coverAlt: "Can GTA 5 Online Progress Transfer to GTA 6? What We Know",
+  },
+  {
+    slug: "gta-6-day-one-guide-things-to-do-before-playing",
+    title:
+      "GTA 6 Day One Guide: 15 Things to Do Before Starting Your Adventure in Leonida",
+    excerpt:
+      "Getting ready for GTA 6? Here are 15 things to do before playing, from preparing your PS5 or Xbox to preload, storage, spoilers, Lucia, Jason, and Leonida.",
+    date: "2026-11-07",
+    publishAt: "2026-11-07T22:00:00+05:00",
+    category: "updates",
+    coverSrc:
+      "/images/blog/gta-6-day-one-guide-things-to-do-before-playing.jpg",
+    coverAlt: "GTA 6 Day One Guide: 15 Things to Do Before Playing",
+  },
+  {
+    slug: "gta-6-preload-guide-download-date-storage-size",
+    title:
+      "GTA 6 Preload Guide: When Can You Download the Game and How Much Space Do You Need?",
+    excerpt:
+      "Find out when GTA 6 preload begins, how to download it on PS5 and Xbox Series X|S, the expected storage space, and how to prepare for launch day.",
+    date: "2026-11-07",
+    publishAt: "2026-11-07T10:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-preload-guide-download-date-storage-size.jpg",
+    coverAlt: "GTA 6 Preload Guide: Download Date, Time & Storage Size",
+  },
+  {
     slug: "gta-6-release-time-global-launch-times-november-19-2026",
     title:
       "What Time Does GTA 6 Release on November 19, 2026? Global Launch Times Explained",
