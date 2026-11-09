@@ -15,6 +15,10 @@ export type BlogPost = {
   category: Exclude<BlogCategory, "all">;
   coverSrc: string;
   coverAlt: string;
+  /** Image title attribute — falls back to title / coverAlt in UI */
+  coverTitle?: string;
+  /** Image caption — falls back to coverAlt in UI */
+  coverCaption?: string;
   featured?: boolean;
   draft?: boolean;
   /** Optional schedule override (ISO-8601). Falls back to `date`. */
@@ -31,6 +35,132 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "gta-6-beginner-mistakes-first-playthrough",
+    title:
+      "GTA 6 Beginner Mistakes: Things You Should Avoid During Your First Playthrough",
+    excerpt:
+      "Starting GTA 6 for the first time? Discover beginner mistakes to avoid, from weapon management and police escapes to combat tactics, vehicle preparation, and Jason and Lucia's abilities.",
+    date: "2026-11-14",
+    publishAt: "2026-11-14T22:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-beginner-mistakes-first-playthrough.jpg",
+    coverAlt:
+      "Jason and Lucia beside an open car trunk with cash during a Vice City police chase — GTA 6 beginner mistakes",
+    coverTitle:
+      "GTA 6 Beginner Mistakes: 7 Things to Avoid in Your First Playthrough",
+    coverCaption:
+      "Seven first-playthrough mistakes to avoid in Leonida, from trunk inventory and unbanked cash to police AI and fuel.",
+  },
+  {
+    slug: "gta-6-pc-release-date-latest-news",
+    title:
+      "Is GTA 6 Coming to PC? Latest Release Information and What Players Should Know",
+    excerpt:
+      "Is GTA 6 coming to PC? Explore Rockstar's console-first launch strategy, expected PC release window, past release timelines, and what PC gamers should know.",
+    date: "2026-11-14",
+    publishAt: "2026-11-14T10:00:00+05:00",
+    category: "news",
+    coverSrc: "/images/blog/gta-6-pc-release-date-latest-news.jpg",
+    coverAlt:
+      "Lucia at a PC gaming setup with PS5 and Xbox consoles overlooking neon Vice City — GTA 6 PC release",
+    coverTitle: "Is GTA 6 Coming to PC? Expected Release Date & Latest News",
+    coverCaption:
+      "What PC gamers need to know about GTA 6's console-first launch and expected PC release window.",
+  },
+  {
+    slug: "gta-6-ps5-vs-xbox-series-x-comparison",
+    title: "GTA 6 PS5 vs Xbox Series X: Which Console Should Players Choose?",
+    excerpt:
+      "Compare GTA 6 on PS5 vs Xbox Series X, including graphics, performance, SSD speeds, controllers, storage, and PS5 Pro. Find out which console is worth choosing.",
+    date: "2026-11-13",
+    publishAt: "2026-11-13T22:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-ps5-vs-xbox-series-x-comparison.jpg",
+    coverAlt:
+      "Comparison of GTA 6 on PS5 and Xbox Series X featuring a character in a tropical shirt in front of a Vice City skyline.",
+    coverTitle: "GTA 6 Console Comparison: PS5 vs Xbox Series X",
+    coverCaption:
+      "Deciding between PlayStation 5 and Xbox Series X for the ultimate GTA 6 experience in Leonida.",
+  },
+  {
+    slug: "gta-6-map-exploration-best-places-leonida",
+    title: "GTA 6 Map Exploration: Best Places to Visit Outside Vice City",
+    excerpt:
+      "Explore the GTA 6 map beyond Vice City, from the Leonida Grassrivers and tropical Keys to Port Gellhorn, Ambrosia, and Mount Kalaga National Park.",
+    date: "2026-11-13",
+    publishAt: "2026-11-13T10:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-map-exploration-best-places-leonida.jpg",
+    coverAlt:
+      "Hampton exploring the GTA 6 Leonida wilderness beyond Vice City",
+    coverTitle: "GTA 6 Map Exploration Guide",
+    coverCaption:
+      "Discover the best places to explore beyond Vice City, including Leonida's swamps, tropical islands, coastal highways, and rural wilderness.",
+  },
+  {
+    slug: "gta-6-hidden-easter-eggs-12-secrets",
+    title:
+      "GTA 6 Hidden Easter Eggs: 12 Details Fans Should Look for After Launch",
+    excerpt:
+      "Discover 12 GTA 6 hidden Easter eggs, including Tommy Vercetti references, UFO sightings, underwater mysteries, serial killer clues, and secret Rockstar details.",
+    date: "2026-11-12",
+    publishAt: "2026-11-12T22:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-hidden-easter-eggs-12-secrets.jpg",
+    coverAlt: "GTA 6 Hidden Easter Eggs: 12 Secrets Fans Should Look For",
+  },
+  {
+    slug: "gta-6-best-vehicles-supercars-bikes-off-road",
+    title:
+      "GTA 6 Best Vehicles to Watch: Sports Cars, Supercars, Bikes, and Off-Road Rides",
+    excerpt:
+      "Discover the best GTA 6 vehicles to watch, including supercars, sports cars, motorcycles, off-road trucks, buggies and powerful rides for exploring Leonida.",
+    date: "2026-11-12",
+    publishAt: "2026-11-12T10:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-best-vehicles-supercars-bikes-off-road.jpg",
+    coverAlt:
+      "GTA 6 Best Vehicles: Supercars, Sports Cars, Bikes & Off-Road",
+  },
+  {
+    slug: "gta-6-hunting-fishing-guide-wildlife",
+    title:
+      "GTA 6 Hunting and Fishing Guide: What Wildlife Activities Can Players Expect?",
+    excerpt:
+      "Explore GTA 6 hunting and fishing activities, wildlife encounters, dangerous animals, fishing spots, hunting mechanics and the diverse ecosystem of Leonida.",
+    date: "2026-11-11",
+    publishAt: "2026-11-11T22:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-hunting-fishing-guide-wildlife.jpg",
+    coverAlt:
+      "GTA 6 Hunting & Fishing Guide: Wildlife, Animals & Activities",
+  },
+  {
+    slug: "gta-6-weather-system-hurricanes-storms",
+    title:
+      "GTA 6 Weather System: How Hurricanes and Storms Could Change Gameplay?",
+    excerpt:
+      "Explore how hurricanes, tropical storms, flooding, power outages and extreme weather could transform driving, heists, NPC behavior and exploration in GTA 6.",
+    date: "2026-11-11",
+    publishAt: "2026-11-11T10:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-weather-system-hurricanes-storms.jpg",
+    coverAlt:
+      "GTA 6 Weather System: Hurricanes, Storms & Gameplay Effects",
+  },
+  {
+    slug: "gta-6-interiors-explained-enterable-buildings",
+    title:
+      "GTA 6 Interiors Explained: Which Buildings and Locations Can Players Explore?",
+    excerpt:
+      "Discover which buildings and locations you can explore in GTA 6, from Vice City shops and nightclubs to malls, banks, gyms, and residential interiors.",
+    date: "2026-11-10",
+    publishAt: "2026-11-10T22:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-interiors-explained-enterable-buildings.jpg",
+    coverAlt: "GTA 6 Interiors Explained: Enterable Buildings & Locations",
+  },
   {
     slug: "gta-6-money-guide-how-to-earn-cash",
     title:

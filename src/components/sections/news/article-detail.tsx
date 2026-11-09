@@ -266,16 +266,18 @@ export function ArticleDetail({
             <Image
               src={meta.cover}
               alt={meta.coverAlt}
-              title={meta.coverAlt}
+              title={
+                meta.coverTitle ?? meta.seoTitle ?? meta.coverAlt
+              }
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 1024px"
               className="object-cover"
             />
           </div>
-          {meta.coverAlt ? (
+          {meta.coverCaption || meta.coverAlt ? (
             <figcaption className="border-t border-border px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-paper-faint sm:px-5">
-              {meta.coverAlt}
+              {meta.coverCaption ?? meta.coverAlt}
             </figcaption>
           ) : null}
         </figure>

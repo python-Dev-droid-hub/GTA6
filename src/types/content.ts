@@ -5,6 +5,10 @@ export type ArticleFrontmatter = {
   tag: string;
   cover: string;
   coverAlt: string;
+  /** Browser image title attribute — falls back to seoTitle / coverAlt */
+  coverTitle?: string;
+  /** Visible figcaption under the hero — falls back to coverAlt */
+  coverCaption?: string;
   /** Browser / OG title when different from on-page H1 */
   seoTitle?: string;
   category?: string;

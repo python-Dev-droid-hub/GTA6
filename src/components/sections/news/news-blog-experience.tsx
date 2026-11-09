@@ -28,6 +28,7 @@ function BlogPostCard({ post }: { post: BlogPost }) {
           <Image
             src={post.coverSrc}
             alt={post.coverAlt}
+            title={post.coverTitle ?? post.title}
             fill
             loading="lazy"
             sizes="(max-width: 768px) 100vw, 33vw"
@@ -195,6 +196,7 @@ export function NewsBlogExperience() {
                 <Image
                   src={featured.coverSrc}
                   alt={featured.coverAlt}
+                  title={featured.coverTitle ?? featured.title}
                   fill
                   loading="lazy"
                   sizes="(max-width: 1024px) 100vw, 50vw"
