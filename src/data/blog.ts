@@ -36,6 +36,40 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "can-you-play-gta-6-without-internet-offline-mode",
+    title:
+      "Can You Play GTA 6 Without an Internet Connection After Installation?",
+    excerpt:
+      "Can you play GTA 6 without an internet connection? Here’s what you need to know about installation, activation, offline story mode, updates, and physical copies.",
+    date: "2026-11-15",
+    publishAt: "2026-11-15T22:00:00+05:00",
+    category: "updates",
+    coverSrc:
+      "/images/blog/can-you-play-gta-6-without-internet-offline-mode.jpg",
+    coverAlt:
+      "PS5 setup with crossed-out Wi-Fi icon and GTA 6 on screen — offline play explained",
+    coverTitle: "Can You Play GTA 6 Without Internet? Offline Mode Explained",
+    coverCaption:
+      "Installation, activation, and what players should know about playing GTA 6 story mode without a constant internet connection.",
+  },
+  {
+    slug: "gta-6-after-launch-updates-dlc-new-content",
+    title:
+      "GTA 6 After Launch: What Updates and New Content Could Players Expect?",
+    excerpt:
+      "Explore what GTA 6 could receive after launch, including story DLC, map expansions, new heists, criminal businesses, gameplay updates, and future GTA Online content.",
+    date: "2026-11-15",
+    publishAt: "2026-11-15T10:00:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-after-launch-updates-dlc-new-content.jpg",
+    coverAlt:
+      "Vice City crew with supercar and Leonida map overlay — GTA 6 after launch updates and DLC",
+    coverTitle:
+      "GTA 6 After Launch: Updates, DLC & New Content Players Could Expect",
+    coverCaption:
+      "What players could see after GTA 6 launches, from story DLC and map expansions to Online heists and businesses.",
+  },
+  {
     slug: "gta-6-beginner-mistakes-first-playthrough",
     title:
       "GTA 6 Beginner Mistakes: Things You Should Avoid During Your First Playthrough",
