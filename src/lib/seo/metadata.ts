@@ -3,6 +3,8 @@ import { siteConfig } from "@/constants/site";
 
 export type BuildMetadataInput = {
   title?: string;
+  /** When true, `title` is used as-is (no site-name suffix). */
+  absoluteTitle?: boolean;
   description?: string;
   path?: string;
   image?: string;
@@ -26,6 +28,7 @@ export function absoluteUrl(path = "/"): string {
  */
 export function buildMetadata({
   title,
+  absoluteTitle = false,
   description = siteConfig.description,
   path = "/",
   image = siteConfig.ogImage,
@@ -37,8 +40,10 @@ export function buildMetadata({
   tags,
 }: BuildMetadataInput = {}): Metadata {
   const pageTitle = title
-    ? `${title} — ${siteConfig.name}`
-    : `${siteConfig.name} — Fan Experience`;
+    ? absoluteTitle
+      ? title
+      : `${title} — ${siteConfig.name}`
+    : `${siteConfig.name} — ${siteConfig.tagline}`;
   const url = absoluteUrl(path);
   const imageUrl = image.startsWith("http") ? image : absoluteUrl(image);
   const ogImageApi = absoluteUrl(

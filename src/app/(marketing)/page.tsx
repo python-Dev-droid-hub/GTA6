@@ -8,7 +8,10 @@ import { homeHero } from "@/data/home-hero";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = buildMetadata({
-  description: homeHero.subtitle,
+  title: "Grand Theft Auto City - GTA Vice 6 - Book Game Now",
+  absoluteTitle: true,
+  description:
+    "GTA 6 game available now on PS5. Book your game today and play now on your PS5. We're thrilled to announce your favourite video game is available now. Contact now to book your game.",
   path: "/",
   image: homeHero.posterSrc,
   imageAlt: homeHero.posterAlt,

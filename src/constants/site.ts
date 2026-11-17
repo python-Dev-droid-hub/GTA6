@@ -47,11 +47,11 @@ function resolveSiteUrl(): string {
  * Site chrome brand.
  */
 export const siteConfig = {
-  name: "Grand Theft Auto 6",
-  shortName: "GTA 6",
-  tagline: "Unofficial cinematic neon-coast fan archive",
+  name: "Grand Theft Auto City",
+  shortName: "GTA Vice 6",
+  tagline: "GTA Vice 6 — Book Game Now",
   description:
-    "Unofficial Grand Theft Auto 6 fan website — trailers, characters, world, and tools. Not affiliated with Rockstar Games or Take-Two Interactive.",
+    "GTA 6 game available now on PS5. Book your game today and play now on your PS5. We're thrilled to announce your favourite video game is available now. Contact now to book your game.",
   url: resolveSiteUrl(),
   locale: "en_US",
   twitterHandle: "@grantheftcity" as string | undefined,
