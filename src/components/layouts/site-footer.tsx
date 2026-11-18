@@ -10,6 +10,7 @@ export type SiteFooterProps = {
 };
 
 const legalLinks = [
+  { label: "Contact", href: "/contact" },
   { label: "Corporate", href: "/legal/corporate" },
   { label: "Privacy", href: "/legal/privacy" },
   { label: "Cookie Settings", href: "/legal/cookie-settings" },

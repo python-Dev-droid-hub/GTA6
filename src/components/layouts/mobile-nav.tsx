@@ -27,6 +27,7 @@ const menuLinks: MenuLink[] = [
   { label: "Characters", href: "/characters", chevron: true, panel: "people" },
   { label: "Missions", href: "/missions", chevron: true },
   { label: "FAQs", href: "/faq", chevron: true },
+  { label: "Contact", href: "/contact", chevron: true },
   { label: "Blogs", href: "/news", chevron: true },
 ];
 

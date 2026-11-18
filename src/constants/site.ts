@@ -105,6 +105,7 @@ export const primaryNav: NavItem[] = [
   { label: "Characters", href: "/characters" },
   { label: "Missions", href: "/missions" },
   { label: "FAQs", href: "/faq" },
+  { label: "Contact", href: "/contact" },
   { label: "Blogs", href: "/news" },
 ];
 
@@ -122,6 +123,7 @@ export const footerNav: NavGroup[] = [
     title: "Content",
     items: [
       { label: "FAQs", href: "/faq" },
+      { label: "Contact", href: "/contact" },
       { label: "Ultimate", href: "/ultimate" },
       { label: "Vintage", href: "/vintage" },
     ],
