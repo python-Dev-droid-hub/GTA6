@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-beginner-tips-explore-vice-city-leonida",
+    title:
+      "GTA 6 Beginner Tips: How to Explore Vice City and Leonida Like a Pro?",
+    excerpt:
+      "Starting GTA 6? Discover the best beginner tips for exploring Vice City and Leonida, surviving police chases, managing vehicles, weapons, money, and more.",
+    date: "2026-11-18",
+    publishAt: "2026-11-18T23:45:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-beginner-tips-explore-vice-city-leonida.jpg",
+    coverAlt:
+      "Player on a car hood overlooking Vice City and Leonida wetlands at sunset — GTA 6 beginner tips",
+    coverTitle: "GTA 6 Beginner Tips: Explore Vice City & Leonida Like a Pro",
+    coverCaption:
+      "Beginner tips for exploring Vice City and Leonida, from police evasion and vehicles to weapons, money, and regional travel.",
+  },
+  {
     slug: "can-you-play-gta-6-without-internet-offline-mode",
     title:
       "Can You Play GTA 6 Without an Internet Connection After Installation?",
