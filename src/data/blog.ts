@@ -36,6 +36,37 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-realism-features",
+    title: "GTA 6 Realism Features: How Realistic Will the Game Actually Be?",
+    excerpt:
+      "Explore the biggest GTA 6 realism features, including driving physics, police AI, dynamic weather, NPC behavior, vehicle systems, interiors, and more.",
+    date: "2026-11-19",
+    publishAt: "2026-11-19T23:45:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-realism-features.png",
+    coverAlt:
+      "Leonida character in a Bridge shirt at night with fireworks — GTA 6 realism features",
+    coverTitle: "GTA 6 Realism Features: How Realistic Will the Game Be?",
+    coverCaption:
+      "Driving physics, police AI, weather, NPCs, interiors, and other realism systems shaping Leonida and Vice City.",
+  },
+  {
+    slug: "gta-6-car-customization-10-features",
+    title: "GTA 6 Car Customization: 10 Features Every Player Should Know",
+    excerpt:
+      "Discover 10 GTA 6 car customization features, from engine tuning and nitrous to specialized mod shops, off-road handling, liveries, garages, and vehicle storage.",
+    date: "2026-11-19",
+    publishAt: "2026-11-19T11:45:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-car-customization-10-features.jpg",
+    coverAlt:
+      "Custom neon sports car in a Vice City garage workshop — GTA 6 car customization",
+    coverTitle:
+      "GTA 6 Car Customization: 10 Features Every Player Should Know",
+    coverCaption:
+      "Ten car customization features to know in GTA 6, from mod shops and engine tuning to liveries, garages, and trunk storage.",
+  },
+  {
     slug: "gta-6-beginner-tips-explore-vice-city-leonida",
     title:
       "GTA 6 Beginner Tips: How to Explore Vice City and Leonida Like a Pro?",
