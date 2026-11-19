@@ -36,12 +36,27 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-what-to-do-first-15-things",
+    title: "GTA 6 What to Do First: 15 Things Every Player Should Try",
+    excerpt:
+      "Wondering what to do first in GTA 6? Discover 15 essential early-game activities, from Jason’s missable tasks and cash storage to exploration, combat, garages, and Vice City.",
+    date: "2026-11-19",
+    publishAt: "2026-11-19T20:45:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-what-to-do-first-15-things.jpg",
+    coverAlt:
+      "Jason at a neon Leonida gym talking on a weight bench — GTA 6 what to do first",
+    coverTitle: "GTA 6 What to Do First: 15 Things Every Player Should Try",
+    coverCaption:
+      "Fifteen early-game priorities in Leonida, from Jason’s missable prep tasks to Focus Mode, garages, and Vice City districts.",
+  },
+  {
     slug: "gta-6-realism-features",
     title: "GTA 6 Realism Features: How Realistic Will the Game Actually Be?",
     excerpt:
       "Explore the biggest GTA 6 realism features, including driving physics, police AI, dynamic weather, NPC behavior, vehicle systems, interiors, and more.",
-    date: "2026-11-19",
-    publishAt: "2026-11-19T23:45:00+05:00",
+    date: "2026-11-20",
+    publishAt: "2026-11-20T08:45:00+05:00",
     category: "updates",
     coverSrc: "/images/blog/gta-6-realism-features.png",
     coverAlt:
