@@ -36,6 +36,85 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "what-to-do-first-in-gta-6-beginners-guide-leonida",
+    title:
+      "What to Do First in GTA 6: A Beginner’s Guide to Exploring Leonida",
+    excerpt:
+      "Wondering what to do first in GTA 6? Learn how to explore Leonida, earn early money, unlock activities, and discover the best beginner tips.",
+    date: "2026-11-23",
+    publishAt: "2026-11-23T08:30:00+05:00",
+    category: "updates",
+    coverSrc:
+      "/images/blog/what-to-do-first-in-gta-6-beginners-guide-leonida.jpg",
+    coverAlt:
+      "Jason leaning on a muddy truck by the Leonida Keys highway toward Vice City — GTA 6 beginner’s guide",
+    coverTitle: "What to Do First in GTA 6: Beginner’s Guide to Leonida",
+    coverCaption:
+      "Opening missions, Jason’s house, Leonida Keys drives, early money, and region-by-region exploration tips.",
+  },
+  {
+    slug: "gta-6-vehicle-customization-car-upgrades-mod-shops",
+    title: "GTA 6 Vehicle Customization: Will Players Get More Car Upgrades?",
+    excerpt:
+      "Explore GTA 6 vehicle customization, including paint finishes, liveries, engine swaps, full build kits, and the mod shops where players can upgrade their cars.",
+    date: "2026-11-22",
+    publishAt: "2026-11-22T20:30:00+05:00",
+    category: "updates",
+    coverSrc:
+      "/images/blog/gta-6-vehicle-customization-car-upgrades-mod-shops.jpg",
+    coverAlt:
+      "Jason and Lucia with rifles beside a customized Vapid Ganado in a neon Leonida mod shop — GTA 6 vehicle customization",
+    coverTitle: "GTA 6 Vehicle Customization: Car Upgrades & Mod Shops",
+    coverCaption:
+      "Paint, liveries, engine swaps, Pro Builds, and mod shops like Coastal Auto Care, Rideout Customs, and One-Eyed Willie's.",
+  },
+  {
+    slug: "gta-6-vs-gta-vice-city-10-biggest-differences",
+    title:
+      "GTA 6 vs GTA Vice City: 10 Biggest Differences Players Should Know",
+    excerpt:
+      "Discover 10 major differences between GTA 6 and GTA Vice City, from their settings and maps to characters, stories, activities, radio stations, and platforms.",
+    date: "2026-11-22",
+    publishAt: "2026-11-22T08:30:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-vs-gta-vice-city-10-biggest-differences.jpg",
+    coverAlt:
+      "Tommy Vercetti on Ocean Drive beside Lucia and Jason in neon modern Vice City — GTA 6 vs GTA Vice City",
+    coverTitle: "GTA 6 vs GTA Vice City: 10 Biggest Differences Explained",
+    coverCaption:
+      "Ten differences between modern Leonida and 1986 Vice City — setting, map, characters, story, activities, radio, and platforms.",
+  },
+  {
+    slug: "gta-vice-city-riot-cheat-mission-guide",
+    title: "GTA Vice City Riot: How to Create Chaos Across the City?",
+    excerpt:
+      "Learn how to start a pedestrian riot in GTA Vice City using the FIGHTFIGHTFIGHT cheat, complete the Riot mission, destroy all three vans, and unlock rewards.",
+    date: "2026-11-21",
+    publishAt: "2026-11-21T20:30:00+05:00",
+    category: "missions",
+    coverSrc: "/images/blog/gta-vice-city-riot-cheat-mission-guide.jpg",
+    coverAlt:
+      "Street brawl at sunset in neon Vice City with police lights — Riot cheat and mission guide",
+    coverTitle: "GTA Vice City Riot Cheat & Mission Guide: Cause Chaos",
+    coverCaption:
+      "FIGHTFIGHTFIGHT cheat codes, Spand Express walkthrough, Coveralls unlock, and Riot mission rewards.",
+  },
+  {
+    slug: "gta-6-customization-characters-cars-weapons",
+    title: "GTA 6 Customization: What Can Players Change in the Game?",
+    excerpt:
+      "Explore GTA 6 customization options, including Jason and Lucia's hairstyles, tattoos, outfits, body types, car upgrades, weapon attachments, and more.",
+    date: "2026-11-21",
+    publishAt: "2026-11-21T08:30:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-customization-characters-cars-weapons.jpg",
+    coverAlt:
+      "Two styled characters beside a purple sports car in a neon Vice City garage — GTA 6 customization",
+    coverTitle: "GTA 6 Customization Guide: Characters, Cars, Weapons & More",
+    coverCaption:
+      "Character looks, car tuning, weapon attachments, and outfit heat-clearing systems in Leonida.",
+  },
+  {
     slug: "gta-vice-city-bank-heist-the-job-walkthrough",
     title: "GTA Vice City Bank Heist: How to Plan the Perfect Robbery?",
     excerpt:
