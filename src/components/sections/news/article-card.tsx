@@ -28,6 +28,7 @@ export function ArticleCard({ article, className }: ArticleCardProps) {
             fill
             loading="lazy"
             sizes="(max-width: 768px) 100vw, 33vw"
+            unoptimized
             className="object-cover transition-cinema group-hover:scale-[1.04]"
           />
         </span>

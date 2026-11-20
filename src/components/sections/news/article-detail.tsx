@@ -84,6 +84,7 @@ function LatestBlogs({
                     fill
                     loading="lazy"
                     sizes="56px"
+                    unoptimized
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </span>
@@ -152,6 +153,7 @@ function RelatedReading({ posts }: { posts: BlogPost[] }) {
                   fill
                   loading="lazy"
                   sizes="72px"
+                  unoptimized
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </span>
@@ -272,6 +274,7 @@ export function ArticleDetail({
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 1024px"
+              unoptimized
               className="object-cover"
             />
           </div>
