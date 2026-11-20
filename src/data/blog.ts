@@ -36,6 +36,21 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-vice-city-bank-heist-the-job-walkthrough",
+    title: "GTA Vice City Bank Heist: How to Plan the Perfect Robbery?",
+    excerpt:
+      "Learn how to complete The Job, GTA Vice City’s bank heist. Get the Malibu Club requirements, crew setup missions, weapons, SWAT strategy, getaway route, and rewards.",
+    date: "2026-11-20",
+    publishAt: "2026-11-20T20:30:00+05:00",
+    category: "missions",
+    coverSrc: "/images/blog/gta-vice-city-bank-heist-the-job-walkthrough.jpg",
+    coverAlt:
+      "Masked heist crew in green jumpsuits leaving a Vice City bank under SWAT and helicopter lights — The Job walkthrough",
+    coverTitle: "GTA Vice City Bank Heist: The Job Mission Walkthrough",
+    coverCaption:
+      "Malibu Club setups, crew loadouts, SWAT survival tips, and the Little Haiti Pay 'n' Spray getaway for The Job.",
+  },
+  {
     slug: "gta-6-what-to-do-first-15-things",
     title: "GTA 6 What to Do First: 15 Things Every Player Should Try",
     excerpt:
