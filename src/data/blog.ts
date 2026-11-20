@@ -58,9 +58,9 @@ export const blogPosts: BlogPost[] = [
     date: "2026-11-20",
     publishAt: "2026-11-20T08:45:00+05:00",
     category: "updates",
-    coverSrc: "/images/blog/gta-6-realism-features.png",
+    coverSrc: "/images/blog/gta-6-realism-features.jpg",
     coverAlt:
-      "Leonida character in a Bridge shirt at night with fireworks — GTA 6 realism features",
+      "Jason and Lucia in neon Vice City with police chase, storm, and realism feature insets — GTA 6 realism features",
     coverTitle: "GTA 6 Realism Features: How Realistic Will the Game Be?",
     coverCaption:
       "Driving physics, police AI, weather, NPCs, interiors, and other realism systems shaping Leonida and Vice City.",
