@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "first-thing-to-do-in-gta-6-6-essential-starter-tips",
+    title: "First Thing to Do in GTA 6: Start Your Adventure the Right Way",
+    excerpt:
+      "Discover the first thing to do in GTA 6 with 6 essential starter tips. Learn how to explore Leonida, manage cash, avoid mistakes, and prepare for Vice City.",
+    date: "2026-11-23",
+    publishAt: "2026-11-23T22:55:00+05:00",
+    category: "updates",
+    coverSrc:
+      "/images/blog/first-thing-to-do-in-gta-6-6-essential-starter-tips.jpg",
+    coverAlt:
+      "Jason and Lucia planning at a coastal shack with a Leonida map, cash, and suppressor — GTA 6 starter tips",
+    coverTitle: "First Thing to Do in GTA 6: 6 Essential Starter Tips",
+    coverCaption:
+      "Six opening-hour priorities: workouts, cash stash, Shirley’s errands, suppressors, underwater dives, and trunk storage.",
+  },
+  {
     slug: "what-to-do-first-in-gta-6-beginners-guide-leonida",
     title:
       "What to Do First in GTA 6: A Beginner’s Guide to Exploring Leonida",
