@@ -3,6 +3,7 @@
 @import "../styles/hero.css";
 @import "../styles/experience.css";
 @import "../styles/character-collage.css";
+@import "../styles/ads.css";
 
 @theme inline {
   /* Colors */

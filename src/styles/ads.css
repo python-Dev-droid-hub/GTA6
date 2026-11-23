@@ -1,0 +1,31 @@
+/**
+ * Adsterra Native Banner — keep creative thumbnails visible.
+ * Partner injects img + title markup into #container-*; do not clip or hide them.
+ */
+.adsterra-native__mount {
+  min-height: 8.5rem;
+  overflow: visible;
+}
+
+.adsterra-native__mount img {
+  display: block !important;
+  max-width: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  min-height: 4.5rem;
+  object-fit: cover;
+  visibility: visible !important;
+  opacity: 1 !important;
+  border-radius: 0.25rem;
+}
+
+.adsterra-native__mount a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.adsterra-native__mount table,
+.adsterra-native__mount > div {
+  width: 100%;
+  max-width: 100%;
+}

@@ -5,17 +5,18 @@ import type { NextConfig } from "next";
  */
 const contentSecurityPolicy = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://www.googletagservices.com https://www.google.com https://bauval.org https://*.bauval.org https://araplhn.org https://*.araplhn.org",
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://www.googlesyndication.com https://googleads.g.doubleclick.net https://*.googleusercontent.com https://bauval.org https://*.bauval.org https://araplhn.org https://*.araplhn.org",
-  "font-src 'self' data:",
-  "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://region1.google-analytics.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.google.com https://bauval.org https://*.bauval.org https://araplhn.org https://*.araplhn.org",
-  "media-src 'self'",
+  // Adsterra creatives rotate across partner CDNs — allow HTTPS images/frames so Native Banner thumbnails render.
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://www.googletagservices.com https://www.google.com https://bauval.org https://*.bauval.org https://araplhn.org https://*.araplhn.org https://abscloud.org https://*.abscloud.org https://highperformanceformat.com https://*.highperformanceformat.com https://effectivecpmnetwork.com https://*.effectivecpmnetwork.com",
+  "style-src 'self' 'unsafe-inline' https://bauval.org https://*.bauval.org https://abscloud.org https://*.abscloud.org",
+  "img-src 'self' data: blob: https:",
+  "font-src 'self' data: https:",
+  "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://region1.google-analytics.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.google.com https://bauval.org https://*.bauval.org https://araplhn.org https://*.araplhn.org https://abscloud.org https://*.abscloud.org https://highperformanceformat.com https://*.highperformanceformat.com https://effectivecpmnetwork.com https://*.effectivecpmnetwork.com",
+  "media-src 'self' https:",
   "object-src 'none'",
   "base-uri 'self'",
-  "form-action 'self' https://araplhn.org https://*.araplhn.org",
+  "form-action 'self' https:",
   "frame-ancestors 'self'",
-  "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com https://www.googletagmanager.com https://bauval.org https://*.bauval.org https://araplhn.org https://*.araplhn.org",
+  "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com https://www.googletagmanager.com https://bauval.org https://*.bauval.org https://araplhn.org https://*.araplhn.org https://abscloud.org https://*.abscloud.org https://highperformanceformat.com https://*.highperformanceformat.com https://effectivecpmnetwork.com https://*.effectivecpmnetwork.com",
 ].join("; ");
 
 const nextConfig: NextConfig = {
