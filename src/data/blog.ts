@@ -36,6 +36,23 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-car-upgrades-customization-performance-mods",
+    title:
+      "GTA 6 Car Upgrades: Which Customization Options Could Change Your Driving Experience?",
+    excerpt:
+      "Explore GTA 6 car upgrades, from turbochargers and suspension to tires and bodywork. Discover how vehicle customization could transform driving in Leonida.",
+    date: "2026-11-24",
+    publishAt: "2026-11-24T22:55:00+05:00",
+    category: "updates",
+    coverSrc:
+      "/images/blog/gta-6-car-upgrades-customization-performance-mods.jpg",
+    coverAlt:
+      "Jason and Lucia beside a purple muscle car at a neon Vice City mod shop — GTA 6 car upgrades",
+    coverTitle: "GTA 6 Car Upgrades: Best Customization & Performance Mods",
+    coverCaption:
+      "Induction, suspension, tires, aerodynamics, and specialized Leonida mod shops that reshape Speed, Handling, and Strength.",
+  },
+  {
     slug: "gta-vi-customization-cars-characters-weapons",
     title: "GTA VI Customization: Cars, Characters, Weapons and More",
     excerpt:
