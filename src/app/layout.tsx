@@ -8,6 +8,7 @@ import {
   Orbitron,
   Pacifico,
 } from "next/font/google";
+import { AdNetworkScripts } from "@/components/ads/ad-network-scripts";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { GoogleAnalytics } from "@/components/seo/google-analytics";
 import "./globals.css";
@@ -103,6 +104,7 @@ export default function RootLayout({
       >
         <GoogleAnalytics />
         {children}
+        <AdNetworkScripts />
       </body>
     </html>
   );

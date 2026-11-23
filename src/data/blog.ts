@@ -36,6 +36,21 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-vi-customization-cars-characters-weapons",
+    title: "GTA VI Customization: Cars, Characters, Weapons and More",
+    excerpt:
+      "Explore GTA VI customization, including car upgrades, character outfits, tattoos, weapon attachments, garages, and the latest customization details in Leonida.",
+    date: "2026-11-24",
+    publishAt: "2026-11-24T10:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-vi-customization-cars-characters-weapons.jpg",
+    coverAlt:
+      "Characters beside a green sports car at a neon Vice City mod shop — GTA VI customization",
+    coverTitle: "GTA VI Customization: Cars, Characters, Weapons & More",
+    coverCaption:
+      "Vehicles, characters, weapons, and storage systems that shape survival and stealth across Leonida.",
+  },
+  {
     slug: "first-thing-to-do-in-gta-6-6-essential-starter-tips",
     title: "First Thing to Do in GTA 6: Start Your Adventure the Right Way",
     excerpt:

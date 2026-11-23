@@ -1,3 +1,5 @@
+import { AD_NETWORK } from "@/constants/ads";
+
 export type CollagePanel = {
   id: string;
   src: string;
@@ -76,8 +78,8 @@ export const homeCollage = {
     "The next evolution of open-world gaming begins. Experience a living city built for the next generation.",
   brandSub: "FAN ARCHIVE",
   ctaLabel: "Pre-Order Now",
-  /** Official storefront — fan site does not sell the game */
-  ctaHref: "https://www.rockstargames.com/VI",
+  /** Booking smartlink for fan-site CTAs */
+  ctaHref: AD_NETWORK.smartlinkHref,
   ctaExternal: true,
   platformsLabel: "PC · CONSOLE",
   collageSrc: "/images/hero/banner-collage.png?v=3",
