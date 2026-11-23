@@ -36,6 +36,39 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-multiplayer-features-expectations-possibilities",
+    title:
+      "How Will GTA 6 Multiplayer Work? Features, Expectations and Possibilities",
+    excerpt:
+      "Discover how GTA 6 multiplayer could work, including GTA Online release expectations, crossplay, larger lobbies, heists, roleplay servers, and new features.",
+    date: "2026-11-25",
+    publishAt: "2026-11-25T22:55:00+05:00",
+    category: "updates",
+    coverSrc:
+      "/images/blog/gta-6-multiplayer-features-expectations-possibilities.jpg",
+    coverAlt:
+      "Vice City nightlife duo in a neon club with multiplayer feature callouts — GTA 6 multiplayer",
+    coverTitle: "GTA 6 Multiplayer: Online Features, Release & Expectations",
+    coverCaption:
+      "Larger lobbies, heists, official roleplay via Cfx.re, properties, social media contracts, and unconfirmed crossplay.",
+  },
+  {
+    slug: "gta-6-open-world-realism-10-details-leonida",
+    title:
+      "GTA 6 Open World Realism: 10 Details That Could Make Leonida Feel Alive",
+    excerpt:
+      "Discover 10 GTA 6 open world realism details, from smarter NPCs and police AI to dynamic weather, vehicle damage, wildlife, and Leonida's living world.",
+    date: "2026-11-25",
+    publishAt: "2026-11-25T10:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-open-world-realism-10-details-leonida.jpg",
+    coverAlt:
+      "Vice City beach crowd at sunset with realism feature callouts — GTA 6 open world realism",
+    coverTitle: "GTA 6 Open World Realism: 10 Details That Bring Leonida Alive",
+    coverCaption:
+      "Living NPCs, emergent crime, police memory, weather, vehicle damage, fitness, ecosystems, and on-foot audio across Leonida.",
+  },
+  {
     slug: "gta-6-car-upgrades-customization-performance-mods",
     title:
       "GTA 6 Car Upgrades: Which Customization Options Could Change Your Driving Experience?",
