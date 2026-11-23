@@ -1,29 +1,9 @@
-import { AD_NETWORK } from "@/constants/ads";
+import { AdsterraSocialBar } from "@/components/ads/adsterra-social-bar";
 
 /**
- * Partner ad mount + scripts. Raw <script> tags so the network
- * sees a literal src (same pattern as AdSense in root layout).
+ * Sitewide Adsterra scripts that belong at the end of <body>.
+ * Native Banner is mounted inside content (articles / news) per the placement guide.
  */
 export function AdNetworkScripts() {
-  return (
-    <>
-      <div
-        id={AD_NETWORK.primaryContainerId}
-        className="mx-auto w-full max-w-[1100px] px-4 py-4"
-        aria-hidden
-      />
-      <script
-        async
-        data-cfasync="false"
-        src={AD_NETWORK.primaryScriptSrc}
-        // Partner snippet requests high fetch priority
-        {...{ fetchpriority: "high" }}
-      />
-      <script
-        async
-        data-cfasync="false"
-        src={AD_NETWORK.secondaryScriptSrc}
-      />
-    </>
-  );
+  return <AdsterraSocialBar />;
 }

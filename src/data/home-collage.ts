@@ -1,4 +1,4 @@
-import { AD_NETWORK } from "@/constants/ads";
+import { ADSTERRA } from "@/constants/ads";
 
 export type CollagePanel = {
   id: string;
@@ -79,7 +79,7 @@ export const homeCollage = {
   brandSub: "FAN ARCHIVE",
   ctaLabel: "Pre-Order Now",
   /** Booking smartlink for fan-site CTAs */
-  ctaHref: AD_NETWORK.smartlinkHref,
+  ctaHref: ADSTERRA.smartlinkHref,
   ctaExternal: true,
   platformsLabel: "PC · CONSOLE",
   collageSrc: "/images/hero/banner-collage.png?v=3",

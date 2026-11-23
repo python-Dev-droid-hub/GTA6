@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { AdsterraNativeBanner } from "@/components/ads/adsterra-native-banner";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowLeft, Clock, CalendarDays, List, Newspaper } from "lucide-react";
@@ -284,6 +285,9 @@ export function ArticleDetail({
             </figcaption>
           ) : null}
         </figure>
+
+        {/* Adsterra Native — top of content (guide: 4×1 default for text pages) */}
+        <AdsterraNativeBanner placement="top" />
       </Container>
 
       <Container size="content" className="relative pb-16 pt-10 sm:pb-24 sm:pt-12">
