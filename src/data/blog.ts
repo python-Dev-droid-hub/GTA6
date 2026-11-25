@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-driving-guide-high-speed-turns",
+    title:
+      "GTA 6 Driving Guide: Best Techniques for High-Speed Turns and Dangerous Roads",
+    excerpt:
+      "Master high-speed driving in GTA 6 with expert cornering techniques, controller settings, drifting tips, and strategies for navigating dangerous roads.",
+    date: "2026-12-01",
+    publishAt: "2026-12-01T22:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-driving-guide-high-speed-turns.jpg",
+    coverAlt:
+      "Jason and Lucia drifting a red striped muscle car on wet Leonida streets with police in pursuit at sunset — GTA 6 driving guide",
+    coverTitle: "GTA 6 Driving Guide: High-Speed Turns and Road Safety",
+    coverCaption:
+      "Controller tweaks, apex braking, handbrake drifts, and survival habits for Leonida's dangerous roads.",
+  },
+  {
     slug: "gta-6-npc-behavior-pedestrian-reactions",
     title:
       "GTA 6 NPC Behavior Explained: How Pedestrians React to Player Actions?",
