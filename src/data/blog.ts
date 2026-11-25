@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "can-you-lose-money-and-weapons-in-gta-6",
+    title:
+      "Can You Lose Your Money and Weapons in GTA 6? What Players Should Know",
+    excerpt:
+      "Can you lose money and weapons in GTA 6? Explore cash storage, weapon carry limits, banking mechanics, and ways to protect your valuable assets.",
+    date: "2026-11-27",
+    publishAt: "2026-11-27T22:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/can-you-lose-money-and-weapons-in-gta-6.jpg",
+    coverAlt:
+      "Jason and Lucia with a cash-filled duffel and firearms under neon Leonida lights — GTA 6 money and weapons guide",
+    coverTitle: "Can You Lose Money and Weapons in GTA 6? Complete Guide",
+    coverCaption:
+      "Cash on hand, BuckMe banking, loot fencing, weapon carry limits, and trunk storage across Leonida.",
+  },
+  {
     slug: "gta-6-character-switching-guide",
     title:
       "GTA 6 Character Switching Guide: How to Play as Jason and Lucia Effectively?",
