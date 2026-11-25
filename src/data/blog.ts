@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-vehicle-damage-system",
+    title:
+      "GTA 6 Vehicle Damage System: How Realistic Are Car Crashes and Repairs?",
+    excerpt:
+      "Explore the GTA 6 vehicle damage system, realistic car crashes, bodywork deformation, engine damage, tire physics, and vehicle repair mechanics.",
+    date: "2026-11-28",
+    publishAt: "2026-11-28T10:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-vehicle-damage-system.jpg",
+    coverAlt:
+      "Damaged red muscle car fleeing police on wet Leonida streets with sparks and cracked windshield — GTA 6 vehicle damage",
+    coverTitle: "GTA 6 Vehicle Damage System: Car Crashes and Repairs",
+    coverCaption:
+      "Body deformation, tire and engine damage, engine health tiers, and Pay 'n' Spray repair options across Leonida.",
+  },
+  {
     slug: "can-you-lose-money-and-weapons-in-gta-6",
     title:
       "Can You Lose Your Money and Weapons in GTA 6? What Players Should Know",
