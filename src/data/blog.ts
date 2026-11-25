@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-npc-behavior-pedestrian-reactions",
+    title:
+      "GTA 6 NPC Behavior Explained: How Pedestrians React to Player Actions?",
+    excerpt:
+      "Explore GTA 6 NPC behavior, realistic pedestrian reactions, crowd dynamics, character interactions, witness reporting, and AI mechanics across Leonida.",
+    date: "2026-12-01",
+    publishAt: "2026-12-01T10:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-npc-behavior-pedestrian-reactions.jpg",
+    coverAlt:
+      "Jason and Lucia facing a panicked Vice City boardwalk crowd filming, calling 911, and fleeing as police lights approach — GTA 6 NPC behavior",
+    coverTitle: "GTA 6 NPC Behavior: How Pedestrians React to Players",
+    coverCaption:
+      "Perception checks, five bystander reaction types, street dialogue, and witness-driven Heat across Leonida.",
+  },
+  {
     slug: "gta-6-stealth-gameplay-guide",
     title:
       "GTA 6 Stealth Gameplay Guide: How to Complete Missions Without Getting Caught?",
