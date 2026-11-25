@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "how-to-escape-police-chases-in-gta-6",
+    title:
+      "How to Escape Police Chases in GTA 6: Smart Driving and Survival Strategies",
+    excerpt:
+      "Learn how to escape police chases in GTA 6 with smart driving strategies, wanted level management, Heat mechanics, and in-game survival tips.",
+    date: "2026-11-28",
+    publishAt: "2026-11-28T22:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/how-to-escape-police-chases-in-gta-6.jpg",
+    coverAlt:
+      "Jason and Lucia in a yellow striped muscle car fleeing police cruisers and a helicopter on wet Leonida streets — GTA 6 police chase escape",
+    coverTitle: "How to Escape Police Chases in GTA 6: Survival Guide",
+    coverCaption:
+      "Smart driving, wanted/Heat management, profile scrubbing, and on-foot survival tactics across Vice City and Leonida.",
+  },
+  {
     slug: "gta-6-vehicle-damage-system",
     title:
       "GTA 6 Vehicle Damage System: How Realistic Are Car Crashes and Repairs?",
