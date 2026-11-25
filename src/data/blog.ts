@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-businesses-criminal-empire",
+    title:
+      "GTA 6 Businesses Explained: Can Players Build Their Own Criminal Empire?",
+    excerpt:
+      "Explore GTA 6 businesses, criminal empire possibilities, robberies, illegal operations, money-making opportunities, and the criminal economy of Leonida.",
+    date: "2026-11-29",
+    publishAt: "2026-11-29T10:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-businesses-criminal-empire.jpg",
+    coverAlt:
+      "Lucia and Jason dealing with an underworld fence at a sunset pier table stacked with cash, gold, watches, and loot — GTA 6 criminal empire",
+    coverTitle: "GTA 6 Businesses Explained: Build Your Criminal Empire?",
+    coverCaption:
+      "Robberies, illegal operations, fences, and bankroll management across Leonida—not passive storefront income.",
+  },
+  {
     slug: "how-to-escape-police-chases-in-gta-6",
     title:
       "How to Escape Police Chases in GTA 6: Smart Driving and Survival Strategies",
