@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-economy-prices-spending-player-wealth",
+    title:
+      "How Does the GTA 6 Economy Work? Understanding Prices, Spending, and Player Wealth",
+    excerpt:
+      "Discover how the GTA 6 economy works, including money management, banking, realistic prices, spending habits, and ways to build player wealth in Leonida.",
+    date: "2026-12-02",
+    publishAt: "2026-12-02T22:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-economy-prices-spending-player-wealth.jpg",
+    coverAlt:
+      "Lucia taking a stack of cash from a dockside fence while Jason watches over a table of narcotics, watches, and bills — GTA 6 economy",
+    coverTitle: "GTA 6 Economy Explained: Prices, Spending and Wealth",
+    coverCaption:
+      "Physical cash, BuckMe banking, fencing loot, grounded prices, and story cash gates across Leonida.",
+  },
+  {
     slug: "can-you-rob-stores-in-gta-6",
     title:
       "Can Players Rob Stores in GTA 6? Exploring Robbery Mechanics and Possible Rewards",
