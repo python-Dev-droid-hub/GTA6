@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "can-you-rob-stores-in-gta-6",
+    title:
+      "Can Players Rob Stores in GTA 6? Exploring Robbery Mechanics and Possible Rewards",
+    excerpt:
+      "Can you rob stores in GTA 6? Explore store robbery mechanics, potential rewards, loot systems, mini-heists, and money-making opportunities in Leonida.",
+    date: "2026-12-02",
+    publishAt: "2026-12-02T10:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/can-you-rob-stores-in-gta-6.jpg",
+    coverAlt:
+      "Masked Lucia aiming a pistol at a convenience store clerk while Jason covers the entrance as police lights flash outside — GTA 6 store robberies",
+    coverTitle: "Can You Rob Stores in GTA 6? Robbery Mechanics & Rewards",
+    coverCaption:
+      "Store tiers, intimidation, stealth alarms, safes, and fencing loot across Leonida.",
+  },
+  {
     slug: "gta-6-driving-guide-high-speed-turns",
     title:
       "GTA 6 Driving Guide: Best Techniques for High-Speed Turns and Dangerous Roads",
