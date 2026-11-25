@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-character-abilities-jason-vs-lucia",
+    title:
+      "GTA 6 Character Abilities: What Makes Jason and Lucia Different During Gameplay?",
+    excerpt:
+      "Explore GTA 6 character abilities, Jason and Lucia's fighting styles, Focus mechanics, individual stats, teamwork, and unique gameplay differences.",
+    date: "2026-12-03",
+    publishAt: "2026-12-03T10:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-character-abilities-jason-vs-lucia.jpg",
+    coverAlt:
+      "Jason and Lucia standing back-to-back with rifles and pistols at a Leonida sunset with a muscle car and helicopter behind them — GTA 6 character abilities",
+    coverTitle: "GTA 6 Character Abilities: Jason vs. Lucia Explained",
+    coverCaption:
+      "Shared Focus, fighting styles, separate stats and Criminal Profiles, plus dual-protagonist teamwork across Leonida.",
+  },
+  {
     slug: "gta-6-economy-prices-spending-player-wealth",
     title:
       "How Does the GTA 6 Economy Work? Understanding Prices, Spending, and Player Wealth",
