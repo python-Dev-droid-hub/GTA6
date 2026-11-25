@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-stealth-gameplay-guide",
+    title:
+      "GTA 6 Stealth Gameplay Guide: How to Complete Missions Without Getting Caught?",
+    excerpt:
+      "Master GTA 6 stealth gameplay with tips on silent movement, mission preparation, enemy detection, stealth mechanics, and avoiding police attention.",
+    date: "2026-11-30",
+    publishAt: "2026-11-30T22:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-stealth-gameplay-guide.jpg",
+    coverAlt:
+      "Lucia and Jason crouched behind cover with a suppressed pistol as guards patrol a night warehouse yard — GTA 6 stealth gameplay",
+    coverTitle: "GTA 6 Stealth Gameplay Guide: Avoid Getting Caught",
+    coverCaption:
+      "Quiet prep, Focus scouting, silent takedowns, and heat recovery for clean Leonida runs.",
+  },
+  {
     slug: "what-happens-when-you-get-arrested-in-gta-6",
     title:
       "What Happens When You Get Arrested in GTA 6? Exploring Police Consequences",
