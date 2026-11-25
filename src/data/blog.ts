@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-character-switching-guide",
+    title:
+      "GTA 6 Character Switching Guide: How to Play as Jason and Lucia Effectively?",
+    excerpt:
+      "Explore GTA 6 character switching, Jason and Lucia's gameplay differences, switching controls, dual-protagonist mechanics, and tips for playing effectively.",
+    date: "2026-11-27",
+    publishAt: "2026-11-27T10:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-character-switching-guide.jpg",
+    coverAlt:
+      "Jason and Lucia at a sunlit Leonida waterfront table — GTA 6 character switching guide",
+    coverTitle: "GTA 6 Character Switching Guide: Play as Jason and Lucia",
+    coverCaption:
+      "Unlock Partner Freeroam, PS5/Xbox controls, Jason vs Lucia strengths, and dual-protagonist tips.",
+  },
+  {
     slug: "gta-6-wanted-level-system",
     title:
       "How Does the GTA 6 Wanted Level System Work? Police Strategies and Escape Tactics",
