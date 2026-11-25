@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-safehouse-management",
+    title:
+      "GTA 6 Safehouse Management: How to Organize Vehicles, Weapons, and Properties?",
+    excerpt:
+      "Explore GTA 6 safehouse management, vehicle storage, weapon lockers, garage ownership, and tips for protecting your assets across Leonida.",
+    date: "2026-11-29",
+    publishAt: "2026-11-29T22:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-safehouse-management.jpg",
+    coverAlt:
+      "Jason cleaning rifles at a Key Lento stilt-house workbench while Lucia loads duffel bags into a muscle car trunk at sunset — GTA 6 safehouse management",
+    coverTitle: "GTA 6 Safehouse Management: Vehicles, Weapons & Properties",
+    coverCaption:
+      "Story-tied safehouses, owned garages, weapon lockers, and vehicle recovery across Leonida.",
+  },
+  {
     slug: "gta-6-businesses-criminal-empire",
     title:
       "GTA 6 Businesses Explained: Can Players Build Their Own Criminal Empire?",
