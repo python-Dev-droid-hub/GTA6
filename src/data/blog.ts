@@ -36,6 +36,38 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-wanted-level-system",
+    title:
+      "How Does the GTA 6 Wanted Level System Work? Police Strategies and Escape Tactics",
+    excerpt:
+      "Discover how the GTA 6 wanted level system works, explore police AI, six-star pursuits, Heat mechanics, and escape tactics across Vice City and Leonida.",
+    date: "2026-11-26",
+    publishAt: "2026-11-26T22:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-wanted-level-system.jpg",
+    coverAlt:
+      "Jason and Lucia behind cover during a neon Vice City police chase with helicopter searchlight — GTA 6 wanted level system",
+    coverTitle: "GTA 6 Wanted Level System: Police AI and Escape Tactics",
+    coverCaption:
+      "Wanted stars, Heat clues, six-star escalation, and escape tactics across Vice City and Leonida.",
+  },
+  {
+    slug: "gta-6-combat-system",
+    title:
+      "GTA 6 Combat System Explained: How to Master Gunfights, Cover, and Enemy Encounters?",
+    excerpt:
+      "Explore the GTA 6 combat system, including gunplay, Focus mode, cover mechanics, melee combat, character switching, and enemy encounters in Leonida.",
+    date: "2026-11-26",
+    publishAt: "2026-11-26T10:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-combat-system.jpg",
+    coverAlt:
+      "Armed protagonists in a neon Vice City shootout with police lights — GTA 6 combat system",
+    coverTitle: "GTA 6 Combat System: Gunfights, Cover & Enemy Encounters",
+    coverCaption:
+      "Focus mode, cover, dual-protagonist tactics, melee stamina, and wanted-system escapes across Leonida.",
+  },
+  {
     slug: "gta-6-multiplayer-features-expectations-possibilities",
     title:
       "How Will GTA 6 Multiplayer Work? Features, Expectations and Possibilities",
