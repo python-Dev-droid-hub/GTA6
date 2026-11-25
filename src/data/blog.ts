@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "what-happens-when-you-get-arrested-in-gta-6",
+    title:
+      "What Happens When You Get Arrested in GTA 6? Exploring Police Consequences",
+    excerpt:
+      "Discover what happens when you get arrested in GTA 6, including potential cash loss, police consequences, wanted levels, Heat mechanics, and survival tips.",
+    date: "2026-11-30",
+    publishAt: "2026-11-30T10:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/what-happens-when-you-get-arrested-in-gta-6.jpg",
+    coverAlt:
+      "Lucia being handcuffed outside the Vice City Police Department at night with Jason detained nearby — GTA 6 arrest consequences",
+    coverTitle: "What Happens When You Get Arrested in GTA 6? Explained",
+    coverCaption:
+      "Cash loss, lingering Heat, Wanted escalation, and habits that keep Jason and Lucia from getting busted.",
+  },
+  {
     slug: "gta-6-safehouse-management",
     title:
       "GTA 6 Safehouse Management: How to Organize Vehicles, Weapons, and Properties?",
