@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-emergency-services",
+    title:
+      "GTA 6 Emergency Services Explained: Police, Ambulances, Firefighters, and City Response",
+    excerpt:
+      "Explore GTA 6 emergency services, including police response, ambulances, firefighters, dispatch mechanics, and dynamic city emergencies across Leonida.",
+    date: "2026-12-03",
+    publishAt: "2026-12-03T22:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-emergency-services.jpg",
+    coverAlt:
+      "Vice City police, paramedics, and firefighters responding to a burning car and injured civilian on a palm-lined Leonida street — GTA 6 emergency services",
+    coverTitle: "GTA 6 Emergency Services: Police, Ambulances & Firefighters",
+    coverCaption:
+      "Witness-driven dispatch, wanted indicators, paramedic triage, and fire response across Leonida.",
+  },
+  {
     slug: "gta-6-character-abilities-jason-vs-lucia",
     title:
       "GTA 6 Character Abilities: What Makes Jason and Lucia Different During Gameplay?",
