@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-mission-replay-guide",
+    title:
+      "GTA 6 Mission Replay Guide: Can Players Revisit Completed Story Missions?",
+    excerpt:
+      "Can you replay missions in GTA 6? Explore mission replay options, manual save slots, story checkpoints, alternate endings, and post-game activities.",
+    date: "2026-12-04",
+    publishAt: "2026-12-04T10:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-mission-replay-guide.jpg",
+    coverAlt:
+      "Jason and Lucia on a couch with Save Game highlighted on a pause menu TV in a Vice City safehouse at sunset — GTA 6 mission replay",
+    coverTitle: "GTA 6 Mission Replay Guide: Can You Replay Missions?",
+    coverCaption:
+      "No mission replay menu at launch—use 15 manual save slots, chapter checkpoints, and the Chapter 5 finale exception.",
+  },
+  {
     slug: "gta-6-emergency-services",
     title:
       "GTA 6 Emergency Services Explained: Police, Ambulances, Firefighters, and City Response",
