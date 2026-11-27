@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-first-person-vs-third-person-mode",
+    title:
+      "GTA 6 First-Person vs Third-Person Mode: Which Camera View Offers Better Gameplay?",
+    excerpt:
+      "Compare GTA 6 first-person vs third-person mode, explore camera settings, and discover the best perspective for driving, combat, and exploration.",
+    date: "2026-12-04",
+    publishAt: "2026-12-04T22:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-first-person-vs-third-person-mode.jpg",
+    coverAlt:
+      "Third-person cover firefight beside first-person optic and in-car dashboard insets on neon Leonida streets — GTA 6 camera modes",
+    coverTitle: "GTA 6 First-Person vs Third-Person: Best Camera View",
+    coverCaption:
+      "Official third-person distances vs contextual first-person inspect, optic, and in-car phone views.",
+  },
+  {
     slug: "gta-6-mission-replay-guide",
     title:
       "GTA 6 Mission Replay Guide: Can Players Revisit Completed Story Missions?",
