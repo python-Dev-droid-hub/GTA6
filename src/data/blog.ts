@@ -36,6 +36,22 @@ export const blogCategories: { id: BlogCategory; label: string }[] = [
 /** Source list — may include drafts / future scheduled posts. */
 export const blogPosts: BlogPost[] = [
   {
+    slug: "gta-6-performance-guide-graphics-fps-settings",
+    title:
+      "GTA 6 Performance Guide: How to Improve Graphics, Frame Rates, and Gameplay Smoothness?",
+    excerpt:
+      "Improve GTA 6 performance with graphics optimization, FPS tips, smoother gameplay, console settings, and PC preparation for the best visual experience.",
+    date: "2026-12-05",
+    publishAt: "2026-12-05T10:55:00+05:00",
+    category: "updates",
+    coverSrc: "/images/blog/gta-6-performance-guide-graphics-fps-settings.jpg",
+    coverAlt:
+      "Gamer with DualSense at a neon Leonida PC desk driving a red muscle car on a wet Vice City street — GTA 6 performance guide",
+    coverTitle: "GTA 6 Performance Guide: Best Graphics and FPS Settings",
+    coverCaption:
+      "Console benchmarks, VRR, ray tracing trade-offs, upscaling, and PC prep for smoother Leonida gameplay.",
+  },
+  {
     slug: "gta-6-first-person-vs-third-person-mode",
     title:
       "GTA 6 First-Person vs Third-Person Mode: Which Camera View Offers Better Gameplay?",
